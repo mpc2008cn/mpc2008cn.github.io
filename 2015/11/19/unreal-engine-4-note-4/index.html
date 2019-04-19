@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com">
+
+
+
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Unreal Engine 4 虚幻引擎学习笔记(四) | 
+        
+        稻香村
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="玩转C++之前还是先熟悉下blueprint吧~来做个小型FPS(First-person shooter),照着官网教程写吧,顺便记忆一下:)">
+    <meta name="keywords" content="稻香村, 教程,Unreal Engine,虚幻引擎,笔记">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="稻香村">
+    <meta name="msapplication-starturl" content="http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="稻香村">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html">
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Unreal Engine 4 虚幻引擎学习笔记(四) | 稻香村">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="玩转C++之前还是先熟悉下blueprint吧~来做个小型FPS(First-person shooter),照着官网教程写吧,顺便记忆一下:)">
+    <meta property="og:article:tag" content="Unreal Engine"> <meta property="og:article:tag" content="虚幻引擎"> <meta property="og:article:tag" content="笔记"> 
+
+    
+        <meta property="article:published_time" content="Thu Nov 19 2015 16:02:41 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 19 2019 11:04:56 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/index.html",
+    "headline": "Unreal Engine 4 虚幻引擎学习笔记(四)",
+    "datePublished": "Thu Nov 19 2015 16:02:41 GMT+0800",
+    "dateModified": "Fri Apr 19 2019 11:04:56 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "稻草人",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "稻香村",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Unreal Engine,虚幻引擎,笔记稻香村, 教程",
+    "description": "玩转C++之前还是先熟悉下blueprint吧~来做个小型FPS(First-person shooter),照着官网教程写吧,顺便记忆一下:)",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+        <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-68935523-1', 'auto');ga('send', 'pageview');
+</script>
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目设置"><span class="post-toc-number">1.</span> <span class="post-toc-text">项目设置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#显示Health-Energy-Ammo"><span class="post-toc-number">2.</span> <span class="post-toc-text">显示Health, Energy,Ammo</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建Main-Menu"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建Main Menu</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编写MainMenu脚本"><span class="post-toc-number">4.</span> <span class="post-toc-text">编写MainMenu脚本</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#折腾Pause-Menu"><span class="post-toc-number">5.</span> <span class="post-toc-text">折腾Pause Menu</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Unreal Engine 4 虚幻引擎学习笔记(四)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>稻草人</strong>
+        <span>11月 19, 2015</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Unreal-Engine/">Unreal Engine</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/笔记/">笔记</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/虚幻引擎/">虚幻引擎</a>
+    </li></ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Unreal Engine 4 虚幻引擎学习笔记(四)&url=http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/index.html&via=稻草人" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>玩转C++之前还是先熟悉下blueprint吧~来做个小型FPS(First-person shooter),照着官网教程写吧,顺便记忆一下:)<br><a id="more"></a></p>
+<p>刚升了win10 th2,内存管理比之前给力啊,不过GT740M的驱动没啥用,又从NVIDIA下了最新的驱动,估计进桌面慢也是这个原因~UE4又可以快速打开了:)</p>
+<h1 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h1><ol>
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS0.png">
+</li>
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS1.png" title="重命名为HUD">
+</li>
+<li><p>直接复制HUD,再建2个Widget Blueprint,一个叫MainMenu,一个叫PauseMenu.</p>
+</li>
+<li><p>Content Browser里打开First Person Character<br>路径在<code>Content&gt;FirstPersonBP&gt;Blueprints</code></p>
+</li>
+<li><p>在My Blueprint窗口新建变量</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS2.png">
+<p>Health,Float,default value:1.0<br><code>默认值要编译后才能修改</code><br>Energy,Float,default value:1.0<br>Ammo,Integer,default value:25<br>MaxAmmo,Integer,default value:25</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS3.png">
+</li>
+<li><p>在Event Graph里新建Event Begin Play,结点拖出来后选择<code>Create Widget</code>,并绑定类HUD</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS4.png">
+</li>
+<li><p>Create HUD Widget的返回值拖出来选择<code>Promote to Variable</code>并重命名为<code>HUD Reference</code>(这个重命名可以直接在右侧名称里编辑HUD_Reference)</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS5.png">
+<p>图的含义是:游戏开始时创建HUD Widget Blueprint并将它保存为一个变量,方便之后的操作</p>
+</li>
+<li><p>拖出set的结点选择<code>Add to Viewport</code></p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS6.png">
+<p>这一步就是将HUD显示给玩家</p>
+</li>
+<li><p>设置Energy逻辑(每跳一次递减0.25)<br>直接将Energy从My Blueprint拖到Event Graph,一个get,一个set,中间用<code>Float - Float</code>连接,如下:</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS7.png">
+</li>
+<li><p>设置Health逻辑(每按一次F键递减0.25)</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS8.png">
+</li>
+<li><p>设置Ammo逻辑(子弹&gt;0时才能开火)<br>找到<code>Spawn Projectile</code>开头作如下修改:</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS9.png">
+</li>
+</ol>
+<p>在<code>Spawn Projectile</code>尾部作如下修改:<br><img src="/2015/11/19/unreal-engine-4-note-4/FPS10.png"><br>表示每发射一次子弹Ammo减1</p>
+<p><code>编译,保存,关闭</code></p>
+<h1 id="显示Health-Energy-Ammo"><a href="#显示Health-Energy-Ammo" class="headerlink" title="显示Health, Energy,Ammo"></a>显示Health, Energy,Ammo</h1><p>这边调的挺纠结的,play和make确实是两码事:(</p>
+<ol>
+<li><p>打开HUD,添加一个<code>Horizontal Box</code>,在其下方再添加2个<code>Vertical Box</code>,再在<code>Vertical Box</code>下方各添加2个Text,2个Progress Bar,如下图</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS11.png">
+</li>
+<li><p>选中<code>Horizontal Box</code>将其放到左上角,并拖动来改变它的大小</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS12.png">
+</li>
+<li><p>选中2个Progress Bar,在Size里选择Fill,然后上层的Vertical Box,也选择Fill</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS13.png">
+</li>
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS14.png" title="改名">
+</li>
+<li><p>设置Health的progress bar为绿色,Energy的progress bar为橙色</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS15.png">
+</li>
+<li><p>为Ammo条设计UI<br><img src="/2015/11/19/unreal-engine-4-note-4/FPS16.png">)</p>
+</li>
+<li><p>将Ammo的Horizontal Box设为右上角</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS17.png">
+<p>目的是可以自适应屏幕</p>
+</li>
+<li><p>在UE编辑器的任务栏右上角切到<code>Graph</code>,并按下图添加结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS18.png">
+<p><code>As First Person Character</code>右侧选择<code>Promote to Variable</code><br>这个图的含义是:检查玩家角色是否是First Person Character</p>
+</li>
+<li><p>编译,切回<code>Designer</code>标签,状态条绑定变量</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS19.png">
+</li>
+<li><p>Ammo的25/25绑定变量</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS20.png" title="第一个25的逻辑">
+</li>
+</ol>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS21.png" title="第二个25的逻辑">
+<ol start="11">
+<li>编译,保存,可以玩了:)<br>但是血条,能量,子弹为空时并没有任何异常<img src="/2015/11/19/unreal-engine-4-note-4/FPS22.png">
+</li>
+</ol>
+<h1 id="创建Main-Menu"><a href="#创建Main-Menu" class="headerlink" title="创建Main Menu"></a>创建Main Menu</h1><ol>
+<li><p>打开MainMenu,按下图添加元素(第二个Vertical Box比第一个多一个button)</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS23.png">
+</li>
+<li><p>将第一个Vertical Box改名为MainMenu,在右侧勾选<code>isVariable</code>,设置<code>ZOrder</code>为1</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS24.png">
+<p>意义是将这个置于图片的上方<br>第二个Vertical Box改为Options,同理</p>
+</li>
+<li><p>将其它的重命名如下:</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS25.png">
+</li>
+<li><p>选中所有的button,在details面板里调整下Tint的颜色,并勾选<code>Fill</code></p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS26.jpg">
+</li>
+<li><p>下载 <a href="https://docs.unrealengine.com/latest/images/Engine/UMG/QuickStart/3/ExampleBackground.png" target="_blank" rel="noopener">https://docs.unrealengine.com/latest/images/Engine/UMG/QuickStart/3/ExampleBackground.png</a> 导入UE,在Image的Details里选择它</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS27.jpg">
+<p>在Designer里将这个图片填满整个区域,并且将Details里的Anchors改为全屏</p>
+</li>
+<li><p>选中所有的Vertical Box,将Anchors改为<code>left-center</code></p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS28.jpg">
+</li>
+<li><p>将<code>OptionsMenu</code>的<code>Visibility</code>改为<code>Hidden</code><br>打算通过脚本来显示它</p>
+</li>
+<li><p>调整MainMenu,将其大小改成如下图所示:</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS29.png">
+</li>
+<li><p>将OptionsMenu和MainMenu重叠</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS30.png">
+</li>
+</ol>
+<h1 id="编写MainMenu脚本"><a href="#编写MainMenu脚本" class="headerlink" title="编写MainMenu脚本"></a>编写MainMenu脚本</h1><ol>
+<li><p>在MainMenu里切换到<code>Graph</code>,如下图操作</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS31.png">
+</li>
+<li><p>为每个button都添加<code>On Clicked</code>事件</p>
+</li>
+<li><p>Onclicked(PlayButton)添加下面的结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS32.png">
+</li>
+<li><p>Onclicked(OptionsMenu)添加下面的结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS33.png">
+</li>
+<li><p>Onclicked(Setting)添加下面的结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS34.png">
+</li>
+<li><p>Onclicked(ReturnButton)与Onclicked(PlayButton)相反</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS35.png">
+</li>
+<li><p>Onclicked(QuitButton)添加下面的结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS36.png">
+<p>编译-保存-关闭</p>
+</li>
+<li><p>Level窗口中找到<code>Blueprints</code>,<code>Open Level Blueprint</code>,并添加如下结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS37.png">
+<p>编译,关掉.</p>
+</li>
+<li><p>打开First Person Character蓝图,在Event Begin Play这一段末尾添加结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS38.png">
+<p>含义是:<code>This will turn off the cursor and set the input for the player to Game Only</code><br>编译,保存,关掉</p>
+</li>
+<li><p>打开Level窗口上方的<code>Settings</code>,<code>World Settings</code>,按如下设置</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS39.jpg">
+<p>没选FirstPersonCharacter的原因:<code>as we do not want the player to be able to run around and shoot behind the Main Menu.</code></p>
+</li>
+<li><p>点击play,可以玩啦:(</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS41.png">
+<p>被官网文档坑啦,点击Play Game无任何反应,调试了好久,最后在论坛里找到了答案</p>
+<blockquote><p>content In 4.5 if you point the same map, the UMG will disappear. But in 4.6, you don’t need to open the same level as it already open. Just add “Remove From Parent” in Widget blueprint, and it would do the trick.</p>
+<footer><strong>gOzaru84</strong><cite><a href="https://answers.unrealengine.com/questions/139137/has-remove-from-viewport-been-removed-in-46.html" target="_blank" rel="noopener">answers.unrealengine.com/questions/139137/has-remove-from-viewport-been-removed-in-46.html</a></cite></footer></blockquote>
+<p>意思就是在MainMenu蓝图里直接删掉<code>OpenLevel</code>结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS40.png">
+</li>
+</ol>
+<h1 id="折腾Pause-Menu"><a href="#折腾Pause-Menu" class="headerlink" title="折腾Pause Menu"></a>折腾Pause Menu</h1><ol>
+<li><p>打开PauseMenu蓝图,按下图添加元素</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS42.png">
+</li>
+<li><p>调整border的大小,使其填充整个窗口,并且改一下颜色,A的值改为0.5,这样可以半透明;Anchor也要改为填充</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS43.png">
+</li>
+<li><p>将Vertical Box水平,垂直居中</p>
+</li>
+<li><p>调整2个button的颜色</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS44.png">
+</li>
+<li><p>切到<code>Graph</code>标签,为ResumeButton添加点击事件</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS45.png">
+<p>最后个结点没看懂:(</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Here when the Resume Button is clicked, the input mode is <span class="keyword">set</span> <span class="keyword">to</span> game <span class="keyword">only</span> <span class="keyword">and</span> the <span class="keyword">cursor</span> that <span class="keyword">is</span> displayed <span class="keyword">when</span> the Pause Menu <span class="keyword">is</span> activated <span class="keyword">is</span> removed. The Remove <span class="keyword">from</span> <span class="keyword">Parent</span> node <span class="keyword">is</span> used <span class="keyword">to</span> remove the actual Pause Menu widget <span class="keyword">from</span> display <span class="keyword">before</span> leaving the paused state <span class="keyword">by</span> <span class="keyword">using</span> the <span class="keyword">Set</span> Game Paused node <span class="keyword">and</span> leaving Paused unchecked.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一个function,命名为Remove HUD<br>目的是<code>remove the game HUD from the player&#39;s view when the Pause Menu is activated</code><br>并添加如下结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS46.png">
+</li>
+<li><p>切到<code>Event Graph</code>标签,为<code>QuitButton</code>添加结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS47.png">
+<p>目的:<code>When Quit is clicked, this will turn on the mouse cursor for menu navigation when returning to the Main Menu</code><br>这边反而要加<code>Open Level</code>,为了切回MainMenu</p>
+</li>
+<li><p>打开<code>FirstPersonCharacter</code>蓝图,</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS48.png">
+<p>解释如下:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">When M is pressed, <span class="keyword">if</span> <span class="keyword">the</span> Pause Menu has been accessed <span class="keyword">before</span> <span class="keyword">it</span> will <span class="keyword">not</span> need <span class="built_in">to</span> <span class="built_in">create</span> <span class="keyword">it</span> again <span class="keyword">and</span> will instead access <span class="keyword">the</span> <span class="built_in">variable</span>. If this is <span class="keyword">the</span> <span class="keyword">first</span> <span class="built_in">time</span> <span class="keyword">the</span> Pause Menu has been accessed <span class="keyword">it</span> will <span class="built_in">create</span> <span class="keyword">it</span> <span class="keyword">then</span> store <span class="keyword">it</span> <span class="keyword">as</span> <span class="keyword">a</span> <span class="built_in">variable</span> so <span class="keyword">it</span> can be access later. In either <span class="keyword">case</span>, <span class="keyword">the</span> input mode is <span class="built_in">set</span> <span class="built_in">to</span> UI only <span class="keyword">before</span> we display <span class="keyword">the</span> Pause Menu (which we will <span class="built_in">do</span> next).</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示Pause Menu</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS49.png">
+</li>
+<li><p>编译,保存,运行.</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS50.png"></li>
+</ol>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//mpc2008cn.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/02/29/have-fun-with-chrome/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2015/11/09/unreal-engine-4-note-3/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="稻草人's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">5</span></a>
+            </li></ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/felix_scarecrow" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;稻香村
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<script id="dsq-count-scr" src="//mpc2008cn.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2015;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
