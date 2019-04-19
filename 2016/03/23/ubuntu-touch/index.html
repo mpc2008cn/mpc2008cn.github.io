@@ -498,44 +498,43 @@
 <li>安装过程不赘述</li>
 </ol>
 <h1 id="主机shadowsocks共享给ubuntu"><a href="#主机shadowsocks共享给ubuntu" class="headerlink" title="主机shadowsocks共享给ubuntu"></a>主机shadowsocks共享给ubuntu</h1><p>vmware的连接模式选择NAT,ubuntu系统代理里面选择手工,IP填为主机的IP地址,端口为ss的端口(1080)就可以了.我被很多教程误导改成桥接纠结了很久:(</p>
-<h1 id="安装ubuntu-touch"><a href="#安装ubuntu-touch" class="headerlink" title="安装ubuntu touch"></a>安装ubuntu touch</h1><p><a href="https://wiki.ubuntu.com/Touch/Devices" target="_blank" rel="noopener">支持的设备列表</a><br>N5的通道不是很稳定,后面去查了G+社区改成Oneplus One对应的通道了.<br>官方教程链接:<a href="https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/" target="_blank" rel="noopener">https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/</a><br>官方隐藏了2个说明,安卓设备要root+开启开发者模式.<br>到下载镜像时替换为下面的路径:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ubuntu-device-flash <span class="attribute">--server</span>=http://system-image.ubports.com touch <span class="attribute">--channel</span>=ubuntu-touch/stable <span class="attribute">--device</span>=hammerhead --bootstrap</span><br></pre></td></tr></table></figure></p>
-<p>之后就是等待下载安装完成了.我的ss还算给力,平均1MBps的下载速度,一刻钟就下好了:)<br>(实际前一天的下载速度是10KBps,当时都死心了)</p>
+<h1 id="安装ubuntu-touch"><a href="#安装ubuntu-touch" class="headerlink" title="安装ubuntu touch"></a>安装ubuntu touch</h1><p><a href="https://wiki.ubuntu.com/Touch/Devices" target="_blank" rel="noopener">支持的设备列表</a><br>N5的通道不是很稳定,后面去查了G+社区改成Oneplus One对应的通道了.<br>官方教程链接:<a href="https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/" target="_blank" rel="noopener">https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/</a><br>官方隐藏了2个说明,安卓设备要root+开启开发者模式.<br>到下载镜像时替换为下面的路径:</p>
+<pre><code>sudo ubuntu-device-flash --server=http://system-image.ubports.com touch --channel=ubuntu-touch/stable --device=hammerhead --bootstrap
+</code></pre><p>之后就是等待下载安装完成了.我的ss还算给力,平均1MBps的下载速度,一刻钟就下好了:)<br>(实际前一天的下载速度是10KBps,当时都死心了)</p>
 <h1 id="ubuntu-touch系统相关"><a href="#ubuntu-touch系统相关" class="headerlink" title="ubuntu touch系统相关"></a>ubuntu touch系统相关</h1><ol>
 <li>申请ubuntu账号,不然无法更新系统镜像或app</li>
 <li>开启开发者模式,在<code>About this phone</code>里</li>
 <li>去商店搜索Terminal并安装</li>
-<li><p>终端里输入如下开启管理员模式</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo su</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然并卵,系统默认是不开启写权限的,输入如下命令并加入自启动</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o remount,rw /</span><br><span class="line">nano /etc/rc.<span class="keyword">local</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>终端里输入如下开启管理员模式<pre><code>sudo su
+</code></pre></li>
+<li>然并卵,系统默认是不开启写权限的,输入如下命令并加入自启动<pre><code>sudo mount -o remount,rw /
+nano /etc/rc.local
+</code></pre>将第一行加入底部<code>exit 0</code>的前面,退出保存.</li>
 </ol>
-<p>将第一行加入底部<code>exit 0</code>的前面,退出保存.</p>
 <h1 id="使Terminal翻墙"><a href="#使Terminal翻墙" class="headerlink" title="使Terminal翻墙"></a>使Terminal翻墙</h1><ol>
-<li><p>安装shadowsocks</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get <span class="keyword">install</span> python-pip</span><br><span class="line">pip <span class="keyword">install</span> shadowsocks</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>之后添加ss的配置文件并保存</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/etc/config.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">"server"</span>:<span class="string">"remote-shadowsocks-server-ip-addr"</span>,</span><br><span class="line">	<span class="string">"server_port"</span>:<span class="string">"remote-ss-port"</span>,</span><br><span class="line">	<span class="string">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">	<span class="string">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">	<span class="string">"password"</span>:<span class="string">"your-passwd"</span>,</span><br><span class="line">	<span class="string">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">	<span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动ss并添加自启动</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nohup sslocal -c /etc/config<span class="selector-class">.json</span> &amp;</span><br><span class="line">nano /etc/rc.local</span><br><span class="line"></span><br><span class="line">sudo sslocal -c /etc/config.json</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装privoxy</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> install privoxy</span><br><span class="line">nano /etc/privoxy/config</span><br><span class="line"></span><br><span class="line">在文件的末尾添加一行,注意最后的点号</span><br><span class="line">forward-socks5 / 127.0.0.1:1080 .</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重启privoxy</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">service privoxy restart</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改系统配置文件</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/profile</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">http_proxy</span>=<span class="string">"127.0.0.1:8118"</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">https_proxy</span>=<span class="string">"127.0.0.1:8118"</span></span><br><span class="line">source /etc/profile</span><br><span class="line"></span><br><span class="line">nano ~/.bashrc</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">http_proxy</span>=<span class="string">"127.0.0.1:8118"</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">https_proxy</span>=<span class="string">"127.0.0.1:8118"</span></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在Terminal里wget一下谷歌</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">https:</span><span class="comment">//www.google.com</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>安装shadowsocks<pre><code>apt-get install python-pip
+pip install shadowsocks
+</code></pre></li>
+<li>之后添加ss的配置文件并保存<br><code>`</code><br>/etc/config.json</li>
 </ol>
-<p>如果index文件被下载了说明翻成功了:)<br>万一没成功看下是不是系统时间不对,目前的一个bug是开机自动变成1970年.<br>目前方法是手动同步网络时间<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ntpdate cn<span class="selector-class">.pool</span><span class="selector-class">.ntp</span><span class="selector-class">.org</span></span><br></pre></td></tr></table></figure></p>
+<p>{<br>    “server”:”remote-shadowsocks-server-ip-addr”,<br>    “server_port”:”remote-ss-port”,<br>    “local_address”:”127.0.0.1”,<br>    “local_port”:1080,<br>    “password”:”your-passwd”,<br>    “timeout”:300,<br>    “method”:”aes-256-cfb”<br>}</p>
+<pre><code>3. 启动ss并添加自启动
+</code></pre><p>nohup sslocal -c /etc/config.json &amp;<br>nano /etc/rc.local</p>
+<p>sudo sslocal -c /etc/config.json</p>
+<pre><code>4. 安装privoxy
+</code></pre><p>apt-get install privoxy<br>nano /etc/privoxy/config</p>
+<p>在文件的末尾添加一行,注意最后的点号<br>forward-socks5 / 127.0.0.1:1080 .</p>
+<pre><code>5. 重启privoxy
+</code></pre><p>service privoxy restart</p>
+<pre><code>6. 修改系统配置文件
+</code></pre><p>nano /etc/profile<br>export http_proxy=”127.0.0.1:8118”<br>export https_proxy=”127.0.0.1:8118”<br>source /etc/profile</p>
+<p>nano ~/.bashrc<br>export http_proxy=”127.0.0.1:8118”<br>export https_proxy=”127.0.0.1:8118”<br>source ~/.bashrc</p>
+<pre><code>7. 在Terminal里wget一下谷歌
+</code></pre><p>wget <a href="https://www.google.com" target="_blank" rel="noopener">https://www.google.com</a></p>
+<pre><code>如果index文件被下载了说明翻成功了:)
+万一没成功看下是不是系统时间不对,目前的一个bug是开机自动变成1970年.
+目前方法是手动同步网络时间
+</code></pre><p>sudo ntpdate cn.pool.ntp.org<br><code>`</code></p>
 <h1 id="ubuntu-store"><a href="#ubuntu-store" class="headerlink" title="ubuntu store"></a>ubuntu store</h1><p><a href="https://uappexplorer.com/" target="_blank" rel="noopener">https://uappexplorer.com/</a></p>
 <h1 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h1><p>有人知道如何全局翻墙么,当然带pac更好,商店打开巨慢- -!</p>
 

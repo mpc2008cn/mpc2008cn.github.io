@@ -511,40 +511,55 @@
 <p>输入<code>密码</code>,勾选<code>save password</code>,OK</p>
 <img src="/2015/10/22/vps/crt4.png">
 <p>出现如图所示,标签变绿就说明连接成功啦.</p>
-<h1 id="部署shadowsocks"><a href="#部署shadowsocks" class="headerlink" title="部署shadowsocks"></a>部署shadowsocks</h1><p>用的一键安装脚本,参考<a href="https://teddysun.com/342.html" target="_blank" rel="noopener">https://teddysun.com/342.html</a><br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --<span class="keyword">no</span>-check-certificate http<span class="variable">s:</span>//raw.githubusercontent.<span class="keyword">com</span>/teddysun/shadowsocks_install/master/shadowsocks.<span class="keyword">sh</span></span><br><span class="line">chmod +<span class="keyword">x</span> shadowsocks.<span class="keyword">sh</span></span><br><span class="line">./shadowsocks.<span class="keyword">sh</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> | tee shadowsocks.<span class="built_in">log</span></span><br></pre></td></tr></table></figure></p>
-<p>共三行,依次复制到securecrt右键粘贴执行<br>其中的第三个执行后第一步要输入密码(shadowsocks的密码):<br><img src="/2015/10/22/vps/crt5.png"></p>
+<h1 id="部署shadowsocks"><a href="#部署shadowsocks" class="headerlink" title="部署shadowsocks"></a>部署shadowsocks</h1><p>用的一键安装脚本,参考<a href="https://teddysun.com/342.html" target="_blank" rel="noopener">https://teddysun.com/342.html</a></p>
+<pre><code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+chmod +x shadowsocks.sh
+./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log
+</code></pre><p>共三行,依次复制到securecrt右键粘贴执行<br>其中的第三个执行后第一步要输入密码(shadowsocks的密码):<br><img src="/2015/10/22/vps/crt5.png"></p>
 <p>第二步输入shadowsocks的端口,我喜欢用888:)<br><img src="/2015/10/22/vps/crt6.png"></p>
 <p>看到这一句时按任意键(比如回车)<br><img src="/2015/10/22/vps/crt7.png"></p>
 <p>等待安装结束,出现下图就表示安装成功啦~<br><img src="/2015/10/22/vps/crt8.png"><br><strong>记住server ip,server port,password</strong></p>
-<h1 id="开启锐速-已停止注册"><a href="#开启锐速-已停止注册" class="headerlink" title="开启锐速(已停止注册)"></a><del>开启锐速(已停止注册)</del></h1><p>摘自<a href="http://blog.deartanker.com/post/3659.html" target="_blank" rel="noopener">http://blog.deartanker.com/post/3659.html</a><br>首先注册一个锐速账号:<a href="http://my.serverspeeder.com/" target="_blank" rel="noopener">http://my.serverspeeder.com/</a><br>然后在securecrt里依次执行:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="comment">//my.serverspeeder.com/d/ls/serverSpeederInstaller.tar.gz</span></span><br><span class="line">tar xzvf serverSpeederInstaller<span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br><span class="line">bash serverSpeederInstaller.sh</span><br></pre></td></tr></table></figure></p>
-<p>到<code>email address</code>要手动输入了<br><img src="/2015/10/22/vps/crt9.png"><br>注册的锐速用户名邮箱,密码<br>在图中框起来的部分最后2步输入y,别的直接回车</p>
-<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a><del>修改配置</del></h2><p>securecrt里输入<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /serverspeeder/etc/<span class="built_in">config</span></span><br></pre></td></tr></table></figure></p>
-<img src="/2015/10/22/vps/crt10.png">
+<h1 id="开启锐速-已停止注册"><a href="#开启锐速-已停止注册" class="headerlink" title="开启锐速(已停止注册)"></a><del>开启锐速(已停止注册)</del></h1><p>摘自<a href="http://blog.deartanker.com/post/3659.html" target="_blank" rel="noopener">http://blog.deartanker.com/post/3659.html</a><br>首先注册一个锐速账号:<a href="http://my.serverspeeder.com/" target="_blank" rel="noopener">http://my.serverspeeder.com/</a><br>然后在securecrt里依次执行:</p>
+<pre><code>wget http://my.serverspeeder.com/d/ls/serverSpeederInstaller.tar.gz
+tar xzvf serverSpeederInstaller.tar.gz
+bash serverSpeederInstaller.sh
+</code></pre><p>到<code>email address</code>要手动输入了<br><img src="/2015/10/22/vps/crt9.png"><br>注册的锐速用户名邮箱,密码<br>在图中框起来的部分最后2步输入y,别的直接回车</p>
+<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a><del>修改配置</del></h2><p>securecrt里输入</p>
+<pre><code>nano /serverspeeder/etc/config
+</code></pre><img src="/2015/10/22/vps/crt10.png">
 <p><code>rsc</code>,<code>advinacc</code>,<code>maxmode</code>均修改为1(如果是<code>Digital Ocean</code>的vps,<code>gso</code>也要改为1)<br>按ctrl+X组合键退出,再输入<code>y</code>保存修改<br>再按回车写入配置文件<br><img src="/2015/10/22/vps/crt11.png"></p>
-<p>最后输入下列代码重启锐速即可<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/serverspeeder/bin/serverSpeeder<span class="selector-class">.sh</span> restart</span><br></pre></td></tr></table></figure></p>
-<h1 id="开启TFO-TCP-Fast-Open"><a href="#开启TFO-TCP-Fast-Open" class="headerlink" title="开启TFO(TCP Fast Open)"></a>开启TFO(TCP Fast Open)</h1><p>主要参考<a href="http://www.shadowsocks.co.uk/shadowsocks-tcp-fast-open/" target="_blank" rel="noopener">http://www.shadowsocks.co.uk/shadowsocks-tcp-fast-open/</a><br>securecrt输入以下命令:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/rc.<span class="keyword">local</span></span><br></pre></td></tr></table></figure></p>
-<p>在<code>exit 0</code>之前输入并保存<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="number">3</span> &gt; <span class="regexp">/proc/</span>sys<span class="regexp">/net/i</span>pv4<span class="regexp">/tcp_fastopen</span></span><br></pre></td></tr></table></figure></p>
-<p>执行<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano <span class="regexp">/etc/</span>sysctl.conf</span><br></pre></td></tr></table></figure></p>
-<p>输入并保存<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net<span class="selector-class">.ipv4</span><span class="selector-class">.tcp_fastopen</span> = <span class="number">3</span></span><br></pre></td></tr></table></figure></p>
-<p>打开ss配置文件<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano <span class="regexp">/etc/</span>shadowsocks.json</span><br></pre></td></tr></table></figure></p>
-<p>修改<code>fast_open</code>的值为true,保存(不包括逗号)</p>
-<p>重启shadowsocks<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d<span class="regexp">/shadowsocks restart</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="加密方式改为chacha20-不想折腾-愿意用默认加密的可跳过此步"><a href="#加密方式改为chacha20-不想折腾-愿意用默认加密的可跳过此步" class="headerlink" title="加密方式改为chacha20(不想折腾,愿意用默认加密的可跳过此步)"></a>加密方式改为chacha20(不想折腾,愿意用默认加密的可跳过此步)</h1><p>chacha20安全性接近AES,还是谷歌研制的算法,在移动端使用还可以省电,就折腾了一下<br>主要参考<a href="http://xionghaizi.blogspot.com/2015/05/shadowsocks-pythonchacha20.html" target="_blank" rel="noopener">http://xionghaizi.blogspot.com/2015/05/shadowsocks-pythonchacha20.html</a></p>
+<p>最后输入下列代码重启锐速即可</p>
+<pre><code>/serverspeeder/bin/serverSpeeder.sh restart
+</code></pre><h1 id="开启TFO-TCP-Fast-Open"><a href="#开启TFO-TCP-Fast-Open" class="headerlink" title="开启TFO(TCP Fast Open)"></a>开启TFO(TCP Fast Open)</h1><p>主要参考<a href="http://www.shadowsocks.co.uk/shadowsocks-tcp-fast-open/" target="_blank" rel="noopener">http://www.shadowsocks.co.uk/shadowsocks-tcp-fast-open/</a><br>securecrt输入以下命令:</p>
+<pre><code>nano /etc/rc.local
+</code></pre><p>在<code>exit 0</code>之前输入并保存</p>
+<pre><code>echo 3 &gt; /proc/sys/net/ipv4/tcp_fastopen
+</code></pre><p>执行</p>
+<pre><code>nano /etc/sysctl.conf
+</code></pre><p>输入并保存</p>
+<pre><code>net.ipv4.tcp_fastopen = 3
+</code></pre><p>打开ss配置文件</p>
+<pre><code>nano /etc/shadowsocks.json
+</code></pre><p>修改<code>fast_open</code>的值为true,保存(不包括逗号)</p>
+<p>重启shadowsocks</p>
+<pre><code>/etc/init.d/shadowsocks restart
+</code></pre><h1 id="加密方式改为chacha20-不想折腾-愿意用默认加密的可跳过此步"><a href="#加密方式改为chacha20-不想折腾-愿意用默认加密的可跳过此步" class="headerlink" title="加密方式改为chacha20(不想折腾,愿意用默认加密的可跳过此步)"></a>加密方式改为chacha20(不想折腾,愿意用默认加密的可跳过此步)</h1><p>chacha20安全性接近AES,还是谷歌研制的算法,在移动端使用还可以省电,就折腾了一下<br>主要参考<a href="http://xionghaizi.blogspot.com/2015/05/shadowsocks-pythonchacha20.html" target="_blank" rel="noopener">http://xionghaizi.blogspot.com/2015/05/shadowsocks-pythonchacha20.html</a></p>
 <ol>
-<li><p>securecrt输入以下命令:</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz</span><br><span class="line">tar zxvf LATEST.tar.gz</span><br><span class="line">cd libsodium-1.0.8</span><br><span class="line"><span class="keyword">.</span>/configure</span><br><span class="line">make &amp;&amp; make check</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>之后将shadowsocks的配置里加密方式改为<code>chacha20</code>,并保存</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano <span class="regexp">/etc/</span>shadowsocks.json</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修复关联</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo /usr/local/<span class="class"><span class="keyword">lib</span> &gt; /<span class="title">etc</span>/<span class="title">ld</span>.<span class="title">so</span>.<span class="title">conf</span>.<span class="title">d</span>/<span class="title">usr_local_lib</span>.<span class="title">conf</span></span></span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重启shadowsocks,服务器端就好了</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d<span class="regexp">/shadowsocks restart</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改各个客户端的加密方式为<code>chacha20</code></p>
-</li>
+<li>securecrt输入以下命令:<pre><code>wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz
+tar zxvf LATEST.tar.gz
+cd libsodium-1.0.8
+./configure
+make &amp;&amp; make check
+make install
+</code></pre></li>
+<li>之后将shadowsocks的配置里加密方式改为<code>chacha20</code>,并保存<pre><code>nano /etc/shadowsocks.json
+</code></pre></li>
+<li>修复关联<pre><code>echo /usr/local/lib &gt; /etc/ld.so.conf.d/usr_local_lib.conf
+ldconfig
+</code></pre></li>
+<li>重启shadowsocks,服务器端就好了<pre><code>/etc/init.d/shadowsocks restart
+</code></pre></li>
+<li>修改各个客户端的加密方式为<code>chacha20</code></li>
 </ol>
 <h1 id="windows端运行shadowsocks客户端"><a href="#windows端运行shadowsocks客户端" class="headerlink" title="windows端运行shadowsocks客户端"></a>windows端运行shadowsocks客户端</h1><p>到<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks-windows/releases</a> 下载最新的<code>Shadowsocks-*.zip</code><br>解压后运行Shadowsocks.exe</p>
 <img src="/2015/10/22/vps/crt12.png">
@@ -563,7 +578,12 @@
 <li>surge可以某宝买账号:)</li>
 </ol>
 <p>那么本次翻墙教程就结束了,有啥问题请贴在评论里,thanks!</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">更新日志:</span><br><span class="line">2016<span class="selector-class">.3</span><span class="selector-class">.3</span>    <span class="selector-tag">Debian</span> 7升8,开启<span class="selector-tag">TFO</span>,添加<span class="selector-tag">FinalSpeed</span>链接</span><br><span class="line">2016<span class="selector-class">.2</span><span class="selector-class">.29</span>   移除锐速相关配置</span><br><span class="line">2016<span class="selector-class">.1</span><span class="selector-class">.17</span>   将加密方式改为<span class="selector-tag">chacha20</span></span><br><span class="line">2015<span class="selector-class">.10</span><span class="selector-class">.26</span>  <span class="selector-tag">ios9</span>出了个神器<span class="selector-tag">surge</span>,只要10刀<span class="selector-pseudo">:)</span>,美区已经下架了<span class="selector-pseudo">:(</span></span><br></pre></td></tr></table></figure>
+<pre><code>更新日志:
+2016.3.3    Debian 7升8,开启TFO,添加FinalSpeed链接
+2016.2.29   移除锐速相关配置
+2016.1.17   将加密方式改为chacha20
+2015.10.26  ios9出了个神器surge,只要10刀:),美区已经下架了:(
+</code></pre>
         
     
 

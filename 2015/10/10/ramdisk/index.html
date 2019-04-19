@@ -523,22 +523,25 @@
 <p>设置完后系统会多出一个Z:\RAMDISK\<br><img src="/2015/10/10/ramdisk/12.png"></p>
 <h3 id="移动系统temp目录"><a href="#移动系统temp目录" class="headerlink" title="移动系统temp目录"></a>移动系统temp目录</h3><ol>
 <li>打开ramdisk,点击上方的调色板图标<img src="/2015/10/10/ramdisk/13.png"></li>
-<li><p><code>更改为</code>后面填入:</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Z:</span>\TEMP</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击<code>更改</code></p>
-<img src="/2015/10/10/ramdisk/14.png"></li>
+<li><code>更改为</code>后面填入:<pre><code>Z:\TEMP
+</code></pre></li>
+<li>点击<code>更改</code><img src="/2015/10/10/ramdisk/14.png"></li>
 <li>点击<code>是</code><img src="/2015/10/10/ramdisk/15.png">
 </li>
 </ol>
-<h3 id="修改chrome浏览器缓存目录-不用的请跳过"><a href="#修改chrome浏览器缓存目录-不用的请跳过" class="headerlink" title="修改chrome浏览器缓存目录(不用的请跳过)"></a>修改chrome浏览器缓存目录(不用的请跳过)</h3><p>右键chrome的快捷方式选择<code>属性-快捷方式</code>,在<code>目标</code>末尾<strong>空一格</strong>后添加下面的代码<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">--disk-cache-dir</span>=<span class="string">"z:\chromecache"</span></span><br></pre></td></tr></table></figure></p>
-<p>点击<code>确定</code>即可<br><img src="/2015/10/10/ramdisk/16.png"></p>
-<h3 id="修改firefox浏览器缓存目录-不用的请跳过"><a href="#修改firefox浏览器缓存目录-不用的请跳过" class="headerlink" title="修改firefox浏览器缓存目录(不用的请跳过)"></a>修改firefox浏览器缓存目录(不用的请跳过)</h3><p>打开火狐,在浏览器里输入<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">about</span>:config</span><br></pre></td></tr></table></figure></p>
-<p>在search栏里输入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser<span class="selector-class">.cache</span><span class="selector-class">.disk</span><span class="selector-class">.parent_directory</span></span><br></pre></td></tr></table></figure></p>
-<p>搜索结果是空的<br><img src="/2015/10/10/ramdisk/17.png"><br>在页面空白处右键,选择<code>New</code>,<code>String</code>,<br><img src="/2015/10/10/ramdisk/18.png"><br>在弹出框里填入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser<span class="selector-class">.cache</span><span class="selector-class">.disk</span><span class="selector-class">.parent_directory</span></span><br></pre></td></tr></table></figure></p>
-<img src="/2015/10/10/ramdisk/19.png">
-<p>OK,在第二个弹出框里填入<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">Z:</span>\firefoxcache</span><br></pre></td></tr></table></figure></p>
-<img src="/2015/10/10/ramdisk/20.png">
+<h3 id="修改chrome浏览器缓存目录-不用的请跳过"><a href="#修改chrome浏览器缓存目录-不用的请跳过" class="headerlink" title="修改chrome浏览器缓存目录(不用的请跳过)"></a>修改chrome浏览器缓存目录(不用的请跳过)</h3><p>右键chrome的快捷方式选择<code>属性-快捷方式</code>,在<code>目标</code>末尾<strong>空一格</strong>后添加下面的代码</p>
+<pre><code>--disk-cache-dir=&quot;z:\chromecache&quot;
+</code></pre><p>点击<code>确定</code>即可<br><img src="/2015/10/10/ramdisk/16.png"></p>
+<h3 id="修改firefox浏览器缓存目录-不用的请跳过"><a href="#修改firefox浏览器缓存目录-不用的请跳过" class="headerlink" title="修改firefox浏览器缓存目录(不用的请跳过)"></a>修改firefox浏览器缓存目录(不用的请跳过)</h3><p>打开火狐,在浏览器里输入</p>
+<pre><code>about:config
+</code></pre><p>在search栏里输入</p>
+<pre><code>browser.cache.disk.parent_directory
+</code></pre><p>搜索结果是空的<br><img src="/2015/10/10/ramdisk/17.png"><br>在页面空白处右键,选择<code>New</code>,<code>String</code>,<br><img src="/2015/10/10/ramdisk/18.png"><br>在弹出框里填入</p>
+<pre><code>browser.cache.disk.parent_directory
+</code></pre><img src="/2015/10/10/ramdisk/19.png">
+<p>OK,在第二个弹出框里填入</p>
+<pre><code>Z:\firefoxcache
+</code></pre><img src="/2015/10/10/ramdisk/20.png">
 <h1 id="readyboost"><a href="#readyboost" class="headerlink" title="readyboost"></a>readyboost</h1><p>这个设置就简单了.</p>
 <ol>
 <li>右键Z盘,选择<code>属性</code></li>

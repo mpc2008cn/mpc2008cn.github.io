@@ -499,8 +499,9 @@
 <h1 id="Pawns"><a href="#Pawns" class="headerlink" title="Pawns"></a>Pawns</h1><p>Actor的子类,Pawn的翻译是走卒.一般是NPC一类</p>
 <h1 id="Characters"><a href="#Characters" class="headerlink" title="Characters"></a>Characters</h1><p>Actor的子类,玩家角色.Character的子类是一些类似碰撞,双足移动等操作</p>
 <h1 id="PlayerController"><a href="#PlayerController" class="headerlink" title="PlayerController"></a>PlayerController</h1><p>接管玩家操作.每个游戏至少有一个PlayerController</p>
-<h1 id="AIController"><a href="#AIController" class="headerlink" title="AIController"></a>AIController</h1><p>接管NPC操作.文档里有段话意味深长啊.<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">By</span> <span class="keyword">default</span>, Pawns <span class="keyword">and</span> Characters will <span class="keyword">end</span> up <span class="keyword">with</span> a base AIController unless they are specifically possessed <span class="keyword">by</span> a PlayerController <span class="keyword">or</span> told <span class="keyword">not</span> <span class="keyword">to</span> <span class="keyword">create</span> an AIController <span class="keyword">for</span> themselves.</span><br></pre></td></tr></table></figure></p>
-<p>这样就表示程序可以开后门给某个玩家做NPC的特权?好牛X:)</p>
+<h1 id="AIController"><a href="#AIController" class="headerlink" title="AIController"></a>AIController</h1><p>接管NPC操作.文档里有段话意味深长啊.</p>
+<pre><code>By default, Pawns and Characters will end up with a base AIController unless they are specifically possessed by a PlayerController or told not to create an AIController for themselves.
+</code></pre><p>这样就表示程序可以开后门给某个玩家做NPC的特权?好牛X:)</p>
 <h1 id="Brushes"><a href="#Brushes" class="headerlink" title="Brushes"></a>Brushes</h1><p>是Actor,放在Level里用来Level的几何大小(BSP:Binary Space Partitioning),比如空气墙,DOT(damage over time),机关等等.</p>
 <h1 id="Levels"><a href="#Levels" class="headerlink" title="Levels"></a>Levels</h1><p>关卡,UE中每个关卡被保存为.umap文件,所以有时也被称为Maps.我的翻译就是场景,地图.比如剑三的城市,wow中的城市等.</p>
 <h1 id="World"><a href="#World" class="headerlink" title="World"></a>World</h1><p>字面意思就是世界,包含了众多Level.好吧,用魔兽世界来解释比较贴切,就是wow里整个游戏场景/地图合在一起称为World.</p>

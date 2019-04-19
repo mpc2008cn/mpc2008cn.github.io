@@ -492,22 +492,68 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>接上期…<br><a id="more"></a></p>
-<h1 id="UPROPERTY"><a href="#UPROPERTY" class="headerlink" title="UPROPERTY"></a>UPROPERTY</h1><p>可以带上分类属性,直接创建了Damage这个分类<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPROPERTY(<span class="name">EditAnywhere</span>, Category=<span class="string">"Damage"</span>)</span><br><span class="line">int32 TotalDamage<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>可见但不可编辑的属性<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">UPROPERTY</span><span class="params">(BlueprintReadOnly, VisibleAnywhere, Transient, Category = <span class="string">"Damage"</span>)</span></span></span><br><span class="line">		<span class="attribute">float</span> DamagePerSecond;</span><br></pre></td></tr></table></figure></p>
-<p><code>Transient</code>表示不会保存到硬盘</p>
-<h1 id="构造函数初始化"><a href="#构造函数初始化" class="headerlink" title="构造函数初始化"></a>构造函数初始化</h1><p>下面2个程序功能一样:<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">AMyActor:</span>:AMyActor()</span><br><span class="line">&#123;</span><br><span class="line">    TotalDamage = <span class="number">200</span><span class="comment">;</span></span><br><span class="line">    DamageTimeInSeconds = <span class="number">1</span>.f<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">AMyActor</span><span class="selector-pseudo">::AMyActor()</span> :</span><br><span class="line">    <span class="selector-tag">TotalDamage</span>(200),</span><br><span class="line">    <span class="selector-tag">DamageTimeInSeconds</span>(1<span class="selector-class">.f</span>)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>如果不手动初始化,引擎会自动设为0或空指针</code></p>
+<h1 id="UPROPERTY"><a href="#UPROPERTY" class="headerlink" title="UPROPERTY"></a>UPROPERTY</h1><p>可以带上分类属性,直接创建了Damage这个分类</p>
+<pre><code>UPROPERTY(EditAnywhere, Category=&quot;Damage&quot;)
+int32 TotalDamage;
+</code></pre><p>可见但不可编辑的属性</p>
+<pre><code>UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Transient, Category = &quot;Damage&quot;)
+        float DamagePerSecond;
+</code></pre><p><code>Transient</code>表示不会保存到硬盘</p>
+<h1 id="构造函数初始化"><a href="#构造函数初始化" class="headerlink" title="构造函数初始化"></a>构造函数初始化</h1><p>下面2个程序功能一样:</p>
+<pre><code>AMyActor::AMyActor()
+{
+    TotalDamage = 200;
+    DamageTimeInSeconds = 1.f;
+}
+</code></pre><pre><code>AMyActor::AMyActor() :
+    TotalDamage(200),
+    DamageTimeInSeconds(1.f)
+{
+}
+</code></pre><p><code>如果不手动初始化,引擎会自动设为0或空指针</code></p>
 <p>可以根据TotalDamage与DamageTimeInSeconds对DamagePerSecond进行初始化</p>
-<p>.h文件里加入<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">PostInitProperties</span>(<span class="params"></span>) <span class="keyword">override</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>.cpp文件里加入<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> AMyActor::PostInitProperties()</span><br><span class="line">&#123;</span><br><span class="line">	Super::PostInitProperties();</span><br><span class="line">	DamagePerSecond = TotalDamage / DamageTimeInSeconds;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="通过蓝图扩展C-类"><a href="#通过蓝图扩展C-类" class="headerlink" title="通过蓝图扩展C++类"></a>通过蓝图扩展C++类</h1><p>上面的只是初始化,并不会实时计算DPS,要想实现,需作如下修改:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> AMyActor::PostInitProperties()</span><br><span class="line">&#123;</span><br><span class="line">	Super::PostInitProperties();</span><br><span class="line">	CalculateValues();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> AMyActor::CalculateValues()</span><br><span class="line">&#123;</span><br><span class="line">	DamagePerSecond = TotalDamage / DamageTimeInSeconds;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> WITH_EDITOR</span></span><br><span class="line"><span class="keyword">void</span> AMyActor::PostEditChangeProperty(FPropertyChangedEvent&amp; PropertyChangedEvent)</span><br><span class="line">&#123;</span><br><span class="line">	CalculateValues();</span><br><span class="line"></span><br><span class="line">	Super::PostEditChangeProperty(PropertyChangedEvent);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></p>
-<p>其中if…endif这一段只是给编辑器用,并不会在游戏中生成.</p>
-<h1 id="使蓝图可从C-调用"><a href="#使蓝图可从C-调用" class="headerlink" title="使蓝图可从C++调用"></a>使蓝图可从C++调用</h1><p>只要在声明的语句前加上宏,如下:<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(<span class="name">BlueprintCallable</span>, Category=<span class="string">"Damage"</span>)</span><br><span class="line">void CalculateValues()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="使C-可从蓝图调用"><a href="#使C-可从蓝图调用" class="headerlink" title="使C++可从蓝图调用"></a>使C++可从蓝图调用</h1><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(<span class="name">BlueprintImplementableEvent</span>, Category = <span class="string">"Damage"</span>)</span><br><span class="line">		 void CalledFromCpp()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<h1 id="蓝图自己使用的方法"><a href="#蓝图自己使用的方法" class="headerlink" title="蓝图自己使用的方法"></a>蓝图自己使用的方法</h1><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(<span class="name">BlueprintNativeEvent</span>, Category=<span class="string">"Damage"</span>)</span><br><span class="line">void CalledFromCpp()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>宏里带有<code>BlueprintNativeEvent</code>,必须在.cpp文件里写实现的方法,否则编译失败<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> AMyActor::CalledFromCpp_Implementation()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Do something cool here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>.h文件里加入</p>
+<pre><code>virtual void PostInitProperties() override;
+</code></pre><p>.cpp文件里加入</p>
+<pre><code>void AMyActor::PostInitProperties()
+{
+    Super::PostInitProperties();
+    DamagePerSecond = TotalDamage / DamageTimeInSeconds;
+}
+</code></pre><h1 id="通过蓝图扩展C-类"><a href="#通过蓝图扩展C-类" class="headerlink" title="通过蓝图扩展C++类"></a>通过蓝图扩展C++类</h1><p>上面的只是初始化,并不会实时计算DPS,要想实现,需作如下修改:</p>
+<pre><code>void AMyActor::PostInitProperties()
+{
+    Super::PostInitProperties();
+    CalculateValues();
+}
 
+void AMyActor::CalculateValues()
+{
+    DamagePerSecond = TotalDamage / DamageTimeInSeconds;
+}
+
+#if WITH_EDITOR
+void AMyActor::PostEditChangeProperty(FPropertyChangedEvent&amp; PropertyChangedEvent)
+{
+    CalculateValues();
+
+    Super::PostEditChangeProperty(PropertyChangedEvent);
+}
+#endif
+</code></pre><p>其中if…endif这一段只是给编辑器用,并不会在游戏中生成.</p>
+<h1 id="使蓝图可从C-调用"><a href="#使蓝图可从C-调用" class="headerlink" title="使蓝图可从C++调用"></a>使蓝图可从C++调用</h1><p>只要在声明的语句前加上宏,如下:</p>
+<pre><code>UFUNCTION(BlueprintCallable, Category=&quot;Damage&quot;)
+void CalculateValues();
+</code></pre><h1 id="使C-可从蓝图调用"><a href="#使C-可从蓝图调用" class="headerlink" title="使C++可从蓝图调用"></a>使C++可从蓝图调用</h1><pre><code>UFUNCTION(BlueprintImplementableEvent, Category = &quot;Damage&quot;)
+         void CalledFromCpp();
+</code></pre><h1 id="蓝图自己使用的方法"><a href="#蓝图自己使用的方法" class="headerlink" title="蓝图自己使用的方法"></a>蓝图自己使用的方法</h1><pre><code>UFUNCTION(BlueprintNativeEvent, Category=&quot;Damage&quot;)
+void CalledFromCpp();
+</code></pre><p>宏里带有<code>BlueprintNativeEvent</code>,必须在.cpp文件里写实现的方法,否则编译失败</p>
+<pre><code>void AMyActor::CalledFromCpp_Implementation()
+{
+    // Do something cool here
+}
+</code></pre>
         
     
 

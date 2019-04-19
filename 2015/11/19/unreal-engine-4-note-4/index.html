@@ -656,8 +656,8 @@
 <li><p>切到<code>Graph</code>标签,为ResumeButton添加点击事件</p>
 <img src="/2015/11/19/unreal-engine-4-note-4/FPS45.png">
 <p>最后个结点没看懂:(</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Here when the Resume Button is clicked, the input mode is <span class="keyword">set</span> <span class="keyword">to</span> game <span class="keyword">only</span> <span class="keyword">and</span> the <span class="keyword">cursor</span> that <span class="keyword">is</span> displayed <span class="keyword">when</span> the Pause Menu <span class="keyword">is</span> activated <span class="keyword">is</span> removed. The Remove <span class="keyword">from</span> <span class="keyword">Parent</span> node <span class="keyword">is</span> used <span class="keyword">to</span> remove the actual Pause Menu widget <span class="keyword">from</span> display <span class="keyword">before</span> leaving the paused state <span class="keyword">by</span> <span class="keyword">using</span> the <span class="keyword">Set</span> Game Paused node <span class="keyword">and</span> leaving Paused unchecked.</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>Here when the Resume Button is clicked, the input mode is set to game only and the cursor that is displayed when the Pause Menu is activated is removed. The Remove from Parent node is used to remove the actual Pause Menu widget from display before leaving the paused state by using the Set Game Paused node and leaving Paused unchecked.
+</code></pre></li>
 <li><p>新建一个function,命名为Remove HUD<br>目的是<code>remove the game HUD from the player&#39;s view when the Pause Menu is activated</code><br>并添加如下结点</p>
 <img src="/2015/11/19/unreal-engine-4-note-4/FPS46.png">
 </li>
@@ -668,8 +668,8 @@
 <li><p>打开<code>FirstPersonCharacter</code>蓝图,</p>
 <img src="/2015/11/19/unreal-engine-4-note-4/FPS48.png">
 <p>解释如下:</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">When M is pressed, <span class="keyword">if</span> <span class="keyword">the</span> Pause Menu has been accessed <span class="keyword">before</span> <span class="keyword">it</span> will <span class="keyword">not</span> need <span class="built_in">to</span> <span class="built_in">create</span> <span class="keyword">it</span> again <span class="keyword">and</span> will instead access <span class="keyword">the</span> <span class="built_in">variable</span>. If this is <span class="keyword">the</span> <span class="keyword">first</span> <span class="built_in">time</span> <span class="keyword">the</span> Pause Menu has been accessed <span class="keyword">it</span> will <span class="built_in">create</span> <span class="keyword">it</span> <span class="keyword">then</span> store <span class="keyword">it</span> <span class="keyword">as</span> <span class="keyword">a</span> <span class="built_in">variable</span> so <span class="keyword">it</span> can be access later. In either <span class="keyword">case</span>, <span class="keyword">the</span> input mode is <span class="built_in">set</span> <span class="built_in">to</span> UI only <span class="keyword">before</span> we display <span class="keyword">the</span> Pause Menu (which we will <span class="built_in">do</span> next).</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>When M is pressed, if the Pause Menu has been accessed before it will not need to create it again and will instead access the variable. If this is the first time the Pause Menu has been accessed it will create it then store it as a variable so it can be access later. In either case, the input mode is set to UI only before we display the Pause Menu (which we will do next).
+</code></pre></li>
 <li><p>显示Pause Menu</p>
 <img src="/2015/11/19/unreal-engine-4-note-4/FPS49.png">
 </li>

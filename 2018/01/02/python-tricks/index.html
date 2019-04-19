@@ -493,20 +493,30 @@
     
         <p>列出一些工作中遇到的python小技巧(python3)~<br><a id="more"></a></p>
 <h1 id="多行语句"><a href="#多行语句" class="headerlink" title="多行语句"></a>多行语句</h1><p>使用括号即可</p>
-<h1 id="将dict以keys进行排序"><a href="#将dict以keys进行排序" class="headerlink" title="将dict以keys进行排序"></a>将dict以keys进行排序</h1><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sorted(<span class="name">dict</span>.items(), key=lambda d: d[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<p>如要按value排序,则将<code>d[0]</code>改为<code>d[1]</code></p>
-<h1 id="对ss进行md5"><a href="#对ss进行md5" class="headerlink" title="对ss进行md5"></a>对ss进行md5</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">hashlib</span><span class="selector-class">.md5</span>(<span class="selector-tag">ss</span><span class="selector-class">.encode</span>())<span class="selector-class">.hexdigest</span>()</span><br></pre></td></tr></table></figure>
-<h1 id="将key1-value1-amp-key2-value2-amp-…作为body-以post方法发请求"><a href="#将key1-value1-amp-key2-value2-amp-…作为body-以post方法发请求" class="headerlink" title="将key1=value1&amp;key2=value2&amp;…作为body,以post方法发请求"></a>将key1=value1&amp;key2=value2&amp;…作为body,以post方法发请求</h1><p>header中需加入<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="symbol">'Content</span>-<span class="keyword">Type</span>': <span class="symbol">'application</span>/x-www-form-urlencoded'&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="response格式非json"><a href="#response格式非json" class="headerlink" title="response格式非json"></a>response格式非json</h1><p>无法使用<code>.json()</code>,可用<code>.text</code>对response进行处理(使str看起来像json),然后用<code>ast.literal_eval</code>对处理后的response表达式求值(如可将json格式的str转为dict)</p>
-<h1 id="使用shadowsocks代理"><a href="#使用shadowsocks代理" class="headerlink" title="使用shadowsocks代理"></a>使用shadowsocks代理</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socket<span class="selector-class">.socket</span> = socks.socksocket</span><br><span class="line">socks.setdefaultproxy(socks<span class="selector-class">.PROXY_TYPE_SOCKS5</span>, <span class="string">"127.0.0.1"</span>, <span class="number">1080</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="selenium打开chrome时显示顶部通知"><a href="#selenium打开chrome时显示顶部通知" class="headerlink" title="selenium打开chrome时显示顶部通知"></a>selenium打开chrome时显示顶部通知</h1><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chrome_options = webdriver.ChromeOptions()</span><br><span class="line">chrome_options.add_argument('disable-infobars')</span><br></pre></td></tr></table></figure>
-<h1 id="selenium打开chrome时挂ss代理"><a href="#selenium打开chrome时挂ss代理" class="headerlink" title="selenium打开chrome时挂ss代理"></a>selenium打开chrome时挂ss代理</h1><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chrome_options = webdriver.ChromeOptions()</span><br><span class="line">chrome_options.add_argument('--proxy-server=&#123;<span class="number">0</span>&#125;'.<span class="keyword">format</span>(proxy))</span><br></pre></td></tr></table></figure>
-<h1 id="pymssql中返回带列名的sql"><a href="#pymssql中返回带列名的sql" class="headerlink" title="pymssql中返回带列名的sql"></a>pymssql中返回带列名的sql</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conn = pymssql.connect(host, port, user, password, database, <span class="attribute">charset</span>=<span class="string">'utf8'</span>)</span><br><span class="line">cur = conn.cursor(<span class="attribute">as_dict</span>=<span class="literal">True</span>)</span><br><span class="line">cur.execute(sql)</span><br></pre></td></tr></table></figure>
-<h1 id="pymssql中执行sql-增删改"><a href="#pymssql中执行sql-增删改" class="headerlink" title="pymssql中执行sql(增删改)"></a>pymssql中执行sql(增删改)</h1><p>需执行<code>conn.commit()</code></p>
+<h1 id="将dict以keys进行排序"><a href="#将dict以keys进行排序" class="headerlink" title="将dict以keys进行排序"></a>将dict以keys进行排序</h1><pre><code>sorted(dict.items(), key=lambda d: d[0])
+</code></pre><p>如要按value排序,则将<code>d[0]</code>改为<code>d[1]</code></p>
+<h1 id="对ss进行md5"><a href="#对ss进行md5" class="headerlink" title="对ss进行md5"></a>对ss进行md5</h1><pre><code>hashlib.md5(ss.encode()).hexdigest()
+</code></pre><h1 id="将key1-value1-amp-key2-value2-amp-…作为body-以post方法发请求"><a href="#将key1-value1-amp-key2-value2-amp-…作为body-以post方法发请求" class="headerlink" title="将key1=value1&amp;key2=value2&amp;…作为body,以post方法发请求"></a>将key1=value1&amp;key2=value2&amp;…作为body,以post方法发请求</h1><p>header中需加入</p>
+<pre><code>{&#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;}
+</code></pre><h1 id="response格式非json"><a href="#response格式非json" class="headerlink" title="response格式非json"></a>response格式非json</h1><p>无法使用<code>.json()</code>,可用<code>.text</code>对response进行处理(使str看起来像json),然后用<code>ast.literal_eval</code>对处理后的response表达式求值(如可将json格式的str转为dict)</p>
+<h1 id="使用shadowsocks代理"><a href="#使用shadowsocks代理" class="headerlink" title="使用shadowsocks代理"></a>使用shadowsocks代理</h1><pre><code>socket.socket = socks.socksocket
+socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, &quot;127.0.0.1&quot;, 1080)
+</code></pre><h1 id="selenium打开chrome时显示顶部通知"><a href="#selenium打开chrome时显示顶部通知" class="headerlink" title="selenium打开chrome时显示顶部通知"></a>selenium打开chrome时显示顶部通知</h1><pre><code>chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument(&#39;disable-infobars&#39;)
+</code></pre><h1 id="selenium打开chrome时挂ss代理"><a href="#selenium打开chrome时挂ss代理" class="headerlink" title="selenium打开chrome时挂ss代理"></a>selenium打开chrome时挂ss代理</h1><pre><code>chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument(&#39;--proxy-server={0}&#39;.format(proxy))
+</code></pre><h1 id="pymssql中返回带列名的sql"><a href="#pymssql中返回带列名的sql" class="headerlink" title="pymssql中返回带列名的sql"></a>pymssql中返回带列名的sql</h1><pre><code>conn = pymssql.connect(host, port, user, password, database, charset=&#39;utf8&#39;)
+cur = conn.cursor(as_dict=True)
+cur.execute(sql)
+</code></pre><h1 id="pymssql中执行sql-增删改"><a href="#pymssql中执行sql-增删改" class="headerlink" title="pymssql中执行sql(增删改)"></a>pymssql中执行sql(增删改)</h1><p>需执行<code>conn.commit()</code></p>
 <h1 id="sql中字符串常量转为字符串变量"><a href="#sql中字符串常量转为字符串变量" class="headerlink" title="sql中字符串常量转为字符串变量"></a>sql中字符串常量转为字符串变量</h1><p>用<code>repr</code>有奇效</p>
 <h1 id="元素type为submit"><a href="#元素type为submit" class="headerlink" title="元素type为submit"></a>元素type为<code>submit</code></h1><p>可使用<code>.submit()</code></p>
-<h1 id="变量与字符串同名-计算字符串的值"><a href="#变量与字符串同名-计算字符串的值" class="headerlink" title="变量与字符串同名,计算字符串的值"></a>变量与字符串同名,计算字符串的值</h1><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">a</span> = <span class="string">'current_highest_buy_price'</span></span><br><span class="line"><span class="attr">current_highest_buy_price</span> = <span class="number">5</span></span><br><span class="line"><span class="attr">b</span> = eval(a)</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">更新日志:</span><br><span class="line">2018<span class="selector-class">.1</span><span class="selector-class">.2</span>    <span class="selector-tag">First</span> <span class="selector-tag">Version</span></span><br></pre></td></tr></table></figure>
+<h1 id="变量与字符串同名-计算字符串的值"><a href="#变量与字符串同名-计算字符串的值" class="headerlink" title="变量与字符串同名,计算字符串的值"></a>变量与字符串同名,计算字符串的值</h1><pre><code>a = &#39;current_highest_buy_price&#39;
+current_highest_buy_price = 5
+b = eval(a)
+</code></pre><pre><code>更新日志:
+2018.1.2    First Version
+</code></pre>
         
     
 

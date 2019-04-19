@@ -492,8 +492,11 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>基本是给自己看的,写的比较零碎- -<br><a id="more"></a></p>
-<h1 id="硬件要求"><a href="#硬件要求" class="headerlink" title="硬件要求"></a>硬件要求</h1><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Operating <span class="keyword">System</span>:Windows <span class="number">7</span>/<span class="number">8</span> <span class="number">64</span>-bit</span><br><span class="line">Processor:Quad-core Intel <span class="keyword">or</span> AMD, <span class="number">2.5</span> GHz <span class="keyword">or</span> faster </span><br><span class="line">Memory:<span class="number">8</span> GB RAM</span><br><span class="line">Video <span class="keyword">Card</span>/DirectX Version:DirectX <span class="number">11</span> compatible graphics <span class="keyword">card</span></span><br></pre></td></tr></table></figure>
-<p>目前用的妹子的笔记本改装的光驱位硬盘+SSD,处理器i5-4200U的略渣,内存4G 1600+4G 1333(我这混搭也是服了),GT740M的显卡,2G显存还阔以.一开始没想到nvidia面板默认是集显,打开引擎+vs卡成狗,后面把默认改成独显了,瞬间就轻松了很多,瞬间吐槽下vs为什么不支持GPU加速.总的来说CPU拖后腿了,官方要求是4核…</p>
+<h1 id="硬件要求"><a href="#硬件要求" class="headerlink" title="硬件要求"></a>硬件要求</h1><pre><code>Operating System:Windows 7/8 64-bit
+Processor:Quad-core Intel or AMD, 2.5 GHz or faster 
+Memory:8 GB RAM
+Video Card/DirectX Version:DirectX 11 compatible graphics card
+</code></pre><p>目前用的妹子的笔记本改装的光驱位硬盘+SSD,处理器i5-4200U的略渣,内存4G 1600+4G 1333(我这混搭也是服了),GT740M的显卡,2G显存还阔以.一开始没想到nvidia面板默认是集显,打开引擎+vs卡成狗,后面把默认改成独显了,瞬间就轻松了很多,瞬间吐槽下vs为什么不支持GPU加速.总的来说CPU拖后腿了,官方要求是4核…</p>
 <h1 id="创建C-类"><a href="#创建C-类" class="headerlink" title="创建C++类"></a>创建C++类</h1><p>Unreal Editor</p>
 <ol>
 <li>New Project-C++中<code>Basic Code</code>表示空项目,勾选<code>With Starter Content</code>表示带上新手项目<img src="/2015/11/05/unreal-engine-4-note-1/UE-BC.png"></li>
@@ -505,11 +508,20 @@
 </li>
 </ol>
 <h1 id="Particle-System-粒子系统"><a href="#Particle-System-粒子系统" class="headerlink" title="Particle System 粒子系统"></a>Particle System 粒子系统</h1><p>很帅,在<code>Content Browser</code>里选中一个,然后<code>Add Component</code>里选择就可以给当前Actor加上粒子系统的特效了<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-Particle.png"></p>
-<h1 id="Uproperty-UE自己的变量-方法"><a href="#Uproperty-UE自己的变量-方法" class="headerlink" title="Uproperty UE自己的变量/方法"></a>Uproperty UE自己的变量/方法</h1><p>只要在变量声明/定义的上一行加上<code>UPROPERTY()</code>,如下:<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPROPERTY()</span><br><span class="line">int32 CountdownTime<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>但是这个变量在Unreal Editor界面还是不可编辑状态,就得改成这样:<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPROPERTY(<span class="name">EditAnywhere</span>)</span><br><span class="line">int32 CountdownTime<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>当然也可以加上注释,这样在Unreal Editor可以看到这个变量的描述<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//How long, in seconds, the countdown will run</span></span><br><span class="line">UPROPERTY(EditAnywhere)</span><br><span class="line"><span class="keyword">int32</span> CountdownTime;</span><br></pre></td></tr></table></figure></p>
-<p>也可以对方法UE化<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION()</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CountdownHasFinished</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
-<h1 id="Blueprint蓝图"><a href="#Blueprint蓝图" class="headerlink" title="Blueprint蓝图"></a>Blueprint蓝图</h1><p>点击Actor属性中的<code>Blueprint</code>就可以创建它的蓝图,相当于给它设定动作之类的<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-EG.png"><br>在空白处右键就可以画流程图了</p>
+<h1 id="Uproperty-UE自己的变量-方法"><a href="#Uproperty-UE自己的变量-方法" class="headerlink" title="Uproperty UE自己的变量/方法"></a>Uproperty UE自己的变量/方法</h1><p>只要在变量声明/定义的上一行加上<code>UPROPERTY()</code>,如下:</p>
+<pre><code>UPROPERTY()
+int32 CountdownTime;
+</code></pre><p>但是这个变量在Unreal Editor界面还是不可编辑状态,就得改成这样:</p>
+<pre><code>UPROPERTY(EditAnywhere)
+int32 CountdownTime;
+</code></pre><p>当然也可以加上注释,这样在Unreal Editor可以看到这个变量的描述</p>
+<pre><code>//How long, in seconds, the countdown will run
+UPROPERTY(EditAnywhere)
+int32 CountdownTime;
+</code></pre><p>也可以对方法UE化</p>
+<pre><code>UFUNCTION()
+void CountdownHasFinished();
+</code></pre><h1 id="Blueprint蓝图"><a href="#Blueprint蓝图" class="headerlink" title="Blueprint蓝图"></a>Blueprint蓝图</h1><p>点击Actor属性中的<code>Blueprint</code>就可以创建它的蓝图,相当于给它设定动作之类的<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-EG.png"><br>在空白处右键就可以画流程图了</p>
 
         
     
