@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>稻香村</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://mpc2008cn.github.io/"/>
+  <updated>2019-04-19T03:04:56.394Z</updated>
+  <id>http://mpc2008cn.github.io/</id>
+  
+  <author>
+    <name>稻草人</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python tricks</title>
+    <link href="http://mpc2008cn.github.io/2018/01/02/python-tricks/"/>
+    <id>http://mpc2008cn.github.io/2018/01/02/python-tricks/</id>
+    <published>2018-01-02T12:30:00.000Z</published>
+    <updated>2019-04-19T03:04:56.394Z</updated>
+    
+    <content type="html"><![CDATA[<p>列出一些工作中遇到的python小技巧(python3)~<br><a id="more"></a></p>
+<h1 id="多行语句"><a href="#多行语句" class="headerlink" title="多行语句"></a>多行语句</h1><p>使用括号即可</p>
+<h1 id="将dict以keys进行排序"><a href="#将dict以keys进行排序" class="headerlink" title="将dict以keys进行排序"></a>将dict以keys进行排序</h1><pre><code>sorted(dict.items(), key=lambda d: d[0])
+</code></pre><p>如要按value排序,则将<code>d[0]</code>改为<code>d[1]</code></p>
+<h1 id="对ss进行md5"><a href="#对ss进行md5" class="headerlink" title="对ss进行md5"></a>对ss进行md5</h1><pre><code>hashlib.md5(ss.encode()).hexdigest()
+</code></pre><h1 id="将key1-value1-amp-key2-value2-amp-…作为body-以post方法发请求"><a href="#将key1-value1-amp-key2-value2-amp-…作为body-以post方法发请求" class="headerlink" title="将key1=value1&amp;key2=value2&amp;…作为body,以post方法发请求"></a>将key1=value1&amp;key2=value2&amp;…作为body,以post方法发请求</h1><p>header中需加入</p>
+<pre><code>{&#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;}
+</code></pre><h1 id="response格式非json"><a href="#response格式非json" class="headerlink" title="response格式非json"></a>response格式非json</h1><p>无法使用<code>.json()</code>,可用<code>.text</code>对response进行处理(使str看起来像json),然后用<code>ast.literal_eval</code>对处理后的response表达式求值(如可将json格式的str转为dict)</p>
+<h1 id="使用shadowsocks代理"><a href="#使用shadowsocks代理" class="headerlink" title="使用shadowsocks代理"></a>使用shadowsocks代理</h1><pre><code>socket.socket = socks.socksocket
+socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, &quot;127.0.0.1&quot;, 1080)
+</code></pre><h1 id="selenium打开chrome时显示顶部通知"><a href="#selenium打开chrome时显示顶部通知" class="headerlink" title="selenium打开chrome时显示顶部通知"></a>selenium打开chrome时显示顶部通知</h1><pre><code>chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument(&#39;disable-infobars&#39;)
+</code></pre><h1 id="selenium打开chrome时挂ss代理"><a href="#selenium打开chrome时挂ss代理" class="headerlink" title="selenium打开chrome时挂ss代理"></a>selenium打开chrome时挂ss代理</h1><pre><code>chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument(&#39;--proxy-server={0}&#39;.format(proxy))
+</code></pre><h1 id="pymssql中返回带列名的sql"><a href="#pymssql中返回带列名的sql" class="headerlink" title="pymssql中返回带列名的sql"></a>pymssql中返回带列名的sql</h1><pre><code>conn = pymssql.connect(host, port, user, password, database, charset=&#39;utf8&#39;)
+cur = conn.cursor(as_dict=True)
+cur.execute(sql)
+</code></pre><h1 id="pymssql中执行sql-增删改"><a href="#pymssql中执行sql-增删改" class="headerlink" title="pymssql中执行sql(增删改)"></a>pymssql中执行sql(增删改)</h1><p>需执行<code>conn.commit()</code></p>
+<h1 id="sql中字符串常量转为字符串变量"><a href="#sql中字符串常量转为字符串变量" class="headerlink" title="sql中字符串常量转为字符串变量"></a>sql中字符串常量转为字符串变量</h1><p>用<code>repr</code>有奇效</p>
+<h1 id="元素type为submit"><a href="#元素type为submit" class="headerlink" title="元素type为submit"></a>元素type为<code>submit</code></h1><p>可使用<code>.submit()</code></p>
+<h1 id="变量与字符串同名-计算字符串的值"><a href="#变量与字符串同名-计算字符串的值" class="headerlink" title="变量与字符串同名,计算字符串的值"></a>变量与字符串同名,计算字符串的值</h1><pre><code>a = &#39;current_highest_buy_price&#39;
+current_highest_buy_price = 5
+b = eval(a)
+</code></pre><pre><code>更新日志:
+2018.1.2    First Version
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;列出一些工作中遇到的python小技巧(python3)~&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://mpc2008cn.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>yii framework(易框架)搭建</title>
+    <link href="http://mpc2008cn.github.io/2017/02/15/yii-framework/"/>
+    <id>http://mpc2008cn.github.io/2017/02/15/yii-framework/</id>
+    <published>2017-02-15T02:51:17.000Z</published>
+    <updated>2019-04-19T03:04:56.654Z</updated>
+    
+    <content type="html"><![CDATA[<p>近期公司有项目需要易框架来写php,遂先简单写个该框架的搭建教程.<br><a id="more"></a></p>
+<h1 id="安装xampp"><a href="#安装xampp" class="headerlink" title="安装xampp"></a>安装xampp</h1><p><a href="https://www.apachefriends.org/download.html" target="_blank" rel="external">https://www.apachefriends.org/download.html</a><br>下载对应php版本的xampp.<br>win10的C盘权限管控略严,所以建议安装在其它盘的根目录(如D:\xampp),安装过程略过.</p>
+<h1 id="安装易框架"><a href="#安装易框架" class="headerlink" title="安装易框架"></a>安装易框架</h1><p><a href="http://www.yiiframework.com/download/" target="_blank" rel="external">http://www.yiiframework.com/download/</a><br>Ctrl+F搜索<code>Install from an Archive File</code><br>点击第二个<code>Yii 2 with advanced application template</code>进行下载<br>下载完成后以管理员权限启动winrar对下好的tgz解压,解压到<code>D:\xampp\htdocs</code>下<br>目录结构见下图<br><img src="/2017/02/15/yii-framework/directory.jpg" alt="directory.jpg" title=""></p>
+<h2 id="将php加入环境变量"><a href="#将php加入环境变量" class="headerlink" title="将php加入环境变量"></a>将php加入环境变量</h2><pre><code>D:\xampp\php\
+</code></pre><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>返回<code>D:\xampp\</code>目录,按住shift鼠标定位到htdocs右键,再按w,将出现如下窗口<br><img src="/2017/02/15/yii-framework/cmd.jpg" alt="cmd.jpg" title=""><br>输入<code>init.bat</code>,并按下图输入指令<br><img src="/2017/02/15/yii-framework/init.jpg" alt="init.jpg" title=""></p>
+<h2 id="修改apache配置文件"><a href="#修改apache配置文件" class="headerlink" title="修改apache配置文件"></a>修改apache配置文件</h2><p>打开<code>D:\xampp\apache\conf\extra\httpd-vhosts.conf</code>,末尾处添加如下一段并保存</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+       ServerName frontend.dev
+       DocumentRoot &quot;D:/xampp/htdocs/frontend/web/&quot;
+
+       &lt;Directory &quot;D:/xampp/htdocs/frontend/web/&quot;&gt;
+           # use mod_rewrite for pretty URL support
+           RewriteEngine on
+           # If a directory or a file exists, use the request directly
+           RewriteCond %{REQUEST_FILENAME} !-f
+           RewriteCond %{REQUEST_FILENAME} !-d
+           # Otherwise forward the request to index.php
+           RewriteRule . index.php
+
+           # use index.php as index file
+           DirectoryIndex index.php
+
+           # ...other settings...
+           # Apache 2.4
+           Require all granted
+
+           ## Apache 2.2
+           # Order allow,deny
+           # Allow from all
+       &lt;/Directory&gt;
+   &lt;/VirtualHost&gt;
+
+   &lt;VirtualHost *:80&gt;
+       ServerName backend.dev
+       DocumentRoot &quot;D:/xampp/htdocs/backend/web/&quot;
+
+       &lt;Directory &quot;D:/xampp/htdocs/backend/web/&quot;&gt;
+           # use mod_rewrite for pretty URL support
+           RewriteEngine on
+           # If a directory or a file exists, use the request directly
+           RewriteCond %{REQUEST_FILENAME} !-f
+           RewriteCond %{REQUEST_FILENAME} !-d
+           # Otherwise forward the request to index.php
+           RewriteRule . index.php
+
+           # use index.php as index file
+           DirectoryIndex index.php
+
+           # ...other settings...
+           # Apache 2.4
+           Require all granted
+
+           ## Apache 2.2
+           # Order allow,deny
+           # Allow from all
+       &lt;/Directory&gt;
+   &lt;/VirtualHost&gt;
+</code></pre><h2 id="添加hosts"><a href="#添加hosts" class="headerlink" title="添加hosts"></a>添加hosts</h2><p>打开<code>C:\Windows\System32\drivers\etc</code>,将下列两行添加至末尾并保存</p>
+<pre><code>127.0.0.1   frontend.dev
+127.0.0.1   backend.dev
+</code></pre><h1 id="启动apache"><a href="#启动apache" class="headerlink" title="启动apache"></a>启动apache</h1><p>打开<code>xampp control panel</code>,点击<code>Apache</code>后的<code>Start</code>,如下图所示,即表示启动成功<br><img src="/2017/02/15/yii-framework/apache.jpg" alt="apache.jpg" title=""><br>如出现错误请根据提示进行操作,再重启apache(如skype会占用80,443端口,在skype中设置即可)</p>
+<h1 id="验证yii-framework是否安装成功"><a href="#验证yii-framework是否安装成功" class="headerlink" title="验证yii framework是否安装成功"></a>验证yii framework是否安装成功</h1><p><a href="http://frontend.dev/" target="_blank" rel="external">http://frontend.dev/</a><br><img src="/2017/02/15/yii-framework/frontend.jpg" alt="frontend.jpg" title=""></p>
+<p><a href="http://backend.dev" target="_blank" rel="external">http://backend.dev</a><br><img src="/2017/02/15/yii-framework/backend.jpg" alt="backend.jpg" title=""></p>
+<p>至此,易框架搭建成功!!!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近期公司有项目需要易框架来写php,遂先简单写个该框架的搭建教程.&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://mpc2008cn.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="php" scheme="http://mpc2008cn.github.io/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu touch折腾血泪史</title>
+    <link href="http://mpc2008cn.github.io/2016/03/23/ubuntu-touch/"/>
+    <id>http://mpc2008cn.github.io/2016/03/23/ubuntu-touch/</id>
+    <published>2016-03-23T01:45:19.000Z</published>
+    <updated>2019-04-19T03:04:56.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>手中的nexus 5 sim模块坏了,又入了台n5,旧的那台就刷了ubuntu touch.安装过程太过艰难,容我细细道来.<br><a id="more"></a></p>
+<h1 id="vmware安装ubuntu-desktop"><a href="#vmware安装ubuntu-desktop" class="headerlink" title="vmware安装ubuntu desktop"></a>vmware安装ubuntu desktop</h1><ol>
+<li>下载<a href="https://www.vmware.com/products/player/playerpro-evaluation.html" target="_blank" rel="external">vmware player</a></li>
+<li>下载<a href="https://www.vmware.com/products/player/playerpro-evaluation.html" target="_blank" rel="external">ubuntu desktop</a></li>
+<li>安装过程不赘述</li>
+</ol>
+<h1 id="主机shadowsocks共享给ubuntu"><a href="#主机shadowsocks共享给ubuntu" class="headerlink" title="主机shadowsocks共享给ubuntu"></a>主机shadowsocks共享给ubuntu</h1><p>vmware的连接模式选择NAT,ubuntu系统代理里面选择手工,IP填为主机的IP地址,端口为ss的端口(1080)就可以了.我被很多教程误导改成桥接纠结了很久:(</p>
+<h1 id="安装ubuntu-touch"><a href="#安装ubuntu-touch" class="headerlink" title="安装ubuntu touch"></a>安装ubuntu touch</h1><p><a href="https://wiki.ubuntu.com/Touch/Devices" target="_blank" rel="external">支持的设备列表</a><br>N5的通道不是很稳定,后面去查了G+社区改成Oneplus One对应的通道了.<br>官方教程链接:<a href="https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/" target="_blank" rel="external">https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/</a><br>官方隐藏了2个说明,安卓设备要root+开启开发者模式.<br>到下载镜像时替换为下面的路径:</p>
+<pre><code>sudo ubuntu-device-flash --server=http://system-image.ubports.com touch --channel=ubuntu-touch/stable --device=hammerhead --bootstrap
+</code></pre><p>之后就是等待下载安装完成了.我的ss还算给力,平均1MBps的下载速度,一刻钟就下好了:)<br>(实际前一天的下载速度是10KBps,当时都死心了)</p>
+<h1 id="ubuntu-touch系统相关"><a href="#ubuntu-touch系统相关" class="headerlink" title="ubuntu touch系统相关"></a>ubuntu touch系统相关</h1><ol>
+<li>申请ubuntu账号,不然无法更新系统镜像或app</li>
+<li>开启开发者模式,在<code>About this phone</code>里</li>
+<li>去商店搜索Terminal并安装</li>
+<li>终端里输入如下开启管理员模式<pre><code>sudo su
+</code></pre></li>
+<li>然并卵,系统默认是不开启写权限的,输入如下命令并加入自启动<pre><code>sudo mount -o remount,rw /
+nano /etc/rc.local
+</code></pre>将第一行加入底部<code>exit 0</code>的前面,退出保存.</li>
+</ol>
+<h1 id="使Terminal翻墙"><a href="#使Terminal翻墙" class="headerlink" title="使Terminal翻墙"></a>使Terminal翻墙</h1><ol>
+<li>安装shadowsocks<pre><code>apt-get install python-pip
+pip install shadowsocks
+</code></pre></li>
+<li>之后添加ss的配置文件并保存<br>```<br>/etc/config.json</li>
+</ol>
+<p>{<br>    “server”:”remote-shadowsocks-server-ip-addr”,<br>    “server_port”:”remote-ss-port”,<br>    “local_address”:”127.0.0.1”,<br>    “local_port”:1080,<br>    “password”:”your-passwd”,<br>    “timeout”:300,<br>    “method”:”aes-256-cfb”<br>}</p>
+<pre><code>3. 启动ss并添加自启动
+</code></pre><p>nohup sslocal -c /etc/config.json &amp;<br>nano /etc/rc.local</p>
+<p>sudo sslocal -c /etc/config.json</p>
+<pre><code>4. 安装privoxy
+</code></pre><p>apt-get install privoxy<br>nano /etc/privoxy/config</p>
+<p>在文件的末尾添加一行,注意最后的点号<br>forward-socks5 / 127.0.0.1:1080 .</p>
+<pre><code>5. 重启privoxy
+</code></pre><p>service privoxy restart</p>
+<pre><code>6. 修改系统配置文件
+</code></pre><p>nano /etc/profile<br>export http_proxy=”127.0.0.1:8118”<br>export https_proxy=”127.0.0.1:8118”<br>source /etc/profile</p>
+<p>nano ~/.bashrc<br>export http_proxy=”127.0.0.1:8118”<br>export https_proxy=”127.0.0.1:8118”<br>source ~/.bashrc</p>
+<pre><code>7. 在Terminal里wget一下谷歌
+</code></pre><p>wget <a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
+<pre><code>如果index文件被下载了说明翻成功了:)
+万一没成功看下是不是系统时间不对,目前的一个bug是开机自动变成1970年.
+目前方法是手动同步网络时间
+</code></pre><p>sudo ntpdate cn.pool.ntp.org<br>```</p>
+<h1 id="ubuntu-store"><a href="#ubuntu-store" class="headerlink" title="ubuntu store"></a>ubuntu store</h1><p><a href="https://uappexplorer.com/" target="_blank" rel="external">https://uappexplorer.com/</a></p>
+<h1 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h1><p>有人知道如何全局翻墙么,当然带pac更好,商店打开巨慢- -!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;手中的nexus 5 sim模块坏了,又入了台n5,旧的那台就刷了ubuntu touch.安装过程太过艰难,容我细细道来.&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://mpc2008cn.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="ubuntu" scheme="http://mpc2008cn.github.io/tags/ubuntu/"/>
+    
+      <category term="ubuntu touch" scheme="http://mpc2008cn.github.io/tags/ubuntu-touch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>玩转chrome</title>
+    <link href="http://mpc2008cn.github.io/2016/02/29/have-fun-with-chrome/"/>
+    <id>http://mpc2008cn.github.io/2016/02/29/have-fun-with-chrome/</id>
+    <published>2016-02-29T02:40:55.000Z</published>
+    <updated>2019-04-19T03:04:56.394Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为一个谷歌粉,最喜欢它的产品是chrome,下面让我来带你玩转chrome吧:)<br><a id="more"></a></p>
+<h1 id="PC版本"><a href="#PC版本" class="headerlink" title="PC版本"></a>PC版本</h1><p>主要说下win x64位的版本,共4个版本,稳定性递减,更新速度递增,金丝雀版可与其它版本之一共存.<br><a href="https://www.google.com/intl/zh-CN/chrome/browser/desktop/index.html?platform=win64&amp;standalone=1" target="_blank" rel="external">Stable Channel稳定版</a><br><a href="https://www.google.com/intl/zh-CN/chrome/browser/beta.html?platform=win64&amp;standalone=1" target="_blank" rel="external">Beta Channel测试版</a><br><a href="https://www.google.com/intl/zh-CN/chrome/browser/desktop/index.html?extra=devchannel&amp;platform=win64&amp;standalone=1" target="_blank" rel="external">Dev Channel开发版</a><br><a href="https://www.google.com/intl/zh-CN/chrome/browser/canary.html?platform=win64&amp;standalone=1" target="_blank" rel="external">Canary Build金丝雀版</a><br>点击链接即可下载离线版安装包<br>在地址栏输入<code>about://help</code>可在线更新,记得系统服务里2个”Google Update”未禁用</p>
+<h1 id="安卓版本"><a href="#安卓版本" class="headerlink" title="安卓版本"></a>安卓版本</h1><p><a href="http://www.apkmirror.com/apk/google-inc/chrome/" target="_blank" rel="external">Stable</a><br><a href="http://www.apkmirror.com/apk/google-inc/chrome-beta/" target="_blank" rel="external">Beta</a><br><a href="http://www.apkmirror.com/apk/google-inc/chrome-dev/" target="_blank" rel="external">Dev</a></p>
+<h1 id="PC版实验室"><a href="#PC版实验室" class="headerlink" title="PC版实验室"></a>PC版实验室</h1><p>地址栏输入about://flags,按Ctrl+F搜索</p>
+<p>#disable-direct-write 适合装了mactype的用户</p>
+<p>#enable-fast-unload 启用快速关闭标签页/窗口</p>
+<p>#top-chrome-md 设置浏览器顶部界面中的 Material Design 元素,设为<code>material</code><br><del>#enable-pdf-material-ui 为 PDF 启用 Material 界面</del><br><del>#enable-md-downloads 启用 Material Design 下载内容页面</del></p>
+<p>#num-raster-threads 光栅线程数设为1,适合装了mactype的用户</p>
+<p>#mark-non-secure-as 设为<code>将不安全的来源标为不安全</code>,访问非https的url就会出现小红锁</p>
+<p>#enable-download-resumption 断点续传</p>
+<p>#smooth-scrolling 平滑滚动</p>
+<p>#enable-stale-while-revalidate 此操作可让服务器指定部分资源可在后台进行重新验证以改善延迟现象(for 49+)</p>
+<p>#enable-use-zoom-for-dsf 启用后，Blink 将使用其缩放机制来缩放内容（依照设备缩放比例）(for 49+)</p>
+<p>#enable-md-history 启用 Material Design 历史记录(50+版本才正常)</p>
+<h1 id="安卓版实验室"><a href="#安卓版实验室" class="headerlink" title="安卓版实验室"></a>安卓版实验室</h1><p>地址栏输入about://flags,页内查找</p>
+<p>#enable-fast-unload 启用快速关闭标签页/窗口</p>
+<p>#enable-tcp-fast-open 启用TCP Fast Open,访问开启TFO的站点比较快</p>
+<p>#enable-stale-while-revalidate 此操作可让服务器指定部分资源可在后台进行重新验证以改善延迟现象(for 49+)<br><code>belows are for 50+</code></p>
+<p>#smooth-scrolling 平滑滚动</p>
+<p>#enable-download-resumption 断点续传</p>
+<p>#enable-system-download-manager 允许系统下载管理器处理下载内容</p>
+<p>#enable-non-validating-reload-on-refresh-content 下拉刷新不必验证</p>
+<p>#enable-accessibility-tab-switcher 无障碍标签切换器</p>
+<p>#reader-mode-heuristics 阅读模式,设成”Appears to be an article”</p>
+<p>#enable-material-design-user-manager 启动新的 Material Design 用户管理器</p>
+<p>#enable-google-branded-context-menu 在上下文菜单中显示 Google 品牌标识</p>
+<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><p><a href="https://chrome.google.com/webstore/detail/adblock/gighmmpiobklfepjocnamgkkbiglidom?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">AdBlock</a><br>屏蔽页面广告,窃以为好于ADP</p>
+<p><a href="https://chrome.google.com/webstore/detail/adblock-for-youtube/cmedhionkhpnakcndndgjdbohmhepckk?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Adblock for Youtube</a><br>屏蔽youtube的广告</p>
+<p><a href="https://chrome.google.com/webstore/detail/copy-all-urls/djdmadneanknadilpjiknlnanaolmbfk?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Copy All Urls</a><br>复制当前窗口的所有tabs到剪贴板,或者一次打开从剪贴板复制过来的urls</p>
+<p><a href="https://chrome.google.com/webstore/detail/feedly/hipbfijinpcgfogaopmgehiegacbhmob?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">feedly</a><br>RSS订阅神器</p>
+<p><a href="https://chrome.google.com/webstore/detail/feedly-notifier/egikgfbhipinieabdmcpigejkaomgjgb?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Feedly Notifier</a><br>feedly通知扩展</p>
+<p><a href="https://chrome.google.com/webstore/detail/google-keep-chrome-extens/lpcaedmchfhocbbapmcbpinfpgnhiddi?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Google Keep Chrome Extension</a><br>Save to Google Keep in a single click!</p>
+<p><a href="https://chrome.google.com/webstore/detail/linkclump/lfpjkncokllnfokkgpkobnkbkmelfefj?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Linkclump</a><br>批量打开当前页面右键选中的链接</p>
+<p><a href="https://chrome.google.com/webstore/detail/page-monitor/ogeebjpdeabhncjpfhgdibjajcajepgg?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Page Monitor</a><br>监控页面变化的神器</p>
+<p><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Tampermonkey</a><br>油猴,配合油猴脚本(js)使用</p>
+<p><a href="https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Wappalyzer</a><br>显示当前站点所用的技术</p>
+<p><a href="https://chrome.google.com/webstore/detail/yet-another-flags/dmchcmgddbhmbkakammmklpoonoiiomk?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Yet another flags</a><br>显示当前站点的位置</p>
+<p><a href="https://chrome.google.com/webstore/detail/direct-access/mahiomllahdicfmkdokjajeifbghdicb?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">直接访问</a><br>去掉谷歌搜索结果的重定向</p>
+<p><a href="https://chrome.google.com/webstore/detail/%E7%9C%BC%E4%B8%8D%E8%A7%81%E5%BF%83%E4%B8%8D%E7%83%A6%EF%BC%88%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%EF%BC%89/aognaapdfnnldnjglanfbbklaakbpejm?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">眼不见心不烦</a><br>新浪微博非官方功能增强插件，可以无限制地屏蔽关键词、用户、来源，去除页面广告和推广微博，反刷屏</p>
+<p><a href="https://chrome.google.com/webstore/detail/checker-plus-for-gmail/oeopbcgkkoapgobdbedcemjljbihmemj?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Checker Plus for Gmail</a><br>无需打开 Gmail 或 Inbox，即可收到桌面邮件通知，方便地查看、收听或删除邮件，并且支持多账户</p>
+<p><a href="https://chrome.google.com/webstore/detail/local-cdn/dgfedofdiaapcideaajjaklpmdpcdapg?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Local CDN</a><br>缓存一些知名的cdn,下次访问该cdn上文件时可不重载</p>
+<p><a href="https://chrome.google.com/webstore/detail/nano-defender/ggolfgbegefeeoocgjbmkembbncoadlb?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Nano Defender</a><br>An anti-adblock defuser for Nano Adblocker and uBlock Origin</p>
+<p><a href="https://chrome.google.com/webstore/detail/quick-qr-code-generator/afpbjjgbdimpioenaedcjgkaigggcdpp?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">Quick QR Code Generator</a><br>A super handy QR Code Generator / Creator for you.</p>
+<p><a href="https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">uBlock Origin</a><br>一款高效的网络请求过滤工具，占用极低的内存和 CPU。已卸载adb并使用ublock</p>
+<h1 id="油猴脚本"><a href="#油猴脚本" class="headerlink" title="油猴脚本"></a>油猴脚本</h1><p><a href="https://greasyfork.org/zh-CN/scripts/986-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%8A%A9%E6%89%8B" target="_blank" rel="external">百度网盘助手</a><br>显示百度网盘文件的直接链接,突破大文件需要使用电脑管家的限制</p>
+<p><a href="http://userscripts-mirror.org/scripts/show/159911" target="_blank" rel="external">网盘工具箱</a><br>识别华为网盘，旋风离线分享，百度云网盘，快传工具，360云盘等的链接</p>
+<p><a href="https://greasyfork.org/zh-CN/scripts/17083-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E5%8A%A9%E6%89%8B-%E6%94%B9" target="_blank" rel="external">百度网盘助手•改</a><br>显示百度网盘文件的直接链接,突破大文件需要使用电脑管家的限制</p>
+<p><a href="https://greasyfork.org/zh-CN/scripts/2600-%E8%B7%B3%E8%BF%87%E7%BD%91%E7%AB%99%E7%AD%89%E5%BE%85-%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8F%8A%E7%99%BB%E5%BD%95" target="_blank" rel="external">Bypass Wait, Code &amp; Login on Websites</a><br>移除各类网站验证码、登录、倒计时及更多!</p>
+<p><a href="https://greasyfork.org/en/scripts/735-anti-adblock-killer-reek" target="_blank" rel="external">Anti-Adblock Killer | Reek</a><br>Helps you keep your Ad-Blocker active, when you visit a website and it asks you to disable.</p>
+<h1 id="F12查看当前页面的网络状况"><a href="#F12查看当前页面的网络状况" class="headerlink" title="F12查看当前页面的网络状况"></a>F12查看当前页面的网络状况</h1><p>按F12弹出开发者面板,切到network标签,Timeline选为”Timeline-Total Duration”,排在前面的就是加载比较慢的url</p>
+<h1 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h1><ol>
+<li>48.0.2564.109m版已默认启用“主动节省内存” <a href="http://www.der-wer.com/thread-20805-1-1.html" target="_blank" rel="external">http://www.der-wer.com/thread-20805-1-1.html</a><br>官方说明:<a href="https://developers.google.com/web/updates/2015/09/tab-discarding?hl=en" target="_blank" rel="external">https://developers.google.com/web/updates/2015/09/tab-discarding?hl=en</a></li>
+<li>安卓版48.0.2564.95已开启了彩色地址栏,本博客也加了:)<br>官方说明:<a href="https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android?hl=en" target="_blank" rel="external">https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android?hl=en</a></li>
+</ol>
+<h1 id="谷粉部落"><a href="#谷粉部落" class="headerlink" title="谷粉部落"></a>谷粉部落</h1><p><a href="http://www.guao.hk/guao" target="_blank" rel="external">http://www.guao.hk/guao</a><br><a href="http://googlesystem.blogspot.jp/" target="_blank" rel="external">http://googlesystem.blogspot.jp/</a><br><a href="http://chrome.blogspot.jp/" target="_blank" rel="external">http://chrome.blogspot.jp/</a><br><a href="https://developers.google.com/web/updates/?hl=en" target="_blank" rel="external">https://developers.google.com/web/updates/?hl=en</a></p>
+<p>还有啥谷歌或者chrome相关的可以贴在评论里,thanks!</p>
+<pre><code>更新日志:
+2017.12.9   添加扩展Checker Plus for Gmail,Local CDN,Nano Defender,Quick QR Code Generator,uBlock Origin
+2016.4.14   添加反adblock油猴脚本
+2016.3.17   Android更新flags for 50+
+2016.3.11   flags启用#enable-md-history
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一个谷歌粉,最喜欢它的产品是chrome,下面让我来带你玩转chrome吧:)&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://mpc2008cn.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="谷歌" scheme="http://mpc2008cn.github.io/tags/%E8%B0%B7%E6%AD%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unreal Engine 4 虚幻引擎学习笔记(四)</title>
+    <link href="http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/"/>
+    <id>http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/</id>
+    <published>2015-11-19T08:02:41.000Z</published>
+    <updated>2019-04-19T03:04:56.486Z</updated>
+    
+    <content type="html"><![CDATA[<p>玩转C++之前还是先熟悉下blueprint吧~来做个小型FPS(First-person shooter),照着官网教程写吧,顺便记忆一下:)<br><a id="more"></a></p>
+<p>刚升了win10 th2,内存管理比之前给力啊,不过GT740M的驱动没啥用,又从NVIDIA下了最新的驱动,估计进桌面慢也是这个原因~UE4又可以快速打开了:)</p>
+<h1 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h1><ol>
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS0.png" alt="FPS0.png" title="">
+</li>
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS1.png" alt="重命名为HUD" title="重命名为HUD">
+</li>
+<li><p>直接复制HUD,再建2个Widget Blueprint,一个叫MainMenu,一个叫PauseMenu.</p>
+</li>
+<li><p>Content Browser里打开First Person Character<br>路径在<code>Content&gt;FirstPersonBP&gt;Blueprints</code></p>
+</li>
+<li><p>在My Blueprint窗口新建变量</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS2.png" alt="FPS2.png" title="">
+<p>Health,Float,default value:1.0<br><code>默认值要编译后才能修改</code><br>Energy,Float,default value:1.0<br>Ammo,Integer,default value:25<br>MaxAmmo,Integer,default value:25</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS3.png" alt="FPS3.png" title="">
+</li>
+<li><p>在Event Graph里新建Event Begin Play,结点拖出来后选择<code>Create Widget</code>,并绑定类HUD</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS4.png" alt="FPS4.png" title="">
+</li>
+<li><p>Create HUD Widget的返回值拖出来选择<code>Promote to Variable</code>并重命名为<code>HUD Reference</code>(这个重命名可以直接在右侧名称里编辑HUD_Reference)</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS5.png" alt="FPS5.png" title="">
+<p>图的含义是:游戏开始时创建HUD Widget Blueprint并将它保存为一个变量,方便之后的操作</p>
+</li>
+<li><p>拖出set的结点选择<code>Add to Viewport</code></p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS6.png" alt="FPS6.png" title="">
+<p>这一步就是将HUD显示给玩家</p>
+</li>
+<li><p>设置Energy逻辑(每跳一次递减0.25)<br>直接将Energy从My Blueprint拖到Event Graph,一个get,一个set,中间用<code>Float - Float</code>连接,如下:</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS7.png" alt="FPS7.png" title="">
+</li>
+<li><p>设置Health逻辑(每按一次F键递减0.25)</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS8.png" alt="FPS8.png" title="">
+</li>
+<li><p>设置Ammo逻辑(子弹&gt;0时才能开火)<br>找到<code>Spawn Projectile</code>开头作如下修改:</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS9.png" alt="FPS9.png" title="">
+</li>
+</ol>
+<p>在<code>Spawn Projectile</code>尾部作如下修改:<br><img src="/2015/11/19/unreal-engine-4-note-4/FPS10.png" alt="FPS10.png" title=""><br>表示每发射一次子弹Ammo减1</p>
+<p><code>编译,保存,关闭</code></p>
+<h1 id="显示Health-Energy-Ammo"><a href="#显示Health-Energy-Ammo" class="headerlink" title="显示Health, Energy,Ammo"></a>显示Health, Energy,Ammo</h1><p>这边调的挺纠结的,play和make确实是两码事:(</p>
+<ol>
+<li><p>打开HUD,添加一个<code>Horizontal Box</code>,在其下方再添加2个<code>Vertical Box</code>,再在<code>Vertical Box</code>下方各添加2个Text,2个Progress Bar,如下图</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS11.png" alt="FPS11.png" title="">
+</li>
+<li><p>选中<code>Horizontal Box</code>将其放到左上角,并拖动来改变它的大小</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS12.png" alt="FPS12.png" title="">
+</li>
+<li><p>选中2个Progress Bar,在Size里选择Fill,然后上层的Vertical Box,也选择Fill</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS13.png" alt="FPS13.png" title="">
+</li>
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS14.png" alt="改名" title="改名">
+</li>
+<li><p>设置Health的progress bar为绿色,Energy的progress bar为橙色</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS15.png" alt="FPS15.png" title="">
+</li>
+<li><p>为Ammo条设计UI<br><img src="/2015/11/19/unreal-engine-4-note-4/FPS16.png" alt="FPS16.png" title="">)</p>
+</li>
+<li><p>将Ammo的Horizontal Box设为右上角</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS17.png" alt="FPS17.png" title="">
+<p>目的是可以自适应屏幕</p>
+</li>
+<li><p>在UE编辑器的任务栏右上角切到<code>Graph</code>,并按下图添加结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS18.png" alt="FPS18.png" title="">
+<p><code>As First Person Character</code>右侧选择<code>Promote to Variable</code><br>这个图的含义是:检查玩家角色是否是First Person Character</p>
+</li>
+<li><p>编译,切回<code>Designer</code>标签,状态条绑定变量</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS19.png" alt="FPS19.png" title="">
+</li>
+<li><p>Ammo的25/25绑定变量</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS20.png" alt="第一个25的逻辑" title="第一个25的逻辑">
+</li>
+</ol>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS21.png" alt="第二个25的逻辑" title="第二个25的逻辑">
+<ol>
+<li>编译,保存,可以玩了:)<br>但是血条,能量,子弹为空时并没有任何异常<img src="/2015/11/19/unreal-engine-4-note-4/FPS22.png" alt="FPS22.png" title="">
+</li>
+</ol>
+<h1 id="创建Main-Menu"><a href="#创建Main-Menu" class="headerlink" title="创建Main Menu"></a>创建Main Menu</h1><ol>
+<li><p>打开MainMenu,按下图添加元素(第二个Vertical Box比第一个多一个button)</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS23.png" alt="FPS23.png" title="">
+</li>
+<li><p>将第一个Vertical Box改名为MainMenu,在右侧勾选<code>isVariable</code>,设置<code>ZOrder</code>为1</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS24.png" alt="FPS24.png" title="">
+<p>意义是将这个置于图片的上方<br>第二个Vertical Box改为Options,同理</p>
+</li>
+<li><p>将其它的重命名如下:</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS25.png" alt="FPS25.png" title="">
+</li>
+<li><p>选中所有的button,在details面板里调整下Tint的颜色,并勾选<code>Fill</code></p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS26.jpg" alt="FPS26.jpg" title="">
+</li>
+<li><p>下载 <a href="https://docs.unrealengine.com/latest/images/Engine/UMG/QuickStart/3/ExampleBackground.png" target="_blank" rel="external">https://docs.unrealengine.com/latest/images/Engine/UMG/QuickStart/3/ExampleBackground.png</a> 导入UE,在Image的Details里选择它</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS27.jpg" alt="FPS27.jpg" title="">
+<p>在Designer里将这个图片填满整个区域,并且将Details里的Anchors改为全屏</p>
+</li>
+<li><p>选中所有的Vertical Box,将Anchors改为<code>left-center</code></p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS28.jpg" alt="FPS28.jpg" title="">
+</li>
+<li><p>将<code>OptionsMenu</code>的<code>Visibility</code>改为<code>Hidden</code><br>打算通过脚本来显示它</p>
+</li>
+<li><p>调整MainMenu,将其大小改成如下图所示:</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS29.png" alt="FPS29.png" title="">
+</li>
+<li><p>将OptionsMenu和MainMenu重叠</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS30.png" alt="FPS30.png" title="">
+</li>
+</ol>
+<h1 id="编写MainMenu脚本"><a href="#编写MainMenu脚本" class="headerlink" title="编写MainMenu脚本"></a>编写MainMenu脚本</h1><ol>
+<li><p>在MainMenu里切换到<code>Graph</code>,如下图操作</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS31.png" alt="FPS31.png" title="">
+</li>
+<li><p>为每个button都添加<code>On Clicked</code>事件</p>
+</li>
+<li><p>Onclicked(PlayButton)添加下面的结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS32.png" alt="FPS32.png" title="">
+</li>
+<li><p>Onclicked(OptionsMenu)添加下面的结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS33.png" alt="FPS33.png" title="">
+</li>
+<li><p>Onclicked(Setting)添加下面的结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS34.png" alt="FPS34.png" title="">
+</li>
+<li><p>Onclicked(ReturnButton)与Onclicked(PlayButton)相反</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS35.png" alt="FPS35.png" title="">
+</li>
+<li><p>Onclicked(QuitButton)添加下面的结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS36.png" alt="FPS36.png" title="">
+<p>编译-保存-关闭</p>
+</li>
+<li><p>Level窗口中找到<code>Blueprints</code>,<code>Open Level Blueprint</code>,并添加如下结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS37.png" alt="FPS37.png" title="">
+<p>编译,关掉.</p>
+</li>
+<li><p>打开First Person Character蓝图,在Event Begin Play这一段末尾添加结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS38.png" alt="FPS38.png" title="">
+<p>含义是:<code>This will turn off the cursor and set the input for the player to Game Only</code><br>编译,保存,关掉</p>
+</li>
+<li><p>打开Level窗口上方的<code>Settings</code>,<code>World Settings</code>,按如下设置</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS39.jpg" alt="FPS39.jpg" title="">
+<p>没选FirstPersonCharacter的原因:<code>as we do not want the player to be able to run around and shoot behind the Main Menu.</code></p>
+</li>
+<li><p>点击play,可以玩啦:(</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS41.png" alt="FPS41.png" title="">
+<p>被官网文档坑啦,点击Play Game无任何反应,调试了好久,最后在论坛里找到了答案</p>
+<blockquote><p>content In 4.5 if you point the same map, the UMG will disappear. But in 4.6, you don’t need to open the same level as it already open. Just add “Remove From Parent” in Widget blueprint, and it would do the trick.</p>
+<footer><strong>gOzaru84</strong><cite><a href="https://answers.unrealengine.com/questions/139137/has-remove-from-viewport-been-removed-in-46.html" target="_blank" rel="external">answers.unrealengine.com/questions/139137/has-remove-from-viewport-been-removed-in-46.html</a></cite></footer></blockquote>
+<p>意思就是在MainMenu蓝图里直接删掉<code>OpenLevel</code>结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS40.png" alt="FPS40.png" title="">
+</li>
+</ol>
+<h1 id="折腾Pause-Menu"><a href="#折腾Pause-Menu" class="headerlink" title="折腾Pause Menu"></a>折腾Pause Menu</h1><ol>
+<li><p>打开PauseMenu蓝图,按下图添加元素</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS42.png" alt="FPS42.png" title="">
+</li>
+<li><p>调整border的大小,使其填充整个窗口,并且改一下颜色,A的值改为0.5,这样可以半透明;Anchor也要改为填充</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS43.png" alt="FPS43.png" title="">
+</li>
+<li><p>将Vertical Box水平,垂直居中</p>
+</li>
+<li><p>调整2个button的颜色</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS44.png" alt="FPS44.png" title="">
+</li>
+<li><p>切到<code>Graph</code>标签,为ResumeButton添加点击事件</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS45.png" alt="FPS45.png" title="">
+<p>最后个结点没看懂:(</p>
+<pre><code>Here when the Resume Button is clicked, the input mode is set to game only and the cursor that is displayed when the Pause Menu is activated is removed. The Remove from Parent node is used to remove the actual Pause Menu widget from display before leaving the paused state by using the Set Game Paused node and leaving Paused unchecked.
+</code></pre></li>
+<li><p>新建一个function,命名为Remove HUD<br>目的是<code>remove the game HUD from the player&#39;s view when the Pause Menu is activated</code><br>并添加如下结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS46.png" alt="FPS46.png" title="">
+</li>
+<li><p>切到<code>Event Graph</code>标签,为<code>QuitButton</code>添加结点</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS47.png" alt="FPS47.png" title="">
+<p>目的:<code>When Quit is clicked, this will turn on the mouse cursor for menu navigation when returning to the Main Menu</code><br>这边反而要加<code>Open Level</code>,为了切回MainMenu</p>
+</li>
+<li><p>打开<code>FirstPersonCharacter</code>蓝图,</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS48.png" alt="FPS48.png" title="">
+<p>解释如下:</p>
+<pre><code>When M is pressed, if the Pause Menu has been accessed before it will not need to create it again and will instead access the variable. If this is the first time the Pause Menu has been accessed it will create it then store it as a variable so it can be access later. In either case, the input mode is set to UI only before we display the Pause Menu (which we will do next).
+</code></pre></li>
+<li><p>显示Pause Menu</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS49.png" alt="FPS49.png" title="">
+</li>
+<li><p>编译,保存,运行.</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS50.png" alt="FPS50.png" title=""></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;玩转C++之前还是先熟悉下blueprint吧~来做个小型FPS(First-person shooter),照着官网教程写吧,顺便记忆一下:)&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Unreal Engine" scheme="http://mpc2008cn.github.io/tags/Unreal-Engine/"/>
+    
+      <category term="虚幻引擎" scheme="http://mpc2008cn.github.io/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="笔记" scheme="http://mpc2008cn.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unreal Engine 4 虚幻引擎学习笔记(三)</title>
+    <link href="http://mpc2008cn.github.io/2015/11/09/unreal-engine-4-note-3/"/>
+    <id>http://mpc2008cn.github.io/2015/11/09/unreal-engine-4-note-3/</id>
+    <published>2015-11-09T02:38:18.000Z</published>
+    <updated>2019-04-19T03:04:56.486Z</updated>
+    
+    <content type="html"><![CDATA[<p>接上期…<br><a id="more"></a></p>
+<h1 id="UPROPERTY"><a href="#UPROPERTY" class="headerlink" title="UPROPERTY"></a>UPROPERTY</h1><p>可以带上分类属性,直接创建了Damage这个分类</p>
+<pre><code>UPROPERTY(EditAnywhere, Category=&quot;Damage&quot;)
+int32 TotalDamage;
+</code></pre><p>可见但不可编辑的属性</p>
+<pre><code>UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Transient, Category = &quot;Damage&quot;)
+        float DamagePerSecond;
+</code></pre><p><code>Transient</code>表示不会保存到硬盘</p>
+<h1 id="构造函数初始化"><a href="#构造函数初始化" class="headerlink" title="构造函数初始化"></a>构造函数初始化</h1><p>下面2个程序功能一样:</p>
+<pre><code>AMyActor::AMyActor()
+{
+    TotalDamage = 200;
+    DamageTimeInSeconds = 1.f;
+}
+</code></pre><pre><code>AMyActor::AMyActor() :
+    TotalDamage(200),
+    DamageTimeInSeconds(1.f)
+{
+}
+</code></pre><p><code>如果不手动初始化,引擎会自动设为0或空指针</code></p>
+<p>可以根据TotalDamage与DamageTimeInSeconds对DamagePerSecond进行初始化</p>
+<p>.h文件里加入</p>
+<pre><code>virtual void PostInitProperties() override;
+</code></pre><p>.cpp文件里加入</p>
+<pre><code>void AMyActor::PostInitProperties()
+{
+    Super::PostInitProperties();
+    DamagePerSecond = TotalDamage / DamageTimeInSeconds;
+}
+</code></pre><h1 id="通过蓝图扩展C-类"><a href="#通过蓝图扩展C-类" class="headerlink" title="通过蓝图扩展C++类"></a>通过蓝图扩展C++类</h1><p>上面的只是初始化,并不会实时计算DPS,要想实现,需作如下修改:</p>
+<pre><code>void AMyActor::PostInitProperties()
+{
+    Super::PostInitProperties();
+    CalculateValues();
+}
+
+void AMyActor::CalculateValues()
+{
+    DamagePerSecond = TotalDamage / DamageTimeInSeconds;
+}
+
+#if WITH_EDITOR
+void AMyActor::PostEditChangeProperty(FPropertyChangedEvent&amp; PropertyChangedEvent)
+{
+    CalculateValues();
+
+    Super::PostEditChangeProperty(PropertyChangedEvent);
+}
+#endif
+</code></pre><p>其中if…endif这一段只是给编辑器用,并不会在游戏中生成.</p>
+<h1 id="使蓝图可从C-调用"><a href="#使蓝图可从C-调用" class="headerlink" title="使蓝图可从C++调用"></a>使蓝图可从C++调用</h1><p>只要在声明的语句前加上宏,如下:</p>
+<pre><code>UFUNCTION(BlueprintCallable, Category=&quot;Damage&quot;)
+void CalculateValues();
+</code></pre><h1 id="使C-可从蓝图调用"><a href="#使C-可从蓝图调用" class="headerlink" title="使C++可从蓝图调用"></a>使C++可从蓝图调用</h1><pre><code>UFUNCTION(BlueprintImplementableEvent, Category = &quot;Damage&quot;)
+         void CalledFromCpp();
+</code></pre><h1 id="蓝图自己使用的方法"><a href="#蓝图自己使用的方法" class="headerlink" title="蓝图自己使用的方法"></a>蓝图自己使用的方法</h1><pre><code>UFUNCTION(BlueprintNativeEvent, Category=&quot;Damage&quot;)
+void CalledFromCpp();
+</code></pre><p>宏里带有<code>BlueprintNativeEvent</code>,必须在.cpp文件里写实现的方法,否则编译失败</p>
+<pre><code>void AMyActor::CalledFromCpp_Implementation()
+{
+    // Do something cool here
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;接上期…&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Unreal Engine" scheme="http://mpc2008cn.github.io/tags/Unreal-Engine/"/>
+    
+      <category term="虚幻引擎" scheme="http://mpc2008cn.github.io/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="笔记" scheme="http://mpc2008cn.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>各平台去广告的方法</title>
+    <link href="http://mpc2008cn.github.io/2015/11/06/remove-ads/"/>
+    <id>http://mpc2008cn.github.io/2015/11/06/remove-ads/</id>
+    <published>2015-11-06T09:02:17.000Z</published>
+    <updated>2019-04-19T03:04:56.434Z</updated>
+    
+    <content type="html"><![CDATA[<p>对广告的厌恶由来已久,特别是国内的各种狗皮膏药,看着真心烦,其实这算不上啥教程,就是自己洁癖+不作不会死的结果:)<br><a id="more"></a></p>
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="Chrome浏览器"><a href="#Chrome浏览器" class="headerlink" title="Chrome浏览器"></a>Chrome浏览器</h2><p><code>AdBlock</code> 屏蔽网页广告<br><a href="https://chrome.google.com/webstore/detail/adblock/gighmmpiobklfepjocnamgkkbiglidom?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">https://chrome.google.com/webstore/detail/adblock/gighmmpiobklfepjocnamgkkbiglidom?utm_source=chrome-app-launcher-info-dialog</a></p>
+<p><code>ADfree.Player.Online</code> 屏蔽视频广告<br><a href="https://chrome.google.com/webstore/detail/adfreeplayeronline/gnpjhfjhgfkohgdklomfbjmnchpenngp?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">https://chrome.google.com/webstore/detail/adfreeplayeronline/gnpjhfjhgfkohgdklomfbjmnchpenngp?utm_source=chrome-app-launcher-info-dialog</a></p>
+<h2 id="firefox浏览器"><a href="#firefox浏览器" class="headerlink" title="firefox浏览器"></a>firefox浏览器</h2><p><code>Adblock Plus</code> 屏蔽网页广告<br><a href="https://addons.mozilla.org/en-US/firefox/addon/adblock-plus/?src=search" target="_blank" rel="external">https://addons.mozilla.org/en-US/firefox/addon/adblock-plus/?src=search</a></p>
+<p>因为火狐基本工作用,生活中还是以chrome为主- -</p>
+<h2 id="skype"><a href="#skype" class="headerlink" title="skype"></a>skype</h2><p>打开<code>internet选项</code>,按照下图设置,点击<code>确定</code>,重启skype即可.<br><img src="/2015/11/06/remove-ads/skype.png" alt="skype.png" title=""></p>
+<h2 id="QQ"><a href="#QQ" class="headerlink" title="QQ"></a>QQ</h2><p>以前开过会员,但是没想过给QQ去广告,来这公司返回QQ后弹出各种广告不爽,就找了个教程,效果不错<br><a href="http://blog.qinghuo.net/network/4233.html" target="_blank" rel="external">http://blog.qinghuo.net/network/4233.html</a></p>
+<p>windows下别的貌似也没发现啥广告,能用chrome的尽量不用客户端:)</p>
+<h1 id="ios-未越狱用户-系统版本ios9及以上"><a href="#ios-未越狱用户-系统版本ios9及以上" class="headerlink" title="ios(未越狱用户,系统版本ios9及以上)"></a>ios(未越狱用户,系统版本ios9及以上)</h1><h2 id="safari"><a href="#safari" class="headerlink" title="safari"></a>safari</h2><p>ios9开始可以给safari屏蔽广告了,不过效果不是特别好,所以就装了三个,硬件要求</p>
+<pre><code>iPhone 5s, iPhone 6, iPhone 6 Plus, iPhone 6s, iPhone 6s Plus, iPad Air, iPad Air Wi-Fi + Cellular, iPad mini 2, iPad mini 2 Wi-Fi + Cellular, iPad Air 2, iPad Air 2 Wi-Fi + Cellular, iPad mini 3, iPad mini 3 Wi-Fi + Cellular, iPad mini 4, iPad mini 4 Wi-Fi + Cellular, iPad Pro, iPad Pro Wi-Fi + Cellular, and iPod touch (6th generation)
+</code></pre><p><code>Norton Ad Blocker</code><br><a href="https://itunes.apple.com/us/app/norton-ad-blocker/id1045186459?mt=8" target="_blank" rel="external">https://itunes.apple.com/us/app/norton-ad-blocker/id1045186459?mt=8</a></p>
+<p><code>Adblock Plus</code><br><a href="https://itunes.apple.com/us/app/adblock-plus-abp/id1028871868?mt=8" target="_blank" rel="external">https://itunes.apple.com/us/app/adblock-plus-abp/id1028871868?mt=8</a></p>
+<p><code>Crystal</code><br><a href="https://itunes.apple.com/us/app/crystal-ad-free-web-browsing./id1022177308?mt=8" target="_blank" rel="external">https://itunes.apple.com/us/app/crystal-ad-free-web-browsing./id1022177308?mt=8</a></p>
+<h2 id="所有已安装app"><a href="#所有已安装app" class="headerlink" title="所有已安装app"></a>所有已安装app</h2><p><code>Surge</code><br><a href="https://itunes.apple.com/us/app/surge-web-developer-tool-proxy/id1040100637?mt=8" target="_blank" rel="external">https://itunes.apple.com/us/app/surge-web-developer-tool-proxy/id1040100637?mt=8</a><br>start开启surge<br><img src="/2015/11/06/remove-ads/surge1.png" alt="surge1.png" title=""></p>
+<p>点击<code>Rule Test Results</code>,查看根据规则显示的网络请求<br><img src="/2015/11/06/remove-ads/surge2.png" alt="surge2.png" title=""></p>
+<p>打开某个app分析广告是哪个域名,添加rule reject它们<br><img src="/2015/11/06/remove-ads/surge3.png" alt="surge3.png" title=""></p>
+<p>自从用了surge就把之前的三个content blocker全都关了,也换回了chrome,真是爽!</p>
+<h1 id="Android-已root"><a href="#Android-已root" class="headerlink" title="Android(已root)"></a>Android(已root)</h1><ol>
+<li>最原始的hosts屏蔽<a href="https://f-droid.org/repository/browse/?fdid=org.adaway" target="_blank" rel="external">AdAway</a> 使用说明可以点击 <a href="http://free-software-for-android.github.io/AdAway/" target="_blank" rel="external">http://free-software-for-android.github.io/AdAway/</a></li>
+<li>请出<a href="https://adblockplus.org/en/android" target="_blank" rel="external">Adblock Plus</a></li>
+<li>就是各种国产屏蔽广告软件,有些有猫腻,自己挑吧 <a href="http://www.repaik.com/thread-66005-1-1.html" target="_blank" rel="external">http://www.repaik.com/thread-66005-1-1.html</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对广告的厌恶由来已久,特别是国内的各种狗皮膏药,看着真心烦,其实这算不上啥教程,就是自己洁癖+不作不会死的结果:)&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://mpc2008cn.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="去广告" scheme="http://mpc2008cn.github.io/tags/%E5%8E%BB%E5%B9%BF%E5%91%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unreal Engine 4 虚幻引擎学习笔记(二)</title>
+    <link href="http://mpc2008cn.github.io/2015/11/05/unreal-engine-4-note-2/"/>
+    <id>http://mpc2008cn.github.io/2015/11/05/unreal-engine-4-note-2/</id>
+    <published>2015-11-05T06:46:29.000Z</published>
+    <updated>2019-04-19T03:04:56.482Z</updated>
+    
+    <content type="html"><![CDATA[<p>题外话,查了下维基百科<a id="more"></a>,UE4在2003年开始开发,2014年公之于众,那时还得每月交$19,今年3月免费了,从得知消息到现在都8个月了,有点晚唉:( 好吧,话不多说闲言少叙</p>
+<h1 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h1><p>万物皆对象,UObject是所有对象的基类</p>
+<h1 id="Classes"><a href="#Classes" class="headerlink" title="Classes"></a>Classes</h1><p>定义了Actor或者Object的行为和属性</p>
+<h1 id="Actors"><a href="#Actors" class="headerlink" title="Actors"></a>Actors</h1><p>任一可被放入Level(关卡)的对象皆可成为Actor.它是个通用类,可以被用来平移,旋转和缩放.在C++中,AActor是所有Actors的基类</p>
+<h1 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h1><p>Component是可以加到Actor上的功能,它不能单独存在</p>
+<h1 id="Pawns"><a href="#Pawns" class="headerlink" title="Pawns"></a>Pawns</h1><p>Actor的子类,Pawn的翻译是走卒.一般是NPC一类</p>
+<h1 id="Characters"><a href="#Characters" class="headerlink" title="Characters"></a>Characters</h1><p>Actor的子类,玩家角色.Character的子类是一些类似碰撞,双足移动等操作</p>
+<h1 id="PlayerController"><a href="#PlayerController" class="headerlink" title="PlayerController"></a>PlayerController</h1><p>接管玩家操作.每个游戏至少有一个PlayerController</p>
+<h1 id="AIController"><a href="#AIController" class="headerlink" title="AIController"></a>AIController</h1><p>接管NPC操作.文档里有段话意味深长啊.</p>
+<pre><code>By default, Pawns and Characters will end up with a base AIController unless they are specifically possessed by a PlayerController or told not to create an AIController for themselves.
+</code></pre><p>这样就表示程序可以开后门给某个玩家做NPC的特权?好牛X:)</p>
+<h1 id="Brushes"><a href="#Brushes" class="headerlink" title="Brushes"></a>Brushes</h1><p>是Actor,放在Level里用来Level的几何大小(BSP:Binary Space Partitioning),比如空气墙,DOT(damage over time),机关等等.</p>
+<h1 id="Levels"><a href="#Levels" class="headerlink" title="Levels"></a>Levels</h1><p>关卡,UE中每个关卡被保存为.umap文件,所以有时也被称为Maps.我的翻译就是场景,地图.比如剑三的城市,wow中的城市等.</p>
+<h1 id="World"><a href="#World" class="headerlink" title="World"></a>World</h1><p>字面意思就是世界,包含了众多Level.好吧,用魔兽世界来解释比较贴切,就是wow里整个游戏场景/地图合在一起称为World.</p>
+<h1 id="GameModes"><a href="#GameModes" class="headerlink" title="GameModes"></a>GameModes</h1><p>游戏的规则,包括玩家如何加入游戏,能否暂停游戏,地图切换,胜利的条件等.一般一个Level下只有一个GameMode.在多玩家游戏中,GameMode仅存于服务器端.</p>
+<h1 id="GameStates"><a href="#GameStates" class="headerlink" title="GameStates"></a>GameStates</h1><p>游戏状态,一般指的是客户端游戏当前的状态,比如游戏比分,比赛是否开始等.</p>
+<h1 id="PlayerStates"><a href="#PlayerStates" class="headerlink" title="PlayerStates"></a>PlayerStates</h1><p>NPC没有PlayerStates.玩家状态,比如名字,装备分,当前的级别,血量等.</p>
+<p>PS:一开始没搞清楚pawn跟character的区别,官方文档说的也不好,又搜了下论坛才理解.话说这些概念与项目独立开理解起来不是很容易,不过对于游戏玩家来说不说很陌生:)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;题外话,查了下维基百科
+    
+    </summary>
+    
+    
+      <category term="Unreal Engine" scheme="http://mpc2008cn.github.io/tags/Unreal-Engine/"/>
+    
+      <category term="虚幻引擎" scheme="http://mpc2008cn.github.io/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="笔记" scheme="http://mpc2008cn.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unreal Engine 4 虚幻引擎学习笔记(一)</title>
+    <link href="http://mpc2008cn.github.io/2015/11/05/unreal-engine-4-note-1/"/>
+    <id>http://mpc2008cn.github.io/2015/11/05/unreal-engine-4-note-1/</id>
+    <published>2015-11-05T01:47:32.000Z</published>
+    <updated>2019-04-19T03:04:56.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>基本是给自己看的,写的比较零碎- -<br><a id="more"></a></p>
+<h1 id="硬件要求"><a href="#硬件要求" class="headerlink" title="硬件要求"></a>硬件要求</h1><pre><code>Operating System:Windows 7/8 64-bit
+Processor:Quad-core Intel or AMD, 2.5 GHz or faster 
+Memory:8 GB RAM
+Video Card/DirectX Version:DirectX 11 compatible graphics card
+</code></pre><p>目前用的妹子的笔记本改装的光驱位硬盘+SSD,处理器i5-4200U的略渣,内存4G 1600+4G 1333(我这混搭也是服了),GT740M的显卡,2G显存还阔以.一开始没想到nvidia面板默认是集显,打开引擎+vs卡成狗,后面把默认改成独显了,瞬间就轻松了很多,瞬间吐槽下vs为什么不支持GPU加速.总的来说CPU拖后腿了,官方要求是4核…</p>
+<h1 id="创建C-类"><a href="#创建C-类" class="headerlink" title="创建C++类"></a>创建C++类</h1><p>Unreal Editor</p>
+<ol>
+<li>New Project-C++中<code>Basic Code</code>表示空项目,勾选<code>With Starter Content</code>表示带上新手项目<img src="/2015/11/05/unreal-engine-4-note-1/UE-BC.png" alt="UE-BC.png" title=""></li>
+<li>File-New C++ Class中选择<code>Actor</code>类<img src="/2015/11/05/unreal-engine-4-note-1/UE-Actor.png" alt="UE-Actor.png" title="">
+创建后会自动打开visual studio显示创建的.cpp与.h文件<img src="/2015/11/05/unreal-engine-4-note-1/UE-Starter.png" alt="UE-Starter.png" title=""></li>
+<li>在vs中<code>生成</code>,再到Unreal Editor中就能看到效果.当然也可以直接用Unreal Editor中的<code>Compile</code></li>
+<li>将<code>Content Browser</code>中的Actor拖动到上方的视图中,在右侧<code>World Outliner</code>中就会新增一个元素<br>选中这个元素可以对其进行操作<img src="/2015/11/05/unreal-engine-4-note-1/UE-Element.png" alt="UE-Element.png" title=""></li>
+<li>不过此时并没有实际的物体,还得<code>Add Component</code>才能有效果<img src="/2015/11/05/unreal-engine-4-note-1/UE-Cone.png" alt="UE-Cone.png" title="">
+</li>
+</ol>
+<h1 id="Particle-System-粒子系统"><a href="#Particle-System-粒子系统" class="headerlink" title="Particle System 粒子系统"></a>Particle System 粒子系统</h1><p>很帅,在<code>Content Browser</code>里选中一个,然后<code>Add Component</code>里选择就可以给当前Actor加上粒子系统的特效了<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-Particle.png" alt="UE-Particle.png" title=""></p>
+<h1 id="Uproperty-UE自己的变量-方法"><a href="#Uproperty-UE自己的变量-方法" class="headerlink" title="Uproperty UE自己的变量/方法"></a>Uproperty UE自己的变量/方法</h1><p>只要在变量声明/定义的上一行加上<code>UPROPERTY()</code>,如下:</p>
+<pre><code>UPROPERTY()
+int32 CountdownTime;
+</code></pre><p>但是这个变量在Unreal Editor界面还是不可编辑状态,就得改成这样:</p>
+<pre><code>UPROPERTY(EditAnywhere)
+int32 CountdownTime;
+</code></pre><p>当然也可以加上注释,这样在Unreal Editor可以看到这个变量的描述</p>
+<pre><code>//How long, in seconds, the countdown will run
+UPROPERTY(EditAnywhere)
+int32 CountdownTime;
+</code></pre><p>也可以对方法UE化</p>
+<pre><code>UFUNCTION()
+void CountdownHasFinished();
+</code></pre><h1 id="Blueprint蓝图"><a href="#Blueprint蓝图" class="headerlink" title="Blueprint蓝图"></a>Blueprint蓝图</h1><p>点击Actor属性中的<code>Blueprint</code>就可以创建它的蓝图,相当于给它设定动作之类的<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-EG.png" alt="UE-EG.png" title=""><br>在空白处右键就可以画流程图了</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;基本是给自己看的,写的比较零碎- -&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Unreal Engine" scheme="http://mpc2008cn.github.io/tags/Unreal-Engine/"/>
+    
+      <category term="虚幻引擎" scheme="http://mpc2008cn.github.io/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+      <category term="笔记" scheme="http://mpc2008cn.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人在囧途之京囧</title>
+    <link href="http://mpc2008cn.github.io/2015/10/20/lost-on-journey/"/>
+    <id>http://mpc2008cn.github.io/2015/10/20/lost-on-journey/</id>
+    <published>2015-10-20T09:34:06.000Z</published>
+    <updated>2019-04-19T03:04:56.394Z</updated>
+    
+    <content type="html"><![CDATA[<p>摘自我与基友的skype对话,我就差拿个小板凳前排嗑瓜子了:)<br><a id="more"></a><br>算是给想<code>独身去帝都,特别是一些旅游景点</code>的年轻人一个警示</p>
+<h1 id="故事前提"><a href="#故事前提" class="headerlink" title="故事前提"></a>故事前提</h1><p>基友跟同事公差坐动车去帝都,想先去天安门</p>
+<h1 id="开播"><a href="#开播" class="headerlink" title="开播"></a>开播</h1><p>作为第一次游天安门的人<br>我一开始是怀着一颗单纯的爱国心过去的<br>结果接连遭遇之后,我感觉到这个世界深深的恶意</p>
+<p>从王府井下车之后<br>就直奔天安门广场去<br>从地铁站出来就发现帝都果然霸气<br>100米一个武警,不对<br>是100米一个岗哨,两个武警</p>
+<p>我们刚上来<br>那些路边拉客的旅行社像苍蝇一样围过来<br>“去不去长城，鸟巢去不去啊，便宜的啊……”<br>一个接一个</p>
+<p>等个红绿灯<br>就听他们在耳边嗡嗡<br>过来红绿灯又上来一个<br>又没走几步<br>巡警指着我们：“哎！你们俩，身份证拿过来看一下”<br>我们以为查过就没事了<br>结果前面还有安检卡口<br>进入天安门区域要挨个安检,出示身份证<br>那个队排的…</p>
+<p>好不容易进入天安门<br>各种照相的过来嗡嗡嗡<br>赶紧拜托往里走<br>天安门城楼票价15<br>便宜！上<br>结果问题来了<br>不能带包上<br>没事！存包<br>问题又来啦<br>存包要过安检<br>而且5元一个<br>没事！存</p>
+<p>好不容易排对到存包处<br>工作人员说：“里面有没有电子产品”<br>我特么刚过了N个安检了<br>应该没事了<br>答曰“有电脑”<br>工作人员：“把电脑拿出来”<br>“纳尼，让我们抱着电脑爬天安门城楼？”<br>我们俩人都有电脑<br>各种排对已经浪费了很长时间了<br>没办法，我就说<br>“我在下面帮你看包,你上去玩几分钟，然后下来接替我”</p>
+<pre><code>此处省略万字
+</code></pre><p>因为周一故宫不开门,我们从侧门出</p>
+<p>出来之后逛到一家店<br>进去看了个防琥珀钥匙串挂件<br>问了一下多少钱<br>答19元<br>便宜，买！</p>
+<p>结账的时候,服务员说你可以凭发票去柜台领取小纪念品<br>我心说买了两个钥匙挂件就有纪念品？<br>故宫的人民就是实诚<br>也没多想<br>就过去柜台</p>
+<p>柜台掏出5张奖券<br>说你可以刮5次<br>刮卡什么的我最喜欢了<br>刮!<br>刮了前4个都是谢谢惠顾<br>刮到第五张<br>我都不敢相信我的眼睛<br>特么的居然是一等奖<br>我顿时感觉难道帝都人民都是好人啊<br>前面的所有不愉快就抛到脑后了</p>
+<p>我说一等奖是啥啊<br>服务员不知道从哪就拿出了一个小牌子<br>上面写着<br>一等奖：从柜台任意选择金器玉器一件,只需付8%的加工费就可以带走</p>
+<pre><code>这边实际就不正常了,咱大学时就寄过邮件,然后对方还让寄钱的,不是么
+</code></pre><p>我说就是你们前面柜台的这些？<br>我放眼望去，心顿时凉了大半截<br>尼玛，没一件低于1W的<br>一个玉镯也不知道是什么材质的<br>标价16000<br>其他的小挂件都是12000<br>我当时还是没有怀疑帝都人民的热情<br>她还给我介绍问是送女友还是送长辈<br>我特么幸好钱包里没带卡也没那么多现金<br>找了半天没找到<br>我说没别的选择么<br>这特么手续费都要1000多<br>她也看到我兜里没那么多钱<br>就说要不你放弃好了<br>我特么长这么大第一次中一等奖<br>要我放弃?<br>不行!!!</p>
+<p>要我放弃你们得补偿我点啥吧<br>“没有补偿”<br>我还不依不饶的时候<br>同事在另一边也选小商品的时候,走过来了<br>“怎么？你也中一等奖了？”<br>“你也中了？”<br>同事说：“嗯,他刚才给了我5张奖券，第五张的时候中的，怀疑他们给第5张的时候动了手脚”<br>“他们先看你前4张有没有中，然后手帮你哗啦一下,第五张必中”<br>同事说：“你放弃吧”<br>我特么还没缓过神来，被他拉走<br>走在路上感觉像做梦，越想越觉得刚才自己有多傻逼<br>心想还好同事过来提醒了我一下,没什么损失,就算了<br>但是这事我越回想越觉得的确<br>这个骗局多拙劣</p>
+<pre><code>神一样的队友
+</code></pre><p>正恍惚之中，前面一个高个子在路边发小国旗<br>我顺手接了一下<br>结果,高个子拦住我的去路<br>20块钱一个<br>我说“这不是免费的？”<br>他说“20”<br>“我不要了，还你”<br>我要绕开走<br>他一把抓住我的领子<br>说“买东西哪有不给钱的！<br>“我没零钱”<br>那家伙更嚣张:“你没零钱我有！”<br>我当时火就上来了<br>大街上那么多人，你特么就认准我了<br>他扯着我的领子，旁边的同事也解释说“不买不买”<br>他就是不松手<br>这时候我看这样下去就没完没了了<br>我大吼一声：“松手！草尼玛的！”</p>
+<pre><code>换作是我也会上火,光天化日反了他了
+</code></pre><p>结果这家伙手松开,瞪着我<br>还用手指着我嘴里念念有词<br>我转身就走了</p>
+<p>连续倒了两次霉我也认了<br>眼看中午,心说下午要赶车,咱们上车之前吃点饭吧<br>有个胡同在吆喝，各种便宜<br>就过去<br>同事看了价格犹豫了一下<br>说不吃有点贵<br>我找了找<br>看到凉皮10元一碗<br>我说：有便宜的<br>那我就要一碗凉皮吧<br>就感觉那个服务员顿时就不招呼我们了</p>
+<p>不一会凉皮上来<br>我一看颜色<br>黄褐色</p>
+<pre><code>这颜色都吃的下你赶上贝爷了!
+</code></pre><p>心说：或许这就是北京的特色凉皮<br>虽然只有几片<br>咱也认了<br>感受一下吧<br>顺带说一下那个盛凉皮的碟子还没我手掌大<br>感觉两口就吃完了</p>
+<p>结果我吃一口：靠，这特么使用海水泡的么<br>心说：没关系，我又不是挑食的人，咱啥没吃过，不能浪费<br>吃了第二口，真特么要齁死我了<br>放下筷子走人<br>十块钱咱也认了</p>
+<p>没关系旁边还有卖肉夹馍一样的东西<br>凉皮吃不下咱吃点肉夹馍<br>于是我就人生第一次吃带馅食物<br>只吃皮把馅给抠出来倒到垃圾桶里<br>实在是难以下咽又怕动车上那么久就勉强把面皮吃了</p>
+<pre><code>基友点评
+</code></pre><p>再也不敢再故宫旁边买吃的了<br>补充一句：不是说故宫旁边的东西都不好吃<br>前提是你要有钱<br>点便宜的？<br>那你就等着舌头受苦吧<br>没完没了的安检搜查<br>没完没了的旅游中介<br>没完没了的坑蒙拐骗…..<br>天子脚下全是刁民</p>
+<p>前一天我去圆明园，<br>门票25<br>我靠好便宜<br>进<br>进去之后有人吆喝上船直接坐到大水法<br>说是步行过去2公里多<br>我当时是从清华东门站走过来的<br>没想到要走那么远<br>脚也有点累了<br>而且门票这么便宜<br>咱们就当是为护园工人贡献一点也值得</p>
+<p>上船<br>20元<br>在售票口付完钱<br>准备上船的时候船夫提示：这是单程票<br>单程票就单程票吧<br>我脚疼实在不想走了<br>结果船穿过一个小沟<br>再穿过一个池塘<br>我还没好好感受一下尼玛就到了</p>
+<p>说好的2公里呢<br>好吧下船能到大水法也行啊<br>结果又走了N远<br>拍了几张照片<br>我鞋子买小了<br>走路太久脚趾头疼</p>
+<p>转头看见有观光车<br>问价多少<br>“10元，送你回入口”<br>还好还好<br>上<br>不想走了<br>结果特么我用手机发了条信息就到了</p>
+<p>离出口还特么有几公里<br>回来旱路没走过绕了好几圈才到门口<br>感觉欠了这个世界好多钱<br>到处都是要钱的<br>院子里的交通工具<br>要不就是带你去下一个收费区域<br>要不就是带你去一个小商铺集中的区域<br>带你去门口？呵呵</p>
+<h1 id="我的想法"><a href="#我的想法" class="headerlink" title="我的想法"></a>我的想法</h1><p>简直太囧了,跟我逛过的帝都不一样啊.<br>或许是每次去都有人接吧,是个小团体<br>如果只身前去,指不定能遇到啥牛鬼蛇神</p>
+<h1 id="补记-原话"><a href="#补记-原话" class="headerlink" title="补记(原话)"></a>补记(原话)</h1><p>昨天晚上回到上海的时候<br>心里居然有踏实感…</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;摘自我与基友的skype对话,我就差拿个小板凳前排嗑瓜子了:)&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="游记" scheme="http://mpc2008cn.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本博客目前用到的技术</title>
+    <link href="http://mpc2008cn.github.io/2015/10/16/techniques-in-my-blog/"/>
+    <id>http://mpc2008cn.github.io/2015/10/16/techniques-in-my-blog/</id>
+    <published>2015-10-16T03:43:06.000Z</published>
+    <updated>2019-04-19T03:04:56.446Z</updated>
+    
+    <content type="html"><![CDATA[<p>玩了有几天了,各处折腾,现列如下:<br><a id="more"></a></p>
+<ol>
+<li><del>多说评论显示浏览器及操作系统信息</del><br><a href="http://ssk.91txh.com/209" target="_blank" rel="external">http://ssk.91txh.com/209</a></li>
+<li><del>多说评论中显示<code>博主</code>标记</del><br><a href="https://github.com/wsgzao/duoshuo-mod" target="_blank" rel="external">https://github.com/wsgzao/duoshuo-mod</a></li>
+<li><del><code>high一下</code>标签</del><br><a href="http://zipperary.com/2013/11/19/give-it-a-high/" target="_blank" rel="external">http://zipperary.com/2013/11/19/give-it-a-high/</a></li>
+<li><del>fancybox(点击图片弹出图片窗口),主题自带</del><br><a href="http://yangjian.me/workspace/introducing-pacman-theme/" target="_blank" rel="external">http://yangjian.me/workspace/introducing-pacman-theme/</a></li>
+<li>优化网站资源文件pagespeed(网站性能优化神器,优化过的图片,css,js可以直接下载了用上,可惜之前的扩展已被谷歌砍掉了<br><a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="external">https://developers.google.com/speed/pagespeed/insights/</a></li>
+<li>添加sitemap给搜索引擎<br><a href="https://github.com/hexojs/hexo-generator-sitemap" target="_blank" rel="external">https://github.com/hexojs/hexo-generator-sitemap</a><br><a href="https://support.google.com/webmasters/answer/183668?hl=en" target="_blank" rel="external">https://support.google.com/webmasters/answer/183668?hl=en</a></li>
+<li>添加robots.txt反爬虫<br><a href="https://support.google.com/webmasters/answer/6078399?hl=en&amp;ref_topic=6061961&amp;vid=1-635805654838442665-3915738795" target="_blank" rel="external">https://support.google.com/webmasters/answer/6078399?hl=en&amp;ref_topic=6061961&amp;vid=1-635805654838442665-3915738795</a></li>
+<li><del>彩色标签云</del><br><a href="http://howiefh.github.io/2014/04/20/hexo-optimize-and-my-theme-landscape-f/" target="_blank" rel="external">http://howiefh.github.io/2014/04/20/hexo-optimize-and-my-theme-landscape-f/</a></li>
+<li>google analysis 谷歌统计<br><a href="http://www.google.com/analytics/" target="_blank" rel="external">http://www.google.com/analytics/</a></li>
+<li>lazyload 图片延迟加载,目前试了与fancybox冲突,撤掉了<br><a href="http://www.arao.me/2015/hexo-optimize-pic-lazyload/" target="_blank" rel="external">http://www.arao.me/2015/hexo-optimize-pic-lazyload/</a></li>
+<li><del>多说容易崩溃,discuz国内不好用,打算把多说的资源文件放在cdn上,目前在审核中.话说有个vps但是搭不起来cdn啊,崩溃- -!</del><br><a href="http://www.arao.me/2015/make-duoshuo-faster-qiniu-cdn/" target="_blank" rel="external">http://www.arao.me/2015/make-duoshuo-faster-qiniu-cdn/</a></li>
+<li><del>换了个next主题,添加了不蒜子统计</del><br><a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">http://ibruce.info/2015/04/04/busuanzi/</a><br><a href="http://www.selfrebuild.net/2015/06/24/Github-Hexo-Next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E5%AE%9A%E5%88%B6/" target="_blank" rel="external">http://www.selfrebuild.net/2015/06/24/Github-Hexo-Next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E5%AE%9A%E5%88%B6/</a></li>
+<li><del>已换pisces主题,来自next分支</del></li>
+</ol>
+<p><strong>本篇持续更新…</strong></p>
+<pre><code>2017.12.9 多说已下架,改回disqus,主题更换为MD风格
+2016.2.3  为安卓版chrome添加彩色地址栏,参考:https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/theme-color?hl=en#safari-specific-styling
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;玩了有几天了,各处折腾,现列如下:&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="博客" scheme="http://mpc2008cn.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ramdisk+readyboost压榨pc性能(工作机的福音)</title>
+    <link href="http://mpc2008cn.github.io/2015/10/10/ramdisk/"/>
+    <id>http://mpc2008cn.github.io/2015/10/10/ramdisk/</id>
+    <published>2015-10-10T10:47:50.000Z</published>
+    <updated>2019-04-19T03:04:56.398Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2015/10/10/ramdisk/0.png" alt="0.png" title="">
+<p>自工作之日起,对工作机的性能就没满意过.<a id="more"></a>从熟悉硬件开始同工作机作斗争到现在快4年了,因为大部分情况下公司并不会配固态硬盘,而且内存容量也捉襟见肘,所以其间试过很多方法,均没有今天的终极方法效果好(不用windows工作的可以不用看了).</p>
+<p>先说下<code>原理跟思路</code>:<br><a href="https://en.wikipedia.org/wiki/RAM_drive" target="_blank" rel="external">ramdisk</a>:俗称内存盘,就是拿一部分内存出来作硬盘使用,优点是<code>随机存取性能非常给力</code>,处理小文件得心应手,缺点是<code>断电数据丢失</code>,因此内存盘里适合放一些临时文件,比如浏览器缓存文件,应用程序缓存文件,系统temp目录.</p>
+<p><a href="https://zh.wikipedia.org/wiki/ReadyBoost" target="_blank" rel="external">readyboost</a>:利用闪存随机读写及零碎文件读写上的优势来提高计算机系统性能.对固态硬盘与机械硬盘均不适用,只适合于闪存设备,如外置设备U盘,外置移动硬盘,内存盘等.说白了就是机械硬盘的随机存取性能比较低,用闪存对它进行加速.</p>
+<p>原理说完了,简单说下思路,分一部分内存作内存盘,再将内存盘的一部分空间用于readyboost.那么,上酸菜吧:)</p>
+<h1 id="ramdisk"><a href="#ramdisk" class="headerlink" title="ramdisk"></a>ramdisk</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载primo ramdisk server edition:<a href="https://drive.google.com/open?id=0ByuNnrUBU_n3UEQ4VDNaVGRUbDA" target="_blank" rel="external">https://drive.google.com/open?id=0ByuNnrUBU_n3UEQ4VDNaVGRUbDA</a><br>运行<code>Primo.Ramdisk.Srv.Mui.Setup.5.6.0.exe</code>安装,装好后双击<code>PrDSrv56crk.reg</code>写入注册表,破解成功(重启生效,先别急着重启).</p>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>确定自己的系统类型(x86还是x64),是否开启休眠(<strong>不是睡眠</strong>)不会看的请谷歌~</p>
+<h3 id="32位系统-64位请跳过此步"><a href="#32位系统-64位请跳过此步" class="headerlink" title="32位系统(64位请跳过此步)"></a>32位系统(64位请跳过此步)</h3><p>打开ramdisk</p>
+<ol>
+<li>点击左下角扳手图标<img src="/2015/10/10/ramdisk/1.png" alt="1.png" title=""></li>
+<li>点击<code>启用</code> <img src="/2015/10/10/ramdisk/2.png" alt="2.png" title=""></li>
+<li>如果你的系统开启休眠了,那就勾选<code>支持系统未识别内存休眠</code>,否则别勾.<br>点击继续,未识别内存就设置好了<img src="/2015/10/10/ramdisk/3.png" alt="3.png" title="">
+</li>
+</ol>
+<h3 id="详细设置-64位从这一步开始"><a href="#详细设置-64位从这一步开始" class="headerlink" title="详细设置(64位从这一步开始)"></a>详细设置(64位从这一步开始)</h3><p>打开ramdisk</p>
+<ol>
+<li>点击左上角的<code>+</code>图标<img src="/2015/10/10/ramdisk/4.png" alt="4.png" title=""></li>
+<li>选择<code>使用全新设置创建虚拟硬盘</code>,下一步<img src="/2015/10/10/ramdisk/5.png" alt="5.png" title=""></li>
+<li>硬盘大小:我目前填的是物理内存的四分之一,比如4G就分出1024M,8G就分出2048M.<br>硬盘类型:SCSI硬盘,下一步<img src="/2015/10/10/ramdisk/6.png" alt="6.png" title=""></li>
+<li>把滑块拉到最底(32位系统的用户填写所有未识别内存),下一步<img src="/2015/10/10/ramdisk/7.png" alt="7.png" title=""></li>
+<li><code>文件系统</code>选择<code>NTFS</code>,下一步<img src="/2015/10/10/ramdisk/8.png" alt="8.png" title=""></li>
+<li>保持默认,下一步<img src="/2015/10/10/ramdisk/9.png" alt="9.png" title=""></li>
+<li>保持默认,下一步<img src="/2015/10/10/ramdisk/10.png" alt="10.png" title=""></li>
+<li>点击完成<img src="/2015/10/10/ramdisk/11.png" alt="11.png" title="">
+</li>
+</ol>
+<p>设置完后系统会多出一个Z:\RAMDISK\<br><img src="/2015/10/10/ramdisk/12.png" alt="12.png" title=""></p>
+<h3 id="移动系统temp目录"><a href="#移动系统temp目录" class="headerlink" title="移动系统temp目录"></a>移动系统temp目录</h3><ol>
+<li>打开ramdisk,点击上方的调色板图标<img src="/2015/10/10/ramdisk/13.png" alt="13.png" title=""></li>
+<li><code>更改为</code>后面填入:<pre><code>Z:\TEMP
+</code></pre></li>
+<li>点击<code>更改</code><img src="/2015/10/10/ramdisk/14.png" alt="14.png" title=""></li>
+<li>点击<code>是</code><img src="/2015/10/10/ramdisk/15.png" alt="15.png" title="">
+</li>
+</ol>
+<h3 id="修改chrome浏览器缓存目录-不用的请跳过"><a href="#修改chrome浏览器缓存目录-不用的请跳过" class="headerlink" title="修改chrome浏览器缓存目录(不用的请跳过)"></a>修改chrome浏览器缓存目录(不用的请跳过)</h3><p>右键chrome的快捷方式选择<code>属性-快捷方式</code>,在<code>目标</code>末尾<strong>空一格</strong>后添加下面的代码</p>
+<pre><code>--disk-cache-dir=&quot;z:\chromecache&quot;
+</code></pre><p>点击<code>确定</code>即可<br><img src="/2015/10/10/ramdisk/16.png" alt="16.png" title=""></p>
+<h3 id="修改firefox浏览器缓存目录-不用的请跳过"><a href="#修改firefox浏览器缓存目录-不用的请跳过" class="headerlink" title="修改firefox浏览器缓存目录(不用的请跳过)"></a>修改firefox浏览器缓存目录(不用的请跳过)</h3><p>打开火狐,在浏览器里输入</p>
+<pre><code>about:config
+</code></pre><p>在search栏里输入</p>
+<pre><code>browser.cache.disk.parent_directory
+</code></pre><p>搜索结果是空的<br><img src="/2015/10/10/ramdisk/17.png" alt="17.png" title=""><br>在页面空白处右键,选择<code>New</code>,<code>String</code>,<br><img src="/2015/10/10/ramdisk/18.png" alt="18.png" title=""><br>在弹出框里填入</p>
+<pre><code>browser.cache.disk.parent_directory
+</code></pre><img src="/2015/10/10/ramdisk/19.png" alt="19.png" title="">
+<p>OK,在第二个弹出框里填入</p>
+<pre><code>Z:\firefoxcache
+</code></pre><img src="/2015/10/10/ramdisk/20.png" alt="20.png" title="">
+<h1 id="readyboost"><a href="#readyboost" class="headerlink" title="readyboost"></a>readyboost</h1><p>这个设置就简单了.</p>
+<ol>
+<li>右键Z盘,选择<code>属性</code></li>
+<li>切到<code>Readyboost</code>标签</li>
+<li>点击<code>使用该设备</code>,数值根据需要填写,可随时变动(一般按Z盘大小的50%~75%吧),确定.<img src="/2015/10/10/ramdisk/21.png" alt="21.png" title="">
+</li>
+</ol>
+<h1 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h1><p><strong>重启电脑</strong><br>The End:)</p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ol>
+<li>如果用久了发现显示器出现一小段花屏,请关闭内存盘(灰常小概率,原因估计是内存盘动到了系统分给共享内存的那部分)</li>
+<li>只移动了temp目录,chrome跟firefox的缓存,其它软件的缓存请自行谷歌</li>
+<li><strong>页面文件不要放入内存盘!页面文件不要放入内存盘!页面文件不要放入内存盘!</strong><br>页面文件放入内存盘就是本末倒置,内存不足时才会用到页面文件,再把页面文件放回内存就去面壁:)</li>
+</ol>
+<p>断断续续写了三天才写完,不开森:( 有啥问题请直接写在评论里吧,我会看到的~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2015/10/10/ramdisk/0.png&quot; alt=&quot;0.png&quot; title=&quot;&quot;&gt;
+&lt;p&gt;自工作之日起,对工作机的性能就没满意过.
+    
+    </summary>
+    
+    
+      <category term="教程" scheme="http://mpc2008cn.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="硬件" scheme="http://mpc2008cn.github.io/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github Pages+Hexo搭建博客</title>
+    <link href="http://mpc2008cn.github.io/2015/10/10/build-a-blog/"/>
+    <id>http://mpc2008cn.github.io/2015/10/10/build-a-blog/</id>
+    <published>2015-10-10T02:17:09.000Z</published>
+    <updated>2019-04-19T03:04:56.390Z</updated>
+    
+    <content type="html"><![CDATA[<p>目前用的<strong>win10 x64</strong>搭建的,下面开饭啦~<br><a id="more"></a></p>
+<h1 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h1><h2 id="注册github账号"><a href="#注册github账号" class="headerlink" title="注册github账号"></a>注册github账号</h2><p>到 <a href="https://github.com/" target="_blank" rel="external">https://github.com/</a> 注册<br>注册过程就不说了,注册好之后在<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a> 点击页面右侧的<code>+ New repository</code>,<code>Repository name</code>填写为<code>注册的github用户名.github.io</code>,点击<code>Create repository</code>即可</p>
+<h2 id="注册多说评论系统的账号"><a href="#注册多说评论系统的账号" class="headerlink" title="注册多说评论系统的账号"></a>注册多说评论系统的账号</h2><p>到 <a href="http://duoshuo.com/" target="_blank" rel="external">http://duoshuo.com/</a> 注册<br><strong>记住多说域名中duoshuo.com前面的部分就可以了</strong></p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h2 id="安装给力的文本编辑器"><a href="#安装给力的文本编辑器" class="headerlink" title="安装给力的文本编辑器"></a>安装给力的文本编辑器</h2><p>自己用的<a href="https://code.visualstudio.com/Download" target="_blank" rel="external">visual studio code</a>,你也可以安装<a href="https://notepad-plus-plus.org/" target="_blank" rel="external">notepad++</a></p>
+<h2 id="安装github"><a href="#安装github" class="headerlink" title="安装github"></a>安装github</h2><p>到 <a href="https://desktop.github.com/" target="_blank" rel="external">https://desktop.github.com/</a> 下载并安装<br>在等待安装的过程中下载下面一个</p>
+<h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>到 <a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a> 下载并安装</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>先在D盘新建一个文件夹hexo,双击桌面的Git Shell,输入下列命令:</p>
+<pre><code class="bash"> cd d:hexo
+ npm install -g hexo-cli
+</code></pre>
+<p>等待hexo安装完成</p>
+<h1 id="搭建站点"><a href="#搭建站点" class="headerlink" title="搭建站点"></a>搭建站点</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>移到Git Shell窗口(当前在d:hexo),顺序执行</p>
+<pre><code class="bash"> hexo init
+ npm install
+</code></pre>
+<h2 id="安装github部署工具"><a href="#安装github部署工具" class="headerlink" title="安装github部署工具"></a>安装github部署工具</h2><pre><code class="bash"> npm install hexo-deployer-git --save
+</code></pre>
+<h2 id="建about-关于-目录"><a href="#建about-关于-目录" class="headerlink" title="建about/关于 目录"></a>建about/关于 目录</h2><pre><code class="bash"> hexo new page &quot;about&quot;
+</code></pre>
+<p>在D:\hexo\source\下会生成about目录,里面有index.md文件.<br>用装好的文本编辑器打开index.md,title后面可以改成:关于,在—下面可以写下<strong>关于</strong>页面的内容<br><strong>文件里大部分冒号的后面都要空一格,切记!!!</strong></p>
+<h2 id="安装pacman主题"><a href="#安装pacman主题" class="headerlink" title="安装pacman主题"></a>安装pacman主题</h2><p>切到Git Shell窗口,执行</p>
+<pre><code class="bash"> git clone https://github.com/A-limon/pacman.git themes/pacman
+</code></pre>
+<p>在D:\hexo\themes\下会生成pacman目录</p>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><p><strong>文件里大部分冒号的后面都要空一格,切记!!!</strong></p>
+<h2 id="修改站点配置文件"><a href="#修改站点配置文件" class="headerlink" title="修改站点配置文件"></a>修改站点配置文件</h2><p>打开D:\hexo\目录下的_config.yml文件,我已修改的部分如下:</p>
+<pre><code class="bash"> title: 网站的标题
+ author: 作者
+ language: zh-CN
+ url: 站点的链接,如http://XX.github.io
+ theme: pacman
+ deploy:
+   type: git
+   repository: git@github.com:XXX/XXX.github.io.git(XXX为github的用户名)
+   branch: master
+</code></pre>
+<h2 id="修改pacman主题的配置文件"><a href="#修改pacman主题的配置文件" class="headerlink" title="修改pacman主题的配置文件"></a>修改pacman主题的配置文件</h2><p>打开D:\hexo\themes\pacman\目录下的_config.yml文件,我已修改的部分如下:</p>
+<pre><code class="bash"> menu:
+   首页: /
+   存档: /archives
+   关于: /about
+ duoshuo: 
+   enable: true
+   short_name: 多说域名中duoshuo.com前面的部分
+</code></pre>
+<p>在文件最底部添加</p>
+<pre><code class="bash">##修复页面底部头像无法加载
+root: /
+##修复代码无法高亮
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+</code></pre>
+<h1 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h1><h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><p>切到Git Shell窗口,执行</p>
+<pre><code class="bash"> hexo new &quot;my first page&quot;
+</code></pre>
+<p>其中my first page可以换成自己的<br>D:\hexo\source_posts\下面会生成my-first-page.md<br>然后打开这个文件,依照<a href="https://help.github.com/articles/markdown-basics/" target="_blank" rel="external">markdown</a>的语法写文章</p>
+<h2 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h2><p>在Git Shell窗口执行</p>
+<pre><code class="bash"> hexo server
+</code></pre>
+<p>然后打开浏览器,访问<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 就可以看到博客的效果啦~</p>
+<h2 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h2><p>在Git Shell窗口依次执行</p>
+<pre><code class="bash"> hexo clean
+ hexo generate
+ hexo deploy
+</code></pre>
+<p>发布完毕后访问你自己的博客站点(<a href="http://XXX.github.io" target="_blank" rel="external">http://XXX.github.io</a>) 就可以啦!是不是很简单~</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
+<li><a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="external">hexo中文教程</a></li>
+<li><a href="http://yangjian.me/workspace/introducing-pacman-theme/" target="_blank" rel="external">pacman主题介绍</a></li>
+<li><a href="https://help.github.com/articles/markdown-basics/" target="_blank" rel="external">markdown基本语法</a></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;目前用的&lt;strong&gt;win10 x64&lt;/strong&gt;搭建的,下面开饭啦~&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://mpc2008cn.github.io/tags/hexo/"/>
+    
+      <category term="教程" scheme="http://mpc2008cn.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+</feed>

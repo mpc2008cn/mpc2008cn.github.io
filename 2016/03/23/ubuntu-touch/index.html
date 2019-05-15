@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -27,15 +27,15 @@
 
 
 
-    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com">
+    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -59,14 +59,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
     <link rel="icon" href="/img/favicon.ico">
 
-    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="手中的nexus 5 sim模块坏了,又入了台n5,旧的那台就刷了ubuntu touch.安装过程太过艰难,容我细细道来.">
     <meta name="keywords" content="稻香村, 教程,教程,ubuntu,ubuntu touch">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -235,7 +235,7 @@
     <link rel="apple-touch-icon" href="/img/favicon.ico">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html">
+    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html" />
     
 
     <!-- RSS -->
@@ -259,7 +259,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://mpc2008cn.github.io/2016/03/23/ubuntu-touch/index.html">
+        <link rel="canonical" href="http://mpc2008cn.github.io/2016/03/23/ubuntu-touch/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -360,7 +360,8 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
@@ -411,7 +412,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -441,7 +442,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/ubuntu/">ubuntu</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/ubuntu-touch/">ubuntu touch</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/教程/">教程</a>
-    </li></ul>
+    </ul>
     
 
     <!-- Share -->
@@ -493,12 +494,12 @@
     
         <p>手中的nexus 5 sim模块坏了,又入了台n5,旧的那台就刷了ubuntu touch.安装过程太过艰难,容我细细道来.<br><a id="more"></a></p>
 <h1 id="vmware安装ubuntu-desktop"><a href="#vmware安装ubuntu-desktop" class="headerlink" title="vmware安装ubuntu desktop"></a>vmware安装ubuntu desktop</h1><ol>
-<li>下载<a href="https://www.vmware.com/products/player/playerpro-evaluation.html" target="_blank" rel="noopener">vmware player</a></li>
-<li>下载<a href="https://www.vmware.com/products/player/playerpro-evaluation.html" target="_blank" rel="noopener">ubuntu desktop</a></li>
+<li>下载<a href="https://www.vmware.com/products/player/playerpro-evaluation.html" target="_blank" rel="external">vmware player</a></li>
+<li>下载<a href="https://www.vmware.com/products/player/playerpro-evaluation.html" target="_blank" rel="external">ubuntu desktop</a></li>
 <li>安装过程不赘述</li>
 </ol>
 <h1 id="主机shadowsocks共享给ubuntu"><a href="#主机shadowsocks共享给ubuntu" class="headerlink" title="主机shadowsocks共享给ubuntu"></a>主机shadowsocks共享给ubuntu</h1><p>vmware的连接模式选择NAT,ubuntu系统代理里面选择手工,IP填为主机的IP地址,端口为ss的端口(1080)就可以了.我被很多教程误导改成桥接纠结了很久:(</p>
-<h1 id="安装ubuntu-touch"><a href="#安装ubuntu-touch" class="headerlink" title="安装ubuntu touch"></a>安装ubuntu touch</h1><p><a href="https://wiki.ubuntu.com/Touch/Devices" target="_blank" rel="noopener">支持的设备列表</a><br>N5的通道不是很稳定,后面去查了G+社区改成Oneplus One对应的通道了.<br>官方教程链接:<a href="https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/" target="_blank" rel="noopener">https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/</a><br>官方隐藏了2个说明,安卓设备要root+开启开发者模式.<br>到下载镜像时替换为下面的路径:</p>
+<h1 id="安装ubuntu-touch"><a href="#安装ubuntu-touch" class="headerlink" title="安装ubuntu touch"></a>安装ubuntu touch</h1><p><a href="https://wiki.ubuntu.com/Touch/Devices" target="_blank" rel="external">支持的设备列表</a><br>N5的通道不是很稳定,后面去查了G+社区改成Oneplus One对应的通道了.<br>官方教程链接:<a href="https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/" target="_blank" rel="external">https://developer.ubuntu.com/en/start/ubuntu-for-devices/installing-ubuntu-for-devices/</a><br>官方隐藏了2个说明,安卓设备要root+开启开发者模式.<br>到下载镜像时替换为下面的路径:</p>
 <pre><code>sudo ubuntu-device-flash --server=http://system-image.ubports.com touch --channel=ubuntu-touch/stable --device=hammerhead --bootstrap
 </code></pre><p>之后就是等待下载安装完成了.我的ss还算给力,平均1MBps的下载速度,一刻钟就下好了:)<br>(实际前一天的下载速度是10KBps,当时都死心了)</p>
 <h1 id="ubuntu-touch系统相关"><a href="#ubuntu-touch系统相关" class="headerlink" title="ubuntu touch系统相关"></a>ubuntu touch系统相关</h1><ol>
@@ -515,7 +516,7 @@ nano /etc/rc.local
 <li>安装shadowsocks<pre><code>apt-get install python-pip
 pip install shadowsocks
 </code></pre></li>
-<li>之后添加ss的配置文件并保存<br><code>`</code><br>/etc/config.json</li>
+<li>之后添加ss的配置文件并保存<br>```<br>/etc/config.json</li>
 </ol>
 <p>{<br>    “server”:”remote-shadowsocks-server-ip-addr”,<br>    “server_port”:”remote-ss-port”,<br>    “local_address”:”127.0.0.1”,<br>    “local_port”:1080,<br>    “password”:”your-passwd”,<br>    “timeout”:300,<br>    “method”:”aes-256-cfb”<br>}</p>
 <pre><code>3. 启动ss并添加自启动
@@ -530,12 +531,12 @@ pip install shadowsocks
 </code></pre><p>nano /etc/profile<br>export http_proxy=”127.0.0.1:8118”<br>export https_proxy=”127.0.0.1:8118”<br>source /etc/profile</p>
 <p>nano ~/.bashrc<br>export http_proxy=”127.0.0.1:8118”<br>export https_proxy=”127.0.0.1:8118”<br>source ~/.bashrc</p>
 <pre><code>7. 在Terminal里wget一下谷歌
-</code></pre><p>wget <a href="https://www.google.com" target="_blank" rel="noopener">https://www.google.com</a></p>
+</code></pre><p>wget <a href="https://www.google.com" target="_blank" rel="external">https://www.google.com</a></p>
 <pre><code>如果index文件被下载了说明翻成功了:)
 万一没成功看下是不是系统时间不对,目前的一个bug是开机自动变成1970年.
 目前方法是手动同步网络时间
-</code></pre><p>sudo ntpdate cn.pool.ntp.org<br><code>`</code></p>
-<h1 id="ubuntu-store"><a href="#ubuntu-store" class="headerlink" title="ubuntu store"></a>ubuntu store</h1><p><a href="https://uappexplorer.com/" target="_blank" rel="noopener">https://uappexplorer.com/</a></p>
+</code></pre><p>sudo ntpdate cn.pool.ntp.org<br>```</p>
+<h1 id="ubuntu-store"><a href="#ubuntu-store" class="headerlink" title="ubuntu store"></a>ubuntu store</h1><p><a href="https://uappexplorer.com/" target="_blank" rel="external">https://uappexplorer.com/</a></p>
 <h1 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h1><p>有人知道如何全局翻墙么,当然带pac更好,商店打开巨慢- -!</p>
 
         
@@ -643,7 +644,7 @@ pip install shadowsocks
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        
+        null
         <b class="caret"></b>
     </a>
 </div>
@@ -692,8 +693,8 @@ pip install shadowsocks
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">5</span></a>
-            </li></ul>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">4</span></a>
+            </ul>
         </li>
         
     
@@ -737,7 +738,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
             主题 - Material
             <span class="sidebar-badge badge-circle">i</span>

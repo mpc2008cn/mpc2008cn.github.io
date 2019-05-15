@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -27,15 +27,15 @@
 
 
 
-    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com">
+    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -59,14 +59,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
     <link rel="icon" href="/img/favicon.ico">
 
-    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="基本是给自己看的,写的比较零碎- -">
     <meta name="keywords" content="稻香村, 教程,Unreal Engine,虚幻引擎,笔记">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -235,7 +235,7 @@
     <link rel="apple-touch-icon" href="/img/favicon.ico">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html">
+    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html" />
     
 
     <!-- RSS -->
@@ -259,7 +259,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://mpc2008cn.github.io/2015/11/05/unreal-engine-4-note-1/index.html">
+        <link rel="canonical" href="http://mpc2008cn.github.io/2015/11/05/unreal-engine-4-note-1/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -360,7 +360,8 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
@@ -411,7 +412,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -441,7 +442,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/Unreal-Engine/">Unreal Engine</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/笔记/">笔记</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/虚幻引擎/">虚幻引擎</a>
-    </li></ul>
+    </ul>
     
 
     <!-- Share -->
@@ -499,15 +500,15 @@ Video Card/DirectX Version:DirectX 11 compatible graphics card
 </code></pre><p>目前用的妹子的笔记本改装的光驱位硬盘+SSD,处理器i5-4200U的略渣,内存4G 1600+4G 1333(我这混搭也是服了),GT740M的显卡,2G显存还阔以.一开始没想到nvidia面板默认是集显,打开引擎+vs卡成狗,后面把默认改成独显了,瞬间就轻松了很多,瞬间吐槽下vs为什么不支持GPU加速.总的来说CPU拖后腿了,官方要求是4核…</p>
 <h1 id="创建C-类"><a href="#创建C-类" class="headerlink" title="创建C++类"></a>创建C++类</h1><p>Unreal Editor</p>
 <ol>
-<li>New Project-C++中<code>Basic Code</code>表示空项目,勾选<code>With Starter Content</code>表示带上新手项目<img src="/2015/11/05/unreal-engine-4-note-1/UE-BC.png"></li>
-<li>File-New C++ Class中选择<code>Actor</code>类<img src="/2015/11/05/unreal-engine-4-note-1/UE-Actor.png">
-创建后会自动打开visual studio显示创建的.cpp与.h文件<img src="/2015/11/05/unreal-engine-4-note-1/UE-Starter.png"></li>
+<li>New Project-C++中<code>Basic Code</code>表示空项目,勾选<code>With Starter Content</code>表示带上新手项目<img src="/2015/11/05/unreal-engine-4-note-1/UE-BC.png" alt="UE-BC.png" title=""></li>
+<li>File-New C++ Class中选择<code>Actor</code>类<img src="/2015/11/05/unreal-engine-4-note-1/UE-Actor.png" alt="UE-Actor.png" title="">
+创建后会自动打开visual studio显示创建的.cpp与.h文件<img src="/2015/11/05/unreal-engine-4-note-1/UE-Starter.png" alt="UE-Starter.png" title=""></li>
 <li>在vs中<code>生成</code>,再到Unreal Editor中就能看到效果.当然也可以直接用Unreal Editor中的<code>Compile</code></li>
-<li>将<code>Content Browser</code>中的Actor拖动到上方的视图中,在右侧<code>World Outliner</code>中就会新增一个元素<br>选中这个元素可以对其进行操作<img src="/2015/11/05/unreal-engine-4-note-1/UE-Element.png"></li>
-<li>不过此时并没有实际的物体,还得<code>Add Component</code>才能有效果<img src="/2015/11/05/unreal-engine-4-note-1/UE-Cone.png">
+<li>将<code>Content Browser</code>中的Actor拖动到上方的视图中,在右侧<code>World Outliner</code>中就会新增一个元素<br>选中这个元素可以对其进行操作<img src="/2015/11/05/unreal-engine-4-note-1/UE-Element.png" alt="UE-Element.png" title=""></li>
+<li>不过此时并没有实际的物体,还得<code>Add Component</code>才能有效果<img src="/2015/11/05/unreal-engine-4-note-1/UE-Cone.png" alt="UE-Cone.png" title="">
 </li>
 </ol>
-<h1 id="Particle-System-粒子系统"><a href="#Particle-System-粒子系统" class="headerlink" title="Particle System 粒子系统"></a>Particle System 粒子系统</h1><p>很帅,在<code>Content Browser</code>里选中一个,然后<code>Add Component</code>里选择就可以给当前Actor加上粒子系统的特效了<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-Particle.png"></p>
+<h1 id="Particle-System-粒子系统"><a href="#Particle-System-粒子系统" class="headerlink" title="Particle System 粒子系统"></a>Particle System 粒子系统</h1><p>很帅,在<code>Content Browser</code>里选中一个,然后<code>Add Component</code>里选择就可以给当前Actor加上粒子系统的特效了<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-Particle.png" alt="UE-Particle.png" title=""></p>
 <h1 id="Uproperty-UE自己的变量-方法"><a href="#Uproperty-UE自己的变量-方法" class="headerlink" title="Uproperty UE自己的变量/方法"></a>Uproperty UE自己的变量/方法</h1><p>只要在变量声明/定义的上一行加上<code>UPROPERTY()</code>,如下:</p>
 <pre><code>UPROPERTY()
 int32 CountdownTime;
@@ -521,7 +522,7 @@ int32 CountdownTime;
 </code></pre><p>也可以对方法UE化</p>
 <pre><code>UFUNCTION()
 void CountdownHasFinished();
-</code></pre><h1 id="Blueprint蓝图"><a href="#Blueprint蓝图" class="headerlink" title="Blueprint蓝图"></a>Blueprint蓝图</h1><p>点击Actor属性中的<code>Blueprint</code>就可以创建它的蓝图,相当于给它设定动作之类的<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-EG.png"><br>在空白处右键就可以画流程图了</p>
+</code></pre><h1 id="Blueprint蓝图"><a href="#Blueprint蓝图" class="headerlink" title="Blueprint蓝图"></a>Blueprint蓝图</h1><p>点击Actor属性中的<code>Blueprint</code>就可以创建它的蓝图,相当于给它设定动作之类的<br><img src="/2015/11/05/unreal-engine-4-note-1/UE-EG.png" alt="UE-EG.png" title=""><br>在空白处右键就可以画流程图了</p>
 
         
     
@@ -585,7 +586,7 @@ void CountdownHasFinished();
 
     <!-- Next Nav -->
     
-        <a href="/2015/10/22/vps/" id="post_nav-older" class="next-content">
+        <a href="/2015/10/20/lost-on-journey/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -628,7 +629,7 @@ void CountdownHasFinished();
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        
+        null
         <b class="caret"></b>
     </a>
 </div>
@@ -677,8 +678,8 @@ void CountdownHasFinished();
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">5</span></a>
-            </li></ul>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">4</span></a>
+            </ul>
         </li>
         
     
@@ -722,7 +723,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
             主题 - Material
             <span class="sidebar-badge badge-circle">i</span>

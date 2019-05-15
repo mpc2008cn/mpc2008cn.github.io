@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -27,15 +27,15 @@
 
 
 
-    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com">
+    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -59,14 +59,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
     <link rel="icon" href="/img/favicon.ico">
 
-    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="玩转C++之前还是先熟悉下blueprint吧~来做个小型FPS(First-person shooter),照着官网教程写吧,顺便记忆一下:)">
     <meta name="keywords" content="稻香村, 教程,Unreal Engine,虚幻引擎,笔记">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -235,7 +235,7 @@
     <link rel="apple-touch-icon" href="/img/favicon.ico">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html">
+    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html" />
     
 
     <!-- RSS -->
@@ -259,7 +259,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/index.html">
+        <link rel="canonical" href="http://mpc2008cn.github.io/2015/11/19/unreal-engine-4-note-4/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -360,7 +360,8 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
@@ -411,7 +412,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -441,7 +442,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/Unreal-Engine/">Unreal Engine</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/笔记/">笔记</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/虚幻引擎/">虚幻引擎</a>
-    </li></ul>
+    </ul>
     
 
     <!-- Share -->
@@ -494,187 +495,187 @@
         <p>玩转C++之前还是先熟悉下blueprint吧~来做个小型FPS(First-person shooter),照着官网教程写吧,顺便记忆一下:)<br><a id="more"></a></p>
 <p>刚升了win10 th2,内存管理比之前给力啊,不过GT740M的驱动没啥用,又从NVIDIA下了最新的驱动,估计进桌面慢也是这个原因~UE4又可以快速打开了:)</p>
 <h1 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h1><ol>
-<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS0.png">
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS0.png" alt="FPS0.png" title="">
 </li>
-<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS1.png" title="重命名为HUD">
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS1.png" alt="重命名为HUD" title="重命名为HUD">
 </li>
 <li><p>直接复制HUD,再建2个Widget Blueprint,一个叫MainMenu,一个叫PauseMenu.</p>
 </li>
 <li><p>Content Browser里打开First Person Character<br>路径在<code>Content&gt;FirstPersonBP&gt;Blueprints</code></p>
 </li>
 <li><p>在My Blueprint窗口新建变量</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS2.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS2.png" alt="FPS2.png" title="">
 <p>Health,Float,default value:1.0<br><code>默认值要编译后才能修改</code><br>Energy,Float,default value:1.0<br>Ammo,Integer,default value:25<br>MaxAmmo,Integer,default value:25</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS3.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS3.png" alt="FPS3.png" title="">
 </li>
 <li><p>在Event Graph里新建Event Begin Play,结点拖出来后选择<code>Create Widget</code>,并绑定类HUD</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS4.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS4.png" alt="FPS4.png" title="">
 </li>
 <li><p>Create HUD Widget的返回值拖出来选择<code>Promote to Variable</code>并重命名为<code>HUD Reference</code>(这个重命名可以直接在右侧名称里编辑HUD_Reference)</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS5.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS5.png" alt="FPS5.png" title="">
 <p>图的含义是:游戏开始时创建HUD Widget Blueprint并将它保存为一个变量,方便之后的操作</p>
 </li>
 <li><p>拖出set的结点选择<code>Add to Viewport</code></p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS6.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS6.png" alt="FPS6.png" title="">
 <p>这一步就是将HUD显示给玩家</p>
 </li>
 <li><p>设置Energy逻辑(每跳一次递减0.25)<br>直接将Energy从My Blueprint拖到Event Graph,一个get,一个set,中间用<code>Float - Float</code>连接,如下:</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS7.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS7.png" alt="FPS7.png" title="">
 </li>
 <li><p>设置Health逻辑(每按一次F键递减0.25)</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS8.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS8.png" alt="FPS8.png" title="">
 </li>
 <li><p>设置Ammo逻辑(子弹&gt;0时才能开火)<br>找到<code>Spawn Projectile</code>开头作如下修改:</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS9.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS9.png" alt="FPS9.png" title="">
 </li>
 </ol>
-<p>在<code>Spawn Projectile</code>尾部作如下修改:<br><img src="/2015/11/19/unreal-engine-4-note-4/FPS10.png"><br>表示每发射一次子弹Ammo减1</p>
+<p>在<code>Spawn Projectile</code>尾部作如下修改:<br><img src="/2015/11/19/unreal-engine-4-note-4/FPS10.png" alt="FPS10.png" title=""><br>表示每发射一次子弹Ammo减1</p>
 <p><code>编译,保存,关闭</code></p>
 <h1 id="显示Health-Energy-Ammo"><a href="#显示Health-Energy-Ammo" class="headerlink" title="显示Health, Energy,Ammo"></a>显示Health, Energy,Ammo</h1><p>这边调的挺纠结的,play和make确实是两码事:(</p>
 <ol>
 <li><p>打开HUD,添加一个<code>Horizontal Box</code>,在其下方再添加2个<code>Vertical Box</code>,再在<code>Vertical Box</code>下方各添加2个Text,2个Progress Bar,如下图</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS11.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS11.png" alt="FPS11.png" title="">
 </li>
 <li><p>选中<code>Horizontal Box</code>将其放到左上角,并拖动来改变它的大小</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS12.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS12.png" alt="FPS12.png" title="">
 </li>
 <li><p>选中2个Progress Bar,在Size里选择Fill,然后上层的Vertical Box,也选择Fill</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS13.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS13.png" alt="FPS13.png" title="">
 </li>
-<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS14.png" title="改名">
+<li><img src="/2015/11/19/unreal-engine-4-note-4/FPS14.png" alt="改名" title="改名">
 </li>
 <li><p>设置Health的progress bar为绿色,Energy的progress bar为橙色</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS15.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS15.png" alt="FPS15.png" title="">
 </li>
-<li><p>为Ammo条设计UI<br><img src="/2015/11/19/unreal-engine-4-note-4/FPS16.png">)</p>
+<li><p>为Ammo条设计UI<br><img src="/2015/11/19/unreal-engine-4-note-4/FPS16.png" alt="FPS16.png" title="">)</p>
 </li>
 <li><p>将Ammo的Horizontal Box设为右上角</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS17.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS17.png" alt="FPS17.png" title="">
 <p>目的是可以自适应屏幕</p>
 </li>
 <li><p>在UE编辑器的任务栏右上角切到<code>Graph</code>,并按下图添加结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS18.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS18.png" alt="FPS18.png" title="">
 <p><code>As First Person Character</code>右侧选择<code>Promote to Variable</code><br>这个图的含义是:检查玩家角色是否是First Person Character</p>
 </li>
 <li><p>编译,切回<code>Designer</code>标签,状态条绑定变量</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS19.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS19.png" alt="FPS19.png" title="">
 </li>
 <li><p>Ammo的25/25绑定变量</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS20.png" title="第一个25的逻辑">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS20.png" alt="第一个25的逻辑" title="第一个25的逻辑">
 </li>
 </ol>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS21.png" title="第二个25的逻辑">
-<ol start="11">
-<li>编译,保存,可以玩了:)<br>但是血条,能量,子弹为空时并没有任何异常<img src="/2015/11/19/unreal-engine-4-note-4/FPS22.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS21.png" alt="第二个25的逻辑" title="第二个25的逻辑">
+<ol>
+<li>编译,保存,可以玩了:)<br>但是血条,能量,子弹为空时并没有任何异常<img src="/2015/11/19/unreal-engine-4-note-4/FPS22.png" alt="FPS22.png" title="">
 </li>
 </ol>
 <h1 id="创建Main-Menu"><a href="#创建Main-Menu" class="headerlink" title="创建Main Menu"></a>创建Main Menu</h1><ol>
 <li><p>打开MainMenu,按下图添加元素(第二个Vertical Box比第一个多一个button)</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS23.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS23.png" alt="FPS23.png" title="">
 </li>
 <li><p>将第一个Vertical Box改名为MainMenu,在右侧勾选<code>isVariable</code>,设置<code>ZOrder</code>为1</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS24.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS24.png" alt="FPS24.png" title="">
 <p>意义是将这个置于图片的上方<br>第二个Vertical Box改为Options,同理</p>
 </li>
 <li><p>将其它的重命名如下:</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS25.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS25.png" alt="FPS25.png" title="">
 </li>
 <li><p>选中所有的button,在details面板里调整下Tint的颜色,并勾选<code>Fill</code></p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS26.jpg">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS26.jpg" alt="FPS26.jpg" title="">
 </li>
-<li><p>下载 <a href="https://docs.unrealengine.com/latest/images/Engine/UMG/QuickStart/3/ExampleBackground.png" target="_blank" rel="noopener">https://docs.unrealengine.com/latest/images/Engine/UMG/QuickStart/3/ExampleBackground.png</a> 导入UE,在Image的Details里选择它</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS27.jpg">
+<li><p>下载 <a href="https://docs.unrealengine.com/latest/images/Engine/UMG/QuickStart/3/ExampleBackground.png" target="_blank" rel="external">https://docs.unrealengine.com/latest/images/Engine/UMG/QuickStart/3/ExampleBackground.png</a> 导入UE,在Image的Details里选择它</p>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS27.jpg" alt="FPS27.jpg" title="">
 <p>在Designer里将这个图片填满整个区域,并且将Details里的Anchors改为全屏</p>
 </li>
 <li><p>选中所有的Vertical Box,将Anchors改为<code>left-center</code></p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS28.jpg">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS28.jpg" alt="FPS28.jpg" title="">
 </li>
 <li><p>将<code>OptionsMenu</code>的<code>Visibility</code>改为<code>Hidden</code><br>打算通过脚本来显示它</p>
 </li>
 <li><p>调整MainMenu,将其大小改成如下图所示:</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS29.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS29.png" alt="FPS29.png" title="">
 </li>
 <li><p>将OptionsMenu和MainMenu重叠</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS30.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS30.png" alt="FPS30.png" title="">
 </li>
 </ol>
 <h1 id="编写MainMenu脚本"><a href="#编写MainMenu脚本" class="headerlink" title="编写MainMenu脚本"></a>编写MainMenu脚本</h1><ol>
 <li><p>在MainMenu里切换到<code>Graph</code>,如下图操作</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS31.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS31.png" alt="FPS31.png" title="">
 </li>
 <li><p>为每个button都添加<code>On Clicked</code>事件</p>
 </li>
 <li><p>Onclicked(PlayButton)添加下面的结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS32.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS32.png" alt="FPS32.png" title="">
 </li>
 <li><p>Onclicked(OptionsMenu)添加下面的结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS33.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS33.png" alt="FPS33.png" title="">
 </li>
 <li><p>Onclicked(Setting)添加下面的结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS34.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS34.png" alt="FPS34.png" title="">
 </li>
 <li><p>Onclicked(ReturnButton)与Onclicked(PlayButton)相反</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS35.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS35.png" alt="FPS35.png" title="">
 </li>
 <li><p>Onclicked(QuitButton)添加下面的结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS36.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS36.png" alt="FPS36.png" title="">
 <p>编译-保存-关闭</p>
 </li>
 <li><p>Level窗口中找到<code>Blueprints</code>,<code>Open Level Blueprint</code>,并添加如下结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS37.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS37.png" alt="FPS37.png" title="">
 <p>编译,关掉.</p>
 </li>
 <li><p>打开First Person Character蓝图,在Event Begin Play这一段末尾添加结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS38.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS38.png" alt="FPS38.png" title="">
 <p>含义是:<code>This will turn off the cursor and set the input for the player to Game Only</code><br>编译,保存,关掉</p>
 </li>
 <li><p>打开Level窗口上方的<code>Settings</code>,<code>World Settings</code>,按如下设置</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS39.jpg">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS39.jpg" alt="FPS39.jpg" title="">
 <p>没选FirstPersonCharacter的原因:<code>as we do not want the player to be able to run around and shoot behind the Main Menu.</code></p>
 </li>
 <li><p>点击play,可以玩啦:(</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS41.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS41.png" alt="FPS41.png" title="">
 <p>被官网文档坑啦,点击Play Game无任何反应,调试了好久,最后在论坛里找到了答案</p>
 <blockquote><p>content In 4.5 if you point the same map, the UMG will disappear. But in 4.6, you don’t need to open the same level as it already open. Just add “Remove From Parent” in Widget blueprint, and it would do the trick.</p>
-<footer><strong>gOzaru84</strong><cite><a href="https://answers.unrealengine.com/questions/139137/has-remove-from-viewport-been-removed-in-46.html" target="_blank" rel="noopener">answers.unrealengine.com/questions/139137/has-remove-from-viewport-been-removed-in-46.html</a></cite></footer></blockquote>
+<footer><strong>gOzaru84</strong><cite><a href="https://answers.unrealengine.com/questions/139137/has-remove-from-viewport-been-removed-in-46.html" target="_blank" rel="external">answers.unrealengine.com/questions/139137/has-remove-from-viewport-been-removed-in-46.html</a></cite></footer></blockquote>
 <p>意思就是在MainMenu蓝图里直接删掉<code>OpenLevel</code>结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS40.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS40.png" alt="FPS40.png" title="">
 </li>
 </ol>
 <h1 id="折腾Pause-Menu"><a href="#折腾Pause-Menu" class="headerlink" title="折腾Pause Menu"></a>折腾Pause Menu</h1><ol>
 <li><p>打开PauseMenu蓝图,按下图添加元素</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS42.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS42.png" alt="FPS42.png" title="">
 </li>
 <li><p>调整border的大小,使其填充整个窗口,并且改一下颜色,A的值改为0.5,这样可以半透明;Anchor也要改为填充</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS43.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS43.png" alt="FPS43.png" title="">
 </li>
 <li><p>将Vertical Box水平,垂直居中</p>
 </li>
 <li><p>调整2个button的颜色</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS44.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS44.png" alt="FPS44.png" title="">
 </li>
 <li><p>切到<code>Graph</code>标签,为ResumeButton添加点击事件</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS45.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS45.png" alt="FPS45.png" title="">
 <p>最后个结点没看懂:(</p>
 <pre><code>Here when the Resume Button is clicked, the input mode is set to game only and the cursor that is displayed when the Pause Menu is activated is removed. The Remove from Parent node is used to remove the actual Pause Menu widget from display before leaving the paused state by using the Set Game Paused node and leaving Paused unchecked.
 </code></pre></li>
 <li><p>新建一个function,命名为Remove HUD<br>目的是<code>remove the game HUD from the player&#39;s view when the Pause Menu is activated</code><br>并添加如下结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS46.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS46.png" alt="FPS46.png" title="">
 </li>
 <li><p>切到<code>Event Graph</code>标签,为<code>QuitButton</code>添加结点</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS47.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS47.png" alt="FPS47.png" title="">
 <p>目的:<code>When Quit is clicked, this will turn on the mouse cursor for menu navigation when returning to the Main Menu</code><br>这边反而要加<code>Open Level</code>,为了切回MainMenu</p>
 </li>
 <li><p>打开<code>FirstPersonCharacter</code>蓝图,</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS48.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS48.png" alt="FPS48.png" title="">
 <p>解释如下:</p>
 <pre><code>When M is pressed, if the Pause Menu has been accessed before it will not need to create it again and will instead access the variable. If this is the first time the Pause Menu has been accessed it will create it then store it as a variable so it can be access later. In either case, the input mode is set to UI only before we display the Pause Menu (which we will do next).
 </code></pre></li>
 <li><p>显示Pause Menu</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS49.png">
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS49.png" alt="FPS49.png" title="">
 </li>
 <li><p>编译,保存,运行.</p>
-<img src="/2015/11/19/unreal-engine-4-note-4/FPS50.png"></li>
+<img src="/2015/11/19/unreal-engine-4-note-4/FPS50.png" alt="FPS50.png" title=""></li>
 </ol>
 
         
@@ -782,7 +783,7 @@
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        
+        null
         <b class="caret"></b>
     </a>
 </div>
@@ -831,8 +832,8 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">5</span></a>
-            </li></ul>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">4</span></a>
+            </ul>
         </li>
         
     
@@ -876,7 +877,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
             主题 - Material
             <span class="sidebar-badge badge-circle">i</span>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.8.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -27,15 +27,15 @@
 
 
 
-    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com">
+    <link rel="dns-prefetch" href="https://mpc2008cn.disqus.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -59,15 +59,15 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.ico">
     <link rel="icon" href="/img/favicon.ico">
 
-    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="
 自工作之日起,对工作机的性能就没满意过.">
     <meta name="keywords" content="稻香村, 教程,教程,硬件">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -236,7 +236,7 @@
     <link rel="apple-touch-icon" href="/img/favicon.ico">
 
     <!-- Site Verification -->
-    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html">
+    <meta name="google-site-verification" content="google76ef3f93367d4ee4.html" />
     
 
     <!-- RSS -->
@@ -261,7 +261,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://mpc2008cn.github.io/2015/10/10/ramdisk/index.html">
+        <link rel="canonical" href="http://mpc2008cn.github.io/2015/10/10/ramdisk/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -363,7 +363,8 @@
     <!-- Left aligned menu below button -->
     
     
-    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
@@ -414,7 +415,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -444,7 +445,7 @@
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
         <a class="post_tag-link" href="/tags/教程/">教程</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/硬件/">硬件</a>
-    </li></ul>
+    </ul>
     
 
     <!-- Share -->
@@ -494,59 +495,59 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <img src="/2015/10/10/ramdisk/0.png">
+        <img src="/2015/10/10/ramdisk/0.png" alt="0.png" title="">
 <p>自工作之日起,对工作机的性能就没满意过.<a id="more"></a>从熟悉硬件开始同工作机作斗争到现在快4年了,因为大部分情况下公司并不会配固态硬盘,而且内存容量也捉襟见肘,所以其间试过很多方法,均没有今天的终极方法效果好(不用windows工作的可以不用看了).</p>
-<p>先说下<code>原理跟思路</code>:<br><a href="https://en.wikipedia.org/wiki/RAM_drive" target="_blank" rel="noopener">ramdisk</a>:俗称内存盘,就是拿一部分内存出来作硬盘使用,优点是<code>随机存取性能非常给力</code>,处理小文件得心应手,缺点是<code>断电数据丢失</code>,因此内存盘里适合放一些临时文件,比如浏览器缓存文件,应用程序缓存文件,系统temp目录.</p>
-<p><a href="https://zh.wikipedia.org/wiki/ReadyBoost" target="_blank" rel="noopener">readyboost</a>:利用闪存随机读写及零碎文件读写上的优势来提高计算机系统性能.对固态硬盘与机械硬盘均不适用,只适合于闪存设备,如外置设备U盘,外置移动硬盘,内存盘等.说白了就是机械硬盘的随机存取性能比较低,用闪存对它进行加速.</p>
+<p>先说下<code>原理跟思路</code>:<br><a href="https://en.wikipedia.org/wiki/RAM_drive" target="_blank" rel="external">ramdisk</a>:俗称内存盘,就是拿一部分内存出来作硬盘使用,优点是<code>随机存取性能非常给力</code>,处理小文件得心应手,缺点是<code>断电数据丢失</code>,因此内存盘里适合放一些临时文件,比如浏览器缓存文件,应用程序缓存文件,系统temp目录.</p>
+<p><a href="https://zh.wikipedia.org/wiki/ReadyBoost" target="_blank" rel="external">readyboost</a>:利用闪存随机读写及零碎文件读写上的优势来提高计算机系统性能.对固态硬盘与机械硬盘均不适用,只适合于闪存设备,如外置设备U盘,外置移动硬盘,内存盘等.说白了就是机械硬盘的随机存取性能比较低,用闪存对它进行加速.</p>
 <p>原理说完了,简单说下思路,分一部分内存作内存盘,再将内存盘的一部分空间用于readyboost.那么,上酸菜吧:)</p>
-<h1 id="ramdisk"><a href="#ramdisk" class="headerlink" title="ramdisk"></a>ramdisk</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载primo ramdisk server edition:<a href="https://drive.google.com/open?id=0ByuNnrUBU_n3UEQ4VDNaVGRUbDA" target="_blank" rel="noopener">https://drive.google.com/open?id=0ByuNnrUBU_n3UEQ4VDNaVGRUbDA</a><br>运行<code>Primo.Ramdisk.Srv.Mui.Setup.5.6.0.exe</code>安装,装好后双击<code>PrDSrv56crk.reg</code>写入注册表,破解成功(重启生效,先别急着重启).</p>
+<h1 id="ramdisk"><a href="#ramdisk" class="headerlink" title="ramdisk"></a>ramdisk</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载primo ramdisk server edition:<a href="https://drive.google.com/open?id=0ByuNnrUBU_n3UEQ4VDNaVGRUbDA" target="_blank" rel="external">https://drive.google.com/open?id=0ByuNnrUBU_n3UEQ4VDNaVGRUbDA</a><br>运行<code>Primo.Ramdisk.Srv.Mui.Setup.5.6.0.exe</code>安装,装好后双击<code>PrDSrv56crk.reg</code>写入注册表,破解成功(重启生效,先别急着重启).</p>
 <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>确定自己的系统类型(x86还是x64),是否开启休眠(<strong>不是睡眠</strong>)不会看的请谷歌~</p>
 <h3 id="32位系统-64位请跳过此步"><a href="#32位系统-64位请跳过此步" class="headerlink" title="32位系统(64位请跳过此步)"></a>32位系统(64位请跳过此步)</h3><p>打开ramdisk</p>
 <ol>
-<li>点击左下角扳手图标<img src="/2015/10/10/ramdisk/1.png"></li>
-<li>点击<code>启用</code> <img src="/2015/10/10/ramdisk/2.png"></li>
-<li>如果你的系统开启休眠了,那就勾选<code>支持系统未识别内存休眠</code>,否则别勾.<br>点击继续,未识别内存就设置好了<img src="/2015/10/10/ramdisk/3.png">
+<li>点击左下角扳手图标<img src="/2015/10/10/ramdisk/1.png" alt="1.png" title=""></li>
+<li>点击<code>启用</code> <img src="/2015/10/10/ramdisk/2.png" alt="2.png" title=""></li>
+<li>如果你的系统开启休眠了,那就勾选<code>支持系统未识别内存休眠</code>,否则别勾.<br>点击继续,未识别内存就设置好了<img src="/2015/10/10/ramdisk/3.png" alt="3.png" title="">
 </li>
 </ol>
 <h3 id="详细设置-64位从这一步开始"><a href="#详细设置-64位从这一步开始" class="headerlink" title="详细设置(64位从这一步开始)"></a>详细设置(64位从这一步开始)</h3><p>打开ramdisk</p>
 <ol>
-<li>点击左上角的<code>+</code>图标<img src="/2015/10/10/ramdisk/4.png"></li>
-<li>选择<code>使用全新设置创建虚拟硬盘</code>,下一步<img src="/2015/10/10/ramdisk/5.png"></li>
-<li>硬盘大小:我目前填的是物理内存的四分之一,比如4G就分出1024M,8G就分出2048M.<br>硬盘类型:SCSI硬盘,下一步<img src="/2015/10/10/ramdisk/6.png"></li>
-<li>把滑块拉到最底(32位系统的用户填写所有未识别内存),下一步<img src="/2015/10/10/ramdisk/7.png"></li>
-<li><code>文件系统</code>选择<code>NTFS</code>,下一步<img src="/2015/10/10/ramdisk/8.png"></li>
-<li>保持默认,下一步<img src="/2015/10/10/ramdisk/9.png"></li>
-<li>保持默认,下一步<img src="/2015/10/10/ramdisk/10.png"></li>
-<li>点击完成<img src="/2015/10/10/ramdisk/11.png">
+<li>点击左上角的<code>+</code>图标<img src="/2015/10/10/ramdisk/4.png" alt="4.png" title=""></li>
+<li>选择<code>使用全新设置创建虚拟硬盘</code>,下一步<img src="/2015/10/10/ramdisk/5.png" alt="5.png" title=""></li>
+<li>硬盘大小:我目前填的是物理内存的四分之一,比如4G就分出1024M,8G就分出2048M.<br>硬盘类型:SCSI硬盘,下一步<img src="/2015/10/10/ramdisk/6.png" alt="6.png" title=""></li>
+<li>把滑块拉到最底(32位系统的用户填写所有未识别内存),下一步<img src="/2015/10/10/ramdisk/7.png" alt="7.png" title=""></li>
+<li><code>文件系统</code>选择<code>NTFS</code>,下一步<img src="/2015/10/10/ramdisk/8.png" alt="8.png" title=""></li>
+<li>保持默认,下一步<img src="/2015/10/10/ramdisk/9.png" alt="9.png" title=""></li>
+<li>保持默认,下一步<img src="/2015/10/10/ramdisk/10.png" alt="10.png" title=""></li>
+<li>点击完成<img src="/2015/10/10/ramdisk/11.png" alt="11.png" title="">
 </li>
 </ol>
-<p>设置完后系统会多出一个Z:\RAMDISK\<br><img src="/2015/10/10/ramdisk/12.png"></p>
+<p>设置完后系统会多出一个Z:\RAMDISK\<br><img src="/2015/10/10/ramdisk/12.png" alt="12.png" title=""></p>
 <h3 id="移动系统temp目录"><a href="#移动系统temp目录" class="headerlink" title="移动系统temp目录"></a>移动系统temp目录</h3><ol>
-<li>打开ramdisk,点击上方的调色板图标<img src="/2015/10/10/ramdisk/13.png"></li>
+<li>打开ramdisk,点击上方的调色板图标<img src="/2015/10/10/ramdisk/13.png" alt="13.png" title=""></li>
 <li><code>更改为</code>后面填入:<pre><code>Z:\TEMP
 </code></pre></li>
-<li>点击<code>更改</code><img src="/2015/10/10/ramdisk/14.png"></li>
-<li>点击<code>是</code><img src="/2015/10/10/ramdisk/15.png">
+<li>点击<code>更改</code><img src="/2015/10/10/ramdisk/14.png" alt="14.png" title=""></li>
+<li>点击<code>是</code><img src="/2015/10/10/ramdisk/15.png" alt="15.png" title="">
 </li>
 </ol>
 <h3 id="修改chrome浏览器缓存目录-不用的请跳过"><a href="#修改chrome浏览器缓存目录-不用的请跳过" class="headerlink" title="修改chrome浏览器缓存目录(不用的请跳过)"></a>修改chrome浏览器缓存目录(不用的请跳过)</h3><p>右键chrome的快捷方式选择<code>属性-快捷方式</code>,在<code>目标</code>末尾<strong>空一格</strong>后添加下面的代码</p>
 <pre><code>--disk-cache-dir=&quot;z:\chromecache&quot;
-</code></pre><p>点击<code>确定</code>即可<br><img src="/2015/10/10/ramdisk/16.png"></p>
+</code></pre><p>点击<code>确定</code>即可<br><img src="/2015/10/10/ramdisk/16.png" alt="16.png" title=""></p>
 <h3 id="修改firefox浏览器缓存目录-不用的请跳过"><a href="#修改firefox浏览器缓存目录-不用的请跳过" class="headerlink" title="修改firefox浏览器缓存目录(不用的请跳过)"></a>修改firefox浏览器缓存目录(不用的请跳过)</h3><p>打开火狐,在浏览器里输入</p>
 <pre><code>about:config
 </code></pre><p>在search栏里输入</p>
 <pre><code>browser.cache.disk.parent_directory
-</code></pre><p>搜索结果是空的<br><img src="/2015/10/10/ramdisk/17.png"><br>在页面空白处右键,选择<code>New</code>,<code>String</code>,<br><img src="/2015/10/10/ramdisk/18.png"><br>在弹出框里填入</p>
+</code></pre><p>搜索结果是空的<br><img src="/2015/10/10/ramdisk/17.png" alt="17.png" title=""><br>在页面空白处右键,选择<code>New</code>,<code>String</code>,<br><img src="/2015/10/10/ramdisk/18.png" alt="18.png" title=""><br>在弹出框里填入</p>
 <pre><code>browser.cache.disk.parent_directory
-</code></pre><img src="/2015/10/10/ramdisk/19.png">
+</code></pre><img src="/2015/10/10/ramdisk/19.png" alt="19.png" title="">
 <p>OK,在第二个弹出框里填入</p>
 <pre><code>Z:\firefoxcache
-</code></pre><img src="/2015/10/10/ramdisk/20.png">
+</code></pre><img src="/2015/10/10/ramdisk/20.png" alt="20.png" title="">
 <h1 id="readyboost"><a href="#readyboost" class="headerlink" title="readyboost"></a>readyboost</h1><p>这个设置就简单了.</p>
 <ol>
 <li>右键Z盘,选择<code>属性</code></li>
 <li>切到<code>Readyboost</code>标签</li>
-<li>点击<code>使用该设备</code>,数值根据需要填写,可随时变动(一般按Z盘大小的50%~75%吧),确定.<img src="/2015/10/10/ramdisk/21.png">
+<li>点击<code>使用该设备</code>,数值根据需要填写,可随时变动(一般按Z盘大小的50%~75%吧),确定.<img src="/2015/10/10/ramdisk/21.png" alt="21.png" title="">
 </li>
 </ol>
 <h1 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h1><p><strong>重启电脑</strong><br>The End:)</p>
@@ -662,7 +663,7 @@
 
     <!-- Sidebar Email -->
     <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
-        
+        null
         <b class="caret"></b>
     </a>
 </div>
@@ -711,8 +712,8 @@
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">5</span></a>
-            </li></ul>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/11/">十一月 2015<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/10/">十月 2015<span class="sidebar_archives-count">4</span></a>
+            </ul>
         </li>
         
     
@@ -756,7 +757,7 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material" class="sidebar-footer-text-a" target="_blank">
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
             主题 - Material
             <span class="sidebar-badge badge-circle">i</span>
